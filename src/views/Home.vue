@@ -220,7 +220,7 @@
           position: absolute;
           top: 0;
           right: 0;
-          backdrop-filter: blur(10px) grayscale(70%);
+          backdrop-filter: blur(10px) grayscale(100%);
         "
       ></div>
 
@@ -684,8 +684,6 @@
             </div>
           </div>
         </div>
-
-        <div style="width: 100%; height: 200px"></div>
       </div>
 
       <div style="width: 30%; position: relative">
@@ -740,16 +738,19 @@
         </div>
       </div>
     </div>
+    <Footer />
   </div>
 </template>
 
 <script>
 import Header from "../components/Header.vue";
+import Footer from "../components/Footer.vue";
 
 export default {
   name: "Home",
   components: {
     Header,
+    Footer,
   },
   data() {
     return {
@@ -926,7 +927,7 @@ export default {
           return res.json();
         })
         .then((json) => {
-          this.topStories = json.splice(0, 10);
+          this.topStories = json.splice(0, 8);
         });
     },
     handleScroll(dir) {
