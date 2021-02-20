@@ -14,6 +14,11 @@ export default {
 </script>
 
 <style>
+
+html {
+  overflow-x: hidden;
+}
+
 @font-face {
   font-family: "NewCyrillicGoth";
   src: local("NewCyrillicGoth"),
@@ -74,6 +79,59 @@ export default {
 
 .fadebottom-move {
   transition: all 1s ease;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.8s ease-in !important;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.topper-enter-active,
+.topper-leave-active {
+  transition: transform 0.6s ease;
+}
+
+.topper-enter-from,
+.topper-leave-to {
+  transform: translateY(-100%);
+  position: absolute;
+}
+
+.fadetop-enter-active,
+.fadetop-leave-active {
+  transition: transform 0.6s ease, opacity 0.6s ease !important;
+}
+
+.fadetop-enter-from,
+.fadetop-leave-to {
+  transform: translateY(-40%);
+  opacity: 0;
+}
+
+.sliderleft-enter-active,
+.sliderleft-leave-active {
+  transition: transform 0.6s ease, opacity 0.6s ease !important;
+}
+
+.sliderleft-enter-from,
+.sliderleft-leave-to {
+  transform: translateX(-50%);
+}
+
+.sliderleft2-enter-active,
+.sliderleft2-leave-active {
+  transition: transform 1s ease, opacity 0.6s ease !important;
+}
+
+.sliderleft2-enter-from,
+.sliderleft2-leave-to {
+  transform: translateY(-40%);
+  opacity: 0;
 }
 
 </style>
