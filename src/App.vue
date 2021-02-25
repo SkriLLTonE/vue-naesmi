@@ -9,7 +9,6 @@
 <script>
 export default {
   name: "App",
-  components: {},
 };
 </script>
 
@@ -17,6 +16,11 @@ export default {
 
 html {
   overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 @font-face {
@@ -45,6 +49,14 @@ html {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: black;
+}
+
+.button-container {
+  user-select: none;
+  outline: none;
+  appearance: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .horizontal-dotted-border {

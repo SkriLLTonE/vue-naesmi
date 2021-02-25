@@ -6,9 +6,8 @@
     <div class="top-wrapper">
       <div class="weather-block">
         <div class="weather-inner">
-
           <transition name="fadetop" appear>
-            <div class="headline">Headlines</div>
+            <div class="headline">Погода</div>
           </transition>
           <transition name="sliderleft" appear>
             <div class="weekday">Saturday</div>
@@ -34,7 +33,9 @@
                   <span style="font-size: 0.9em; color: grey">Heavy Rain</span>
                 </div>
               </div>
-              <div style="text-align: start; padding: 20px 0; font-weight: bold">
+              <div
+                style="text-align: start; padding: 20px 0; font-weight: bold"
+              >
                 Miami
               </div>
               <div style="position: relative; height: auto; width: 100%">
@@ -99,7 +100,7 @@
                 </div>
               </div>
             </div>
-            </transition>
+          </transition>
         </div>
       </div>
 
@@ -130,10 +131,10 @@
               />
               <div class="carousel-meta">
                 <transition name="sliderleft2" appear>
-                <div class="carousel-headline">{{ item.headline }}</div>
+                  <div class="carousel-headline">{{ item.headline }}</div>
                 </transition>
                 <transition name="sliderleft2" appear>
-                <div class="carousel-meta-title">{{ item.title }}</div>
+                  <div class="carousel-meta-title">{{ item.title }}</div>
                 </transition>
               </div>
             </div>
@@ -252,6 +253,7 @@
             align-items: center;
             justify-content: center;
             background-color: white;
+            font-family: 'Times New Roman', Times, serif;
           "
         >
           <span style="font-size: 36px; font-weight: bold">Trending</span>
@@ -279,7 +281,6 @@
             transform: translateX(0);
           "
         >
-
           <transition-group name="fade" appear>
             <div v-for="(brand, index) in organizations" :key="index">
               <div class="brand-wrapper">
@@ -360,6 +361,7 @@
               padding: 14px 24px 14px 14px;
               z-index: 11;
               border-right: 1px solid lightgray;
+              font-family: 'Times New Roman', Times, serif;
             "
           >
             Stories for you, dad
@@ -424,7 +426,6 @@
                   -webkit-box-orient: vertical;
                 "
               >
-                <!-- TODO max-height -->
                 Nulla animi aperiam mattis. Malesuada. Architecto. Mauris quod
                 montes ipsam! Esse vitae, adipisicing fugiat molestiae
                 accusantium, rerum, conubia laboriosam volutpat sit, nostra eum
@@ -684,6 +685,117 @@
             </div>
           </div>
         </div>
+
+        <br />
+        <br />
+
+        <div style="width: 100%; display: flex; flex-direction: column">
+          <div
+            style="
+              position: relative;
+              width: 100%;
+              border-bottom: 1px solid lightgray;
+              display: flex;
+              justify-content: space-between;
+            "
+          >
+            <div class="header-highlight"></div>
+            <div
+              style="
+                font-size: 30px;
+                font-weight: bold;
+                padding: 14px 24px 14px 14px;
+                z-index: 11;
+                border-right: 1px solid lightgray;
+                font-family: 'Times New Roman', Times, serif;
+              "
+            >
+              Latest Project
+            </div>
+            <div style="display: flex; align-items: center; position: relative">
+              <div class="tab-btn active">All Projects</div>
+              <div class="tab-btn-indicator"></div>
+            </div>
+          </div>
+          <div
+            style="
+              display: flex;
+              width: 100%;
+              margin-top: 60px;
+              justify-content: space-around;
+            "
+          >
+            <div>
+              <div
+                style="
+                  width: 300px;
+                  height: 450px;
+                  position: relative;
+                  margin-right: 40px;
+                "
+              >
+                <img
+                  class="project-image"
+                  src="https://uzreport.news/fotobank/image/942cdb94b25609a203d0185dc43aa601.jpeg"
+                  alt=""
+                />
+                <div class="project-date">
+                  <div
+                    style="
+                      font-size: 50px;
+                      font-family: 'Times New Roman', Times, serif;
+                      color: #4493ff;
+                      font-weight: bold;
+                    "
+                  >
+                    2021
+                  </div>
+                  <div style="font-size: 22px; color: #000">апрель</div>
+                </div>
+              </div>
+            </div>
+            <div style="text-align: start">
+              <div
+                style="
+                  font-size: 30px;
+                  font-weight: bold;
+                  padding: 14px 24px 24px 0;
+                  z-index: 11;
+                  font-family: 'Times New Roman', Times, serif;
+                "
+              >
+                Headliner
+              </div>
+              <div style="font-size: 18px; line-height: 1.6em; color: gray">
+                Eu occaecat lectus lectus quos similique voluptas dui rhoncus,
+                consequuntur morbi convallis ullamcorper pulvinar nam convallis
+                atque lacus? Temporibus anim, tenetur aliquid. Assumenda per
+                ratione laudantium anim reiciendis, exercitationem accumsan
+                posuere reiciendis erat urna provident doloremque donec urna
+                alias, porta habitasse magni! Reprehenderit quae omnis, vero
+                egestas taciti provident natus? Occaecat porta beatae
+                repellendus, magna, dictumst ad sociis placerat beatae. Maiores
+                minim incidunt quos. Ab suspendisse mollis? Dicta? Ullam
+                necessitatibus quasi beatae culpa pariatur dis iure donec,
+                tempore faucibus quod, eos lobortis aut faucibus. Adipisci?
+                Doloribus, torquent elementum eius auctor dictum officiis donec,
+                nibh! Lacinia sed, quisquam excepturi. Ultricies mollis luctus
+                congue! Aliquam perferendis do, netus quod fermentum! Conubia
+                lobortis, blandit lobortis montes accumsan magna? Eius vel est
+                hic! Mollit.
+              </div>
+              <br />
+              <br />
+              <button class="button-container">
+                <div style="font-weight: bold">More</div>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <br />
+        <br />
+        <br />
       </div>
 
       <div style="width: 30%; position: relative">
@@ -703,6 +815,7 @@
                   font-weight: bold;
                   line-height: 2.4em;
                   border-bottom: 1px solid lightgray;
+                  font-family: 'Times New Roman', Times, serif;
                 "
               >
                 Top Stories
@@ -762,6 +875,10 @@ export default {
         left: true,
         right: true,
       },
+      isMini: false,
+      isMobile: false,
+      isTablet: false,
+      isDesktop: true,
       organizations: [
         {
           name: "Kamolot",
@@ -784,8 +901,7 @@ export default {
         },
         {
           name: "Nimfogo",
-          img:
-            "https://lh3.googleusercontent.com/proxy/S1-hRGemEU647HAhKLkKYK-O8WVAssdYgJAhqnyAXmJwc3xR_JX6wYhWJQO-X9rZXD3SU6XMHbX_EY4W897vnE7GeYHe3YOsNdU",
+          img: "http://www.fjrm.uz/local/templates/main/i/logo.png",
         },
         {
           name: "Fundngouz",
@@ -886,14 +1002,35 @@ export default {
       ],
     };
   },
+  created() {
+    window.addEventListener("resize", this.checkResponsive);
+  },
+  checkResponsive() {
+    window.removeEventListener("resize", this.checkResponsive);
+  },
   mounted: function () {
+    this.checkResponsive()
     this.$refs.gradient_bar.style.width = `${this.$refs.main_carousel.childNodes[1].children[0].children[0].offsetWidth}px`;
     this.fetchData();
     // this.brandsCarouselHendler();
     this.handleBrandsScrollIndicator();
+    if (this.main_carousel_timer) clearTimeout(this.main_carousel_timer);
+    this.main_carousel_timer = setTimeout(() => {
+      this.handleScroll(1);
+    }, 2500);
   },
   watch: {},
   methods: {
+    checkResponsive() {
+      this.isMini = window.innerWidth <= 600;
+      this.isMobile = window.innerWidth <= 800 && window.innerWidth > 600;
+      this.isTablet = window.innerWidth < 1444 && window.innerWidth > 800;
+      this.isDesktop = window.innerWidth >= 1444;
+      console.log(window.innerWidth);
+      console.log("desktop ", this.isDesktop);
+      console.log("mobile ", this.isMobile);
+      console.log("tablet ", this.isTablet);
+    },
     handleBrandsScroll(dir) {
       this.$refs.brand_scroll.scrollBy({
         left: this.$refs.brand_scroll.offsetWidth * dir,
@@ -940,16 +1077,24 @@ export default {
         this.active_rec_index = this.active_carousel_index;
       }, 500);
 
-      this.scroll = (this.$refs.main_carousel.offsetWidth / 1.5) * dir;
-      this.$refs.main_carousel.scrollBy({ left: this.scroll });
+      if (this.main_carousel_timer) clearTimeout(this.main_carousel_timer);
+      if (this.main_carousel_timer) clearTimeout(this.main_carousel_timer);
+      this.main_carousel_timer = setTimeout(() => {
+        this.handleScroll(1);
+      }, 2500);
 
       if (
         this.active_carousel_index + dir >= 0 &&
         this.active_carousel_index + dir <= this.lastNews.length - 1
       ) {
         this.active_carousel_index = this.active_carousel_index + dir;
-        console.log(this.active_carousel_index);
+      } else if (this.active_carousel_index === this.lastNews.length - 1) {
+        this.active_carousel_index = 0;
+        dir = -999;
       }
+
+      this.scroll = (this.$refs.main_carousel.offsetWidth / 1.5) * dir;
+      this.$refs.main_carousel.scrollBy({ left: this.scroll });
 
       this.index = this.active_carousel_index + 1;
 
@@ -957,11 +1102,6 @@ export default {
         this.$refs.carousel_item.offsetWidth -
         this.$refs.main_carousel.childNodes[this.index].children[0].children[1]
           .offsetWidth;
-
-      // this.$refs.gradient_bar.style.width = `${
-      //   this.$refs.main_carousel.childNodes[this.index].children[0].children[0]
-      //     .offsetWidth
-      // }px`;
 
       this.$refs.gradient_bar.style.width = `${this.new_width}px`;
     },
@@ -1054,7 +1194,7 @@ export default {
 .carousel-gradient {
   width: 80%;
   height: 100%;
-  background-image: linear-gradient(to right, #274467, rgba(0, 0, 0, 0));
+  background-image: linear-gradient(to right, #274467 1%, rgba(0, 0, 0, 0) 60%);
 }
 
 .carousel-control {
@@ -1298,6 +1438,12 @@ export default {
 
 .single-card:hover .card-content {
   transform: translateY(-30px) translateX(-20px);
+  background-color: #2d66b3;
+  color: white;
+}
+
+.single-card:hover .main-card-meta {
+  color: white;
 }
 
 .single-card-img {
@@ -1393,8 +1539,8 @@ export default {
   width: 100%;
   height: 100%;
   position: absolute;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   transition: all 0.4s ease;
   backdrop-filter: grayscale(80%);
 }
@@ -1430,5 +1576,36 @@ export default {
 .brand-control.right {
   right: 0;
   top: 0;
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.project-date {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+  text-align: start;
+  padding-bottom: 16px;
+  padding-right: 40px;
+}
+
+.button-container {
+  height: 50px;
+  border-radius: 4px;
+  padding: 0 20px;
+  border: 1px solid #4493ff;
+  transition: all 0.4s;
+  color: #4493ff;
+}
+
+.button-container:hover {
+  background-color: #4493ff;
+  color: white;
 }
 </style>

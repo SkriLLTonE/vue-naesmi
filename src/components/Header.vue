@@ -9,23 +9,54 @@
       "
     >
       <!-- <img class="logo" src="../assets/logo2_white.png" /> -->
-      <div class="naesmi">NAEMM</div>
-      <div class="nav-control">
-        <div>news</div>
-        <div>sports</div>
-        <div>business</div>
-        <div>
-          more
+      <div class="naesmi"><router-link to="/">НАЭСМИ</router-link></div>
+      <div v-if="isDesktop" class="nav-control">
+        <div><router-link to="/rulers">правление</router-link></div>
+        <div><router-link to="/about">Об ассоциации</router-link></div>
+        <div><router-link to="/news">новости</router-link></div>
+        <div><router-link to="/events">ивенты</router-link></div>
+        <div
+          style="position: relative"
+          class="more-btn"
+          tabindex="0"
+        >
+          <!-- On Click -->
+          другое
           <i
             class="fas fa-chevron-down"
             style="padding-left: 8px; font-size: 12px; padding-top: 2px"
           ></i>
+            <div class="open-sheet" >
+              <div>История</div>
+              <div>Устав</div>
+              <div>Гранты</div>
+              <div>Исследования и отчеты</div>
+              <div>Проекты</div>
+            </div>
         </div>
       </div>
     </div>
+
     <div>
       <div style="position: relative; display: flex; align-items: center">
-        <div class="search-bar">
+        <div style="display: flex; margin-right: 40px">
+          <div v-if="!isMini" class="social-net-item">
+            <i
+              class="fab fa-telegram-plane"
+              style="font-size: 26px; margin-right: 4px"
+            ></i>
+          </div>
+          <div v-if="!isMini" class="social-net-item">
+            <i class="fab fa-youtube" style="font-size: 26px"></i>
+          </div>
+          <div v-if="!isMini" class="social-net-item">
+            <i class="fab fa-twitter" style="font-size: 26px"></i>
+          </div>
+          <div class="social-net-item" v-if="isMobile || isMini">
+            <i class="far fa-bars" style="font-size: 26px"></i>
+          </div>
+        </div>
+        <div class="search-bar" v-if="isDesktop || isTablet">
           <div class="search-btn">
             <i class="far fa-search" style=""></i>
           </div>
@@ -40,7 +71,7 @@
           ></div>
         </div>
 
-        <div class="user-card">
+        <!-- <div class="user-card">
           <div class="username">{{ user.username }}</div>
           <div class="avatar">
             <img
@@ -52,9 +83,9 @@
             class="fas fa-chevron-down"
             style="padding-left: 8px; font-size: 12px; padding-top: 2px"
           ></i>
-        </div>
+        </div> -->
 
-        <div class="last-btn">
+        <!-- <div class="last-btn">
           <span
             style="
               font-weight: bold;
@@ -84,7 +115,7 @@
               z-index: 10;
             "
           ></div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -96,16 +127,39 @@ export default {
   components: {},
   data() {
     return {
-      user: {
-        username: "DAD",
-        avatar:
-          "https://avatars.mds.yandex.net/get-ott/374297/2a000001616b87458162c9216ccd5144e94d/678x380",
-      },
+      // user: {
+      //   username: "DAD",
+      //   avatar:
+      //     "https://avatars.mds.yandex.net/get-ott/374297/2a000001616b87458162c9216ccd5144e94d/678x380",
+      // },
+      isMini: false,
+      isMobile: false,
+      isTablet: false,
+      isDesktop: true,
     };
   },
-  mounted: function () {},
+  created() {
+    window.addEventListener("resize", this.checkResponsive);
+  },
+  unmounted() {
+    window.removeEventListener("resize", this.checkResponsive());
+  },
   watch: {},
-  methods: {},
+  mounted: function () {
+    this.checkResponsive();
+  },
+  methods: {
+    checkResponsive() {
+      this.isMini = window.innerWidth <= 600;
+      this.isMobile = window.innerWidth <= 800 && window.innerWidth > 600;
+      this.isTablet = window.innerWidth < 1444 && window.innerWidth > 800;
+      this.isDesktop = window.innerWidth >= 1444;
+      console.log(window.innerWidth);
+      console.log("desktop ", this.isDesktop);
+      console.log("mobile ", this.isMobile);
+      console.log("tablet ", this.isTablet);
+    },
+  },
 };
 </script>
 
@@ -141,8 +195,7 @@ export default {
 }
 
 .nav-control > div:hover {
-  background-color: white;
-  color: black;
+  color: lightgray;
 }
 
 .nav-control {
@@ -166,6 +219,7 @@ export default {
   display: flex;
   transition: all 0.2s;
   display: flex;
+  margin-right: 50px;
 }
 
 .search-input {
@@ -250,13 +304,69 @@ export default {
 }
 
 .naesmi {
-  font-family: 'NewCyrillicGoth';
-  padding: 0 40px;
+  font-family: "NewCyrillicGoth";
+  margin: 0 40px;
   height: 100%;
   font-size: 30px;
   display: flex;
   align-items: center;
   letter-spacing: 2px;
   text-transform: capitalize;
+  cursor: pointer;
 }
+
+.social-net-item {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  margin: 0 8px;
+}
+
+.social-net-item:hover {
+  background-color: white;
+  color: #000;
+}
+
+.open-sheet {
+  position: absolute;
+  background-color: white;
+  bottom: 0;
+  left: -1px;
+  transform: translateY(100%);
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: #2d66b3;
+  transition: all 0.4s ease-in;
+  opacity: 0;
+}
+
+.more-btn:focus-within .open-sheet {
+  opacity: 1;
+}
+
+.more-btn:focus-within {
+  outline: none;
+}
+
+.open-sheet div {
+  padding: 18px 30px;
+  text-align: start;
+  background-color: white;
+  transition: all 0.2s ease;
+  line-height: 1.4em;
+}
+
+.open-sheet div:hover {
+  text-align: start;
+  background-color: #2d66b3;
+  color: white;
+}
+
 </style>
