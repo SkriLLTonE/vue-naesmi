@@ -3,17 +3,23 @@
     rel="stylesheet"
     href="https://pro.fontawesome.com/releases/v5.15.2/css/all.css"
   />
+  <transition name="topper" appear>
+    <Header />
+  </transition>
   <router-view />
+  <Footer />
 </template>
 
 <script>
+import Footer from './components/Footer.vue';
+import Header from "./components/Header.vue";
 export default {
   name: "App",
+  components: { Header, Footer },
 };
 </script>
 
 <style>
-
 html {
   overflow-x: hidden;
 }
@@ -72,7 +78,11 @@ a {
 .vertical-dotted-border {
   height: 100%;
   width: 2px;
-  background-image: linear-gradient(to bottom, gray 20%, rgba(255, 255, 255, 0) 0%);
+  background-image: linear-gradient(
+    to bottom,
+    gray 20%,
+    rgba(255, 255, 255, 0) 0%
+  );
   background-position: left;
   background-size: 2px 8px;
   background-repeat: repeat-y;
@@ -145,5 +155,4 @@ a {
   transform: translateY(-40%);
   opacity: 0;
 }
-
 </style>

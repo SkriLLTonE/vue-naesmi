@@ -9,7 +9,9 @@
       "
     >
       <!-- <img class="logo" src="../assets/logo2_white.png" /> -->
-      <div class="naesmi"><router-link to="/">НАЭСМИ</router-link></div>
+      <div class="naesmi" ref="naesmi">
+        <router-link to="/">НАЭСМИ</router-link>
+      </div>
       <div v-if="isDesktop" class="nav-control">
         <div><router-link to="/rulers">правление</router-link></div>
         <div><router-link to="/about">Об ассоциации</router-link></div>
@@ -19,20 +21,23 @@
           style="position: relative"
           class="more-btn"
           tabindex="0"
+          @mousedown="open.sheet = !open.sheet"
+          v-click-outside="closeTab"
         >
-          <!-- On Click -->
           другое
           <i
             class="fas fa-chevron-down"
             style="padding-left: 8px; font-size: 12px; padding-top: 2px"
           ></i>
-            <div class="open-sheet" >
-              <div>История</div>
+          <transition name="topopac" appear>
+            <div v-show="open.sheet" class="open-sheet">
+              <router-link to="/history"><div>История</div></router-link>
               <div>Устав</div>
               <div>Гранты</div>
               <div>Исследования и отчеты</div>
-              <div>Проекты</div>
+              <router-link to="/projects"><div>Проекты</div></router-link>
             </div>
+          </transition>
         </div>
       </div>
     </div>
@@ -52,11 +57,11 @@
           <div v-if="!isMini" class="social-net-item">
             <i class="fab fa-twitter" style="font-size: 26px"></i>
           </div>
-          <div class="social-net-item" v-if="isMobile || isMini">
+          <div class="social-net-item" v-if="!isDesktop">
             <i class="far fa-bars" style="font-size: 26px"></i>
           </div>
         </div>
-        <div class="search-bar" v-if="isDesktop || isTablet">
+        <div class="search-bar" v-if="isDesktop ">
           <div class="search-btn">
             <i class="far fa-search" style=""></i>
           </div>
@@ -136,6 +141,9 @@ export default {
       isMobile: false,
       isTablet: false,
       isDesktop: true,
+      open: {
+        sheet: false,
+      },
     };
   },
   created() {
@@ -152,12 +160,15 @@ export default {
     checkResponsive() {
       this.isMini = window.innerWidth <= 600;
       this.isMobile = window.innerWidth <= 800 && window.innerWidth > 600;
-      this.isTablet = window.innerWidth < 1444 && window.innerWidth > 800;
-      this.isDesktop = window.innerWidth >= 1444;
-      console.log(window.innerWidth);
-      console.log("desktop ", this.isDesktop);
-      console.log("mobile ", this.isMobile);
-      console.log("tablet ", this.isTablet);
+      this.isTablet = window.innerWidth < 1540 && window.innerWidth > 800;
+      this.isDesktop = window.innerWidth >= 1540;
+      // console.log(window.innerWidth);
+      // console.log("desktop ", this.isDesktop);
+      // console.log("mobile ", this.isMobile);
+      // console.log("tablet ", this.isTablet);
+    },
+    closeTab() {
+      this.open.sheet = false;
     },
   },
 };
@@ -344,11 +355,6 @@ export default {
   justify-content: flex-start;
   color: #2d66b3;
   transition: all 0.4s ease-in;
-  opacity: 0;
-}
-
-.more-btn:focus-within .open-sheet {
-  opacity: 1;
 }
 
 .more-btn:focus-within {
@@ -369,4 +375,13 @@ export default {
   color: white;
 }
 
+.topopac-enter-active,
+.topopac-leave-active {
+  transition: all 0.4s ease;
+}
+
+.topopac-enter-from,
+.topopac-leave-to {
+  opacity: 0;
+}
 </style>

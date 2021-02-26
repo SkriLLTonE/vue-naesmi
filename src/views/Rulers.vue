@@ -1,8 +1,5 @@
 <template>
   <div>
-    <transition name="topper" appear>
-      <Header />
-    </transition>
     <br />
     <br />
     <br />
@@ -98,19 +95,12 @@
         </div>
       </div>
     </div>
-    <Footer />
   </div>
 </template>
 
 <script>
-import Header from "../components/Header.vue";
-import Footer from "../components/Footer.vue";
 export default {
   name: "Rulers",
-  components: {
-    Header,
-    Footer,
-  },
   data() {
     return {
       rulers: [

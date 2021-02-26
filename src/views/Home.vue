@@ -1,8 +1,5 @@
 <template>
   <div>
-    <transition name="topper" appear>
-      <Header />
-    </transition>
     <div class="top-wrapper">
       <div class="weather-block">
         <div class="weather-inner">
@@ -851,20 +848,13 @@
         </div>
       </div>
     </div>
-    <Footer />
   </div>
 </template>
 
 <script>
-import Header from "../components/Header.vue";
-import Footer from "../components/Footer.vue";
 
 export default {
   name: "Home",
-  components: {
-    Header,
-    Footer,
-  },
   data() {
     return {
       showRec: true,
@@ -1019,6 +1009,9 @@ export default {
       this.handleScroll(1);
     }, 2500);
   },
+  unmounted() {
+    clearTimeout(this.main_carousel_timer);
+  },
   watch: {},
   methods: {
     checkResponsive() {
@@ -1077,7 +1070,6 @@ export default {
         this.active_rec_index = this.active_carousel_index;
       }, 500);
 
-      if (this.main_carousel_timer) clearTimeout(this.main_carousel_timer);
       if (this.main_carousel_timer) clearTimeout(this.main_carousel_timer);
       this.main_carousel_timer = setTimeout(() => {
         this.handleScroll(1);

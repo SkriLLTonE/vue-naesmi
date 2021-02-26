@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Header />
     <!-- <div class="banner">
       <div
         style="
@@ -48,7 +47,9 @@
               border-left: 12px solid #2d66b3;
             "
           >
-            <div class="history-mark">ИСТОРИЯ</div>
+            <transition name="sliderleft" appear>
+              <div class="history-mark">ИСТОРИЯ</div>
+            </transition>
             <div
               style="
                 position: relative;
@@ -61,7 +62,13 @@
             >
               <!-- <div class="img-shadow"></div> -->
               <img
-                style="width: 100%; height: 100%;object-fit: contain;position:relative; background-color: white;"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: contain;
+                  position: relative;
+                  background-color: white;
+                "
                 src="../assets/logo_uz.png"
                 alt=""
               />
@@ -111,15 +118,11 @@
     <br />
     <br />
     <br />
-    <Footer />
   </div>
 </template>
 
 <script>
-import Footer from "../components/Footer.vue";
-import Header from "../components/Header.vue";
 export default {
-  components: { Header, Footer },
   data() {
     return {
       history: [
