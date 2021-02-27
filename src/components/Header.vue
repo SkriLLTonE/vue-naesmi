@@ -44,7 +44,7 @@
 
     <div>
       <div style="position: relative; display: flex; align-items: center">
-        <div style="display: flex; margin-right: 40px">
+        <div style="display: flex;">
           <div v-if="!isMini" class="social-net-item">
             <i
               class="fab fa-telegram-plane"
