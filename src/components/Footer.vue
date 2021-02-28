@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <div
-      style="
+    <div>
+        <div
+                style="
         width: 100%;
         background: url('https://tvkinoradio.ru/upload/ckeditor/article/images/2016-05-26_RUS_MSK_TVKINORADIO_RT%28STUDIO%29-0017.jpg');
         background-size: cover;
@@ -10,184 +10,113 @@
         color: white;
         text-align: start;
         position: relative;
-      "
-    >
-      <div
-        style="
-          width: 94%;
-          margin-left: 3%;
-          height: 100%;
-          position: relative;
-          z-index: 20;
-        "
-      >
-        <div
-          style="
-            display: flex;
-            padding-top: 50px;
-            justify-content: space-between;
-            align-items: center;
-          "
-        >
-          <button class="button-container">
-            <div style="font-weight: bold; color: white">
-              Send an application
-            </div>
-          </button>
-          <div style="display: flex">
-            <div class="social-network">
-              <i
-                class="fab fa-telegram-plane"
-                style="font-size: 26px; padding-right: 10px"
-              ></i>
-              Telegram
-            </div>
-            <div class="social-network">
-              <i
-                class="fab fa-youtube"
-                style="font-size: 26px; padding-right: 10px"
-              ></i>
-              YouTube
-            </div>
-            <div class="social-network">
-              <i
-                class="fab fa-twitter"
-                style="font-size: 26px; padding-right: 10px"
-              ></i>
-              Twitter
-            </div>
-          </div>
-        </div>
-        <div
-          style="
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-          "
-        >
-          <div
-            style="
-              display: flex;
-              justify-content: space-around;
-              width: 100%;
-              padding: 50px 0;
-            "
-          >
-            <div>
-              <div style="position: relative; margin-bottom: 30px">
-                <div
-                  style="
-                    font-size: 30px;
-                    font-weight: bold;
-                    padding: 30px 0 10px 0;
-                  "
-                >
-                  Contacts:
+      ">
+            <div style=" height: 100%; position: relative;z-index: 20;">
+                <div class="footer_links">
+                    <button class="button-container">
+                        <div style="font-weight: bold; color: white">
+                            Send an application
+                        </div>
+                    </button>
+                    <div class="social_network_block">
+                        <div class="social-network">
+                            <i
+                                    class="fab fa-telegram-plane"
+                                    style="font-size: 26px; padding-right: 10px"
+                            ></i>
+                            Telegram
+                        </div>
+                        <div class="social-network">
+                            <i
+                                    class="fab fa-youtube"
+                                    style="font-size: 26px; padding-right: 10px"
+                            ></i>
+                            YouTube
+                        </div>
+                        <div class="social-network">
+                            <i
+                                    class="fab fa-twitter"
+                                    style="font-size: 26px; padding-right: 10px"
+                            ></i>
+                            Twitter
+                        </div>
+                    </div>
                 </div>
-                <div
-                  style="
-                    position: absolute;
-                    background-color: #4493ff;
-                    width: 40px;
-                    height: 3px;
-                    bottom: 0px;
-                    left: 0;
-                  "
-                ></div>
-              </div>
-              <div style="font-size: 18px; line-height: 1.5em">
-                Uzbekistan, 100106, Tashkent
-                <p>Navoiu St., h. 15, r. 1</p>
-              </div>
-              <br />
-              <div style="font-size: 18px; line-height: 1.5em">
-                Phone: +998(99) 777-77-77
-              </div>
-              <div style="font-size: 18px; line-height: 1.5em">
-                Fax: +998(99) 777-77-76
-              </div>
-              <div style="font-size: 18px; line-height: 1.5em">
-                E-mail: info@naesmi.uz
-              </div>
-            </div>
+                <div class="footer_nav">
+                    <div class="footer_nav">
+                        <div style="padding: 0px 30px">
+                            <div style="position: relative; margin-bottom: 30px">
+                                <div style=" font-size: 30px; font-weight: bold; padding: 30px 0 10px 0; ">
+                                    Contacts:
+                                </div>
+                                <div style="position: absolute; background-color: #4493ff; width: 40px;height: 3px;bottom: 0px;left: 10px;"></div>
+                            </div>
+                            <div style="font-size: 18px; line-height: 1.5em">
+                                Uzbekistan, 100106, Tashkent
+                                <p>Navoiu St., h. 15, r. 1</p>
 
-            <div>
-              <div style="position: relative; margin-bottom: 30px">
-                <div
-                  style="
-                    font-size: 30px;
-                    font-weight: bold;
-                    padding: 30px 0 10px 0;
-                  "
-                >
-                  About:
+                                <br/>
+                                <div style="font-size: 18px; line-height: 1.5em">
+                                    Phone: +998(99) 777-77-77
+                                </div>
+                                <div style="font-size: 18px; line-height: 1.5em">
+                                    Fax: +998(99) 777-77-76
+                                </div>
+                                <div style="font-size: 18px; line-height: 1.5em">
+                                    E-mail: info@naesmi.uz
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="padding: 0px 30px">
+                            <div style="position: relative; margin-bottom: 30px">
+                                <div style=" font-size: 30px; font-weight: bold; padding: 30px 0 10px 0;">
+                                    About:
+                                </div>
+                                <div style=" position: absolute; background-color: #4493ff;  width: 40px; bottom: 0px; left: 0; "></div>
+                            </div>
+                            <div class="route">History</div>
+                            <div class="route">State</div>
+                            <div class="route">Direction</div>
+                            <div class="route">Symbolics</div>
+                            <div class="route">Performance</div>
+                        </div>
+
+                        <div style="padding: 0px 30px">
+                            <div style="position: relative; margin-bottom: 30px">
+                              <div style=" font-size: 30px;font-weight: bold; padding: 30px 0 10px 0; ">
+                                    Projects:
+                                </div>
+ <div style=" position: absolute;background-color: #4493ff;width: 40px;height: 3px;bottom: 0px; left: 0; ">
+
+ </div>
+                            </div>
+                            <div class="route">NAEMM Academy</div>
+                            <div class="route">On Board!</div>
+                            <div class="route">Heroes of our time</div>
+                            <div class="route">Legacy</div>
+                            <div class="route">NAEMM Congress</div>
+                            <div class="route">First step</div>
+                            <div class="route">NAEMMEXPO</div>
+                        </div>
+                    </div>
                 </div>
-                <div
-                  style="
-                    position: absolute;
-                    background-color: #4493ff;
-                    width: 40px;
-                    height: 3px;
-                    bottom: 0px;
-                    left: 0;
-                  "
-                ></div>
-              </div>
-              <div class="route">History</div>
-              <div class="route">State</div>
-              <div class="route">Direction</div>
-              <div class="route">Symbolics</div>
-              <div class="route">Performance</div>
-            </div>
 
-            <div>
-              <div style="position: relative; margin-bottom: 30px">
                 <div
-                  style="
-                    font-size: 30px;
-                    font-weight: bold;
-                    padding: 30px 0 10px 0;
-                  "
-                >
-                  Projects:
-                </div>
-                <div
-                  style="
-                    position: absolute;
-                    background-color: #4493ff;
-                    width: 40px;
-                    height: 3px;
-                    bottom: 0px;
-                    left: 0;
-                  "
-                ></div>
-              </div>
-              <div class="route">NAEMM Academy</div>
-              <div class="route">On Board!</div>
-              <div class="route">Heroes of our time</div>
-              <div class="route">Legacy</div>
-              <div class="route">NAEMM Congress</div>
-              <div class="route">First step</div>
-              <div class="route">NAEMMEXPO</div>
-            </div>
-          </div>
-        </div>
-
-        <div
-          style="
+                        style="
             font-weight: bold;
             text-align: start;
-            padding: 20px 0;
+            padding: 20px 30px;
             line-height: 1.8em;
           "
-        >
-          © 2004 - 2021. "National Association of Electronic Mass Media of
-          <br />
-          Uzbekistan" All rights reserved.
-        </div>
-      </div>
-      <div
-        style="
+                >
+                    © 2004 - 2021. "National Association of Electronic Mass Media of
+                    <br/>
+                    Uzbekistan" All rights reserved.
+                </div>
+            </div>
+            <div
+                    style="
           position: absolute;
           width: 100%;
           height: 100%;
@@ -195,60 +124,101 @@
           top: 0;
           left: 0;
         "
-      ></div>
+            ></div>
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
-export default {
-  name: "Home",
-  components: {},
-  data() {
-    return {};
-  },
-  mounted: function () {},
-  watch: {},
-  methods: {},
-};
+    export default {
+        name: "Home",
+        components: {},
+        data() {
+            return {};
+        },
+        mounted: function () {
+        },
+        watch: {},
+        methods: {},
+    };
 </script>
 
 <style scoped>
-.social-network {
-  border-radius: 30px;
-  margin: 20px 0;
-  margin-right: 30px;
-  padding: 8px 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  border: 1px solid #fff;
-  transition: all 0.2s ease;
-}
+    .footer_links {
+        display: flex;
+        padding-top: 50px;
+        justify-content: space-between;
+        align-items: center;
+      padding-left: 30px;
+    }
 
-.social-network:hover {
-  background-color: #fff;
-  color: black;
-}
+    .social-network {
+        border-radius: 30px;
+        margin: 20px 0;
+        margin-right: 30px;
+        padding: 8px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        border: 1px solid #fff;
+        transition: all 0.2s ease;
+    }
 
-.button-container {
-  background-color: #4493ff;
-  height: 50px;
-  border-radius: 4px;
-  padding: 0 20px;
-}
+    .social-network:hover {
+        background-color: #fff;
+        color: black;
+    }
 
-.route {
-  transition: all 0.2s ease;
-  cursor: pointer;
-  width: auto;
-  margin-bottom: 20px;
-  color: white;
-  transition: all 0.2s ease;
-}
+    .button-container {
+        background-color: #4493ff;
+        height: 50px;
+        border-radius: 4px;
+        padding: 0 20px;
+    }
 
-.route:hover {
-  color: #4493ff;
-}
+    .route {
+        transition: all 0.2s ease;
+        cursor: pointer;
+        width: auto;
+        margin-bottom: 20px;
+        color: white;
+        transition: all 0.2s ease;
+    }
+
+    .route:hover {
+        color: #4493ff;
+    }
+
+    .social_network_block {
+        display: flex;
+    }
+
+    .footer_nav {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        padding: 50px 0;
+    }
+
+    @media screen and (max-width: 768px) {
+        .footer_links {
+            display: block;
+            text-align: center;
+          padding-left: 0;
+        }
+
+        .social_network_block {
+            display: block;
+          padding: 0 40px;
+        }
+
+        .footer_nav {
+            display: block;
+
+        }
+      .social-network{
+        margin: 30px 0;
+      }
+    }
 </style>
