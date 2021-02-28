@@ -1,16 +1,7 @@
 <template>
     <div>
-        <div
-                style="
-        width: 100%;
-        background: url('https://tvkinoradio.ru/upload/ckeditor/article/images/2016-05-26_RUS_MSK_TVKINORADIO_RT%28STUDIO%29-0017.jpg');
-        background-size: cover;
-        background-position: center;
-        margin-top: 50px;
-        color: white;
-        text-align: start;
-        position: relative;
-      ">
+        <div style=" width: 100%; background: url('https://tvkinoradio.ru/upload/ckeditor/article/images/2016-05-26_RUS_MSK_TVKINORADIO_RT%28STUDIO%29-0017.jpg');
+         background-size: cover;background-position: center; margin-top: 50px; color: white;text-align: start;position: relative;">
             <div style=" height: 100%; position: relative;z-index: 20;">
                 <div class="footer_links">
                     <button class="button-container">
@@ -84,12 +75,12 @@
 
                         <div style="padding: 0px 30px">
                             <div style="position: relative; margin-bottom: 30px">
-                              <div style=" font-size: 30px;font-weight: bold; padding: 30px 0 10px 0; ">
+                                <div style=" font-size: 30px;font-weight: bold; padding: 30px 0 10px 0; ">
                                     Projects:
                                 </div>
- <div style=" position: absolute;background-color: #4493ff;width: 40px;height: 3px;bottom: 0px; left: 0; ">
+                                <div style=" position: absolute;background-color: #4493ff;width: 40px;height: 3px;bottom: 0px; left: 0; ">
 
- </div>
+                                </div>
                             </div>
                             <div class="route">NAEMM Academy</div>
                             <div class="route">On Board!</div>
@@ -102,14 +93,7 @@
                     </div>
                 </div>
 
-                <div
-                        style="
-            font-weight: bold;
-            text-align: start;
-            padding: 20px 30px;
-            line-height: 1.8em;
-          "
-                >
+                <div style=" font-weight: bold; text-align: start;padding: 20px 30px;line-height: 1.8em;">
                     © 2004 - 2021. "National Association of Electronic Mass Media of
                     <br/>
                     Uzbekistan" All rights reserved.
@@ -149,7 +133,7 @@
         padding-top: 50px;
         justify-content: space-between;
         align-items: center;
-      padding-left: 30px;
+        padding-left: 30px;
     }
 
     .social-network {
@@ -205,20 +189,21 @@
         .footer_links {
             display: block;
             text-align: center;
-          padding-left: 0;
+            padding-left: 0;
         }
 
         .social_network_block {
             display: block;
-          padding: 0 40px;
+            padding: 0 40px;
         }
 
         .footer_nav {
             display: block;
 
         }
-      .social-network{
-        margin: 30px 0;
-      }
+
+        .social-network {
+            margin: 30px 0;
+        }
     }
 </style>
