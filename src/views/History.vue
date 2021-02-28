@@ -1,42 +1,10 @@
 <template>
   <div>
-    <!-- <div class="banner">
-      <div
-        style="
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-image: linear-gradient(#000, transparent);
-          z-index: 0;
-        "
-      ></div>
-      <div
-        style="
-          font-size: 60px;
-          font-weight: bold;
-          color: white;
-          position: relative;
-        "
-      >
-        ИСТОРИЯ НАЭСМИ
-      </div>
-    </div> -->
+
     <div>
       <div style="padding: 0 60px">
         <div style="width: 100%; height: auto; position: relative">
-          <!-- <div
-            style="
-              height: 100%;
-              width: 10px;
-              background-color: #2d66b3;
-              position: absolute;
-              top: 0;
-              left: 0;
-              transform: translateX(-50%);
-            "
-          ></div> -->
+
           <div
             style="
               width: 100%;
@@ -50,17 +18,14 @@
             <transition name="sliderleft" appear>
               <div class="history-mark">ИСТОРИЯ</div>
             </transition>
-            <div
-              style="
+            <div style="
                 position: relative;
                 width: 100%;
                 height: 100%;
                 background-size: cover;
                 background-position: center;
                 transform: translateY(50px);
-              "
-            >
-              <!-- <div class="img-shadow"></div> -->
+              ">
               <img
                 style="
                   width: 100%;

@@ -57,7 +57,7 @@
           <div v-if="!isMini" class="social-net-item">
             <i class="fab fa-twitter" style="font-size: 26px"></i>
           </div>
-          <div class="social-net-item" v-if="!isDesktop">
+          <div class="social-net-item" v-if="!isDesktop" @click="open.drawer = !open.drawer">
             <i class="far fa-bars" style="font-size: 26px"></i>
           </div>
         </div>
@@ -123,6 +123,11 @@
         </div> -->
       </div>
     </div>
+    <div v-if="!isDesktop" :class="{'open': open.drawer}" class="drawer-wrapper">
+      <div class="inner-wrapper">
+
+      </div>
+    </div>
   </div>
 </template>
 
@@ -143,6 +148,7 @@ export default {
       isDesktop: true,
       open: {
         sheet: false,
+        drawer: false,
       },
     };
   },
@@ -384,4 +390,32 @@ export default {
 .topopac-leave-to {
   opacity: 0;
 }
+
+.drawer-wrapper {
+  position: fixed;
+  height: 100vh;
+  width: 400px;
+  background-color: white;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  transform: translateX(100%);
+  transition: all 0.4s ease-in-out;
+}
+
+.drawer-wrapper.open {
+  transform: none;
+}
+
+.inner-wrapper {
+  padding: 20px;
+}
+
+  @media screen and (
+    max-width: 768px
+  ) {
+    .drawer-wrapper {
+      width: 100%;
+    }
+  }
 </style>
