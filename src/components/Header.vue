@@ -25,17 +25,9 @@
                 <div>
                     <router-link to="/events">ивенты</router-link>
                 </div>
-                <div
-                        style="position: relative"
-                        class="more-btn"
-                        tabindex="0"
-                        @mousedown="open.sheet = !open.sheet"
-                        v-click-outside="closeTab"
-                >
+                <div style="position: relative" class="more-btn" tabindex="0" @mousedown="open.sheet = !open.sheet" v-click-outside="closeTab">
                     другое
-                    <i
-                            class="fas fa-chevron-down"
-                            style="padding-left: 8px; font-size: 12px; padding-top: 2px"
+                    <i class="fas fa-chevron-down" style="padding-left: 8px; font-size: 12px; padding-top: 2px"
                     ></i>
                     <transition name="topopac" appear>
                         <div v-show="open.sheet" class="open-sheet">
@@ -508,7 +500,7 @@
 
     .drawer-wrapper {
         position: fixed;
-        height: 100vh;
+        height: 100%;
         width: 400px;
         background-color: white;
         top: 0;
@@ -588,15 +580,15 @@
         color: lightgray;
     }
 
-    @media screen and (
-    max-width: 768px
-    ) {
+    @media screen and (max-width: 768px) {
+        .drawer-wrapper {
+            width: 420px;
+        }
+
+    }
+    @media screen and (max-width: 576px){
         .drawer-wrapper {
             width: 100%;
-        }
-        .inner-wrapper{
-            overflow: auto;
-            height: 700px;
         }
     }
 </style>

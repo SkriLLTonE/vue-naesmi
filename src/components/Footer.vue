@@ -6,7 +6,7 @@
                 <div class="footer_links">
                     <button class="button-container">
                         <div style="font-weight: bold; color: white">
-                           Отправить заявку
+                            Отправить заявку
                         </div>
                     </button>
                     <div class="social_network_block">
@@ -66,11 +66,21 @@
                                 </div>
                                 <div style="position: absolute; background-color: #4493ff; width: 40px;height: 3px;bottom: 0px;left: 0px;"></div>
                             </div>
-                            <div class="route">История</div>
-                            <div class="route">Новости</div>
-                            <div class="route">Правление</div>
-                            <div class="route">Символика</div>
-                            <div class="route">Исполнение</div>
+                            <div class="route">
+                                <router-link to="/history">История</router-link>
+                            </div>
+                            <div class="route">
+                                <router-link to="/news">Новости</router-link>
+                            </div>
+                            <div class="route">
+                                <router-link to="/rulers">Правление</router-link>
+                            </div>
+                            <div class="route">
+                                <router-link to="/about"> Об Ассоциации</router-link>
+                            </div>
+                            <div class="route">
+                                <router-link to="/events">Ивенты</router-link>
+                            </div>
                         </div>
 
                         <div style="padding: 0px 30px">

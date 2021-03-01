@@ -1,10 +1,8 @@
 <template>
   <div>
-
     <div>
-      <div style="padding: 0 60px">
+      <div style="padding: 0 40px">
         <div style="width: 100%; height: auto; position: relative">
-
           <div
             style="
               width: 100%;
@@ -13,30 +11,15 @@
               align-items: flex-end;
               padding-bottom: 120px;
               border-left: 12px solid #2d66b3;
-            "
+         "
           >
             <transition name="sliderleft" appear>
               <div class="history-mark">ИСТОРИЯ</div>
             </transition>
-            <div style="
-                position: relative;
-                width: 100%;
-                height: 100%;
-                background-size: cover;
-                background-position: center;
-                transform: translateY(50px);
-              ">
-              <img
-                style="
-                  width: 100%;
-                  height: 100%;
-                  object-fit: contain;
-                  position: relative;
-                  background-color: white;
-                "
+            <div class="history_img" style="">
+              <img class="history_img_pos"
                 src="../assets/logo_uz.png"
-                alt=""
-              />
+                alt=""/>
             </div>
           </div>
           <div
@@ -66,14 +49,12 @@
             ></div>
             <div
               class="history-date"
-              :style="index + 1 === history.length ? 'padding-left: 52px;' : ''"
+              :style="index + 1 === history.length ? 'padding-left: 40px;' : ''"
             >
               {{ item.date }}
             </div>
             <div
-              class="history-description"
-              :style="index + 1 === history.length ? 'padding-left: 72px;' : ''"
-            >
+              class="history-description" :style="index + 1 === history.length ? 'padding-left: 60px;' : ''">
               <span v-html="item.description"></span>
             </div>
           </div>
@@ -94,17 +75,22 @@ export default {
         {
           date: "Апрель, 1995",
           description:
-            "Национальная Ассоциация электронных средств массовой информации была основана в 2003 году. На сегодняшний день НАЭСМИ является крупнейшей негосударственной некоммерческой медиа-организацией, объединяющей более 100 негосударственных телерадиостанций и студий кабельного телевидения Узбекистана. НАЭСМИ ставит перед собой задачу по формированию цивилизованного рынка вещания, повышение качества и разнообразия контента эфира негосударственных телестанций, активизация телерадиовещателей в построении гражданского общества. Одним из направлений деятельности НАЭСМИ является повышение профессионального уровня творческих и технических работников СМИ путем проведения семинаров-тренингов с широким привлечение международных экспертов. На сегодняшний день НАЭСМИ объединяет 18 национальных телеканалов, 19 радиоканалов, около 100 электронных СМИ - членов кабельного телевидения Узбекистана (52 зарубежных канала). Среди членов НАЭСМИ – ведущие рейтинговые телеканалы страны – Sevimli TV, ZOR TV, MY5 и Uzreport TV, занимающие верхние строчки рейтингов, которые получили свое мощное развитие благодаря созданным в Новом Узбекистане условиям для развития СМИ. В целом, 76% телезрителей доверяют именно этим каналам.",
+                  "<p>Diam faucibus dignissimos hymenaeos, provident impedit eros dolor ex. Lorem.</p><p>Lacus saepe convallis magna ipsa primis. Nobis voluptates, imperdiet soluta.</p>",
         },
         {
           date: "Май, 1995",
           description:
-            "<p>Diam faucibus dignissimos hymenaeos, provident impedit eros dolor ex. Lorem.</p><p>Lacus saepe convallis magna ipsa primis. Nobis voluptates, imperdiet soluta.</p>",
+                  "<p>Diam faucibus dignissimos hymenaeos, provident impedit eros dolor ex. Lorem.</p><p>Lacus saepe convallis magna ipsa primis. Nobis voluptates, imperdiet soluta.</p>",
         },
         {
           date: "Май, 1995",
           description:
-            "<p>Possimus. Porta voluptas, magna egestas dicta sapien facere, iste debitis? Venenatis condimentum natoque vulputate? Sint ornare, ornare orci, taciti ligula.</p><p>Egestas id molestie arcu, deserunt facilisis iste posuere vitae neque in, semper! Dictumst? Quod, ratione cupiditate varius illum semper voluptates.</p>",
+                  "<p>Possimus. Porta voluptas, magna egestas dicta sapien facere, iste debitis? Venenatis condimentum natoque vulputate? Sint ornare, ornare orci, taciti ligula.</p><p>Egestas id molestie arcu, deserunt facilisis iste posuere vitae neque in, semper! Dictumst? Quod, ratione cupiditate varius illum semper voluptates.</p>",
+        },
+        {
+          date: "Май, 1995",
+          description:
+                  "<p>Possimus. Porta voluptas, magna egestas dicta sapien facere, iste debitis? Venenatis condimentum natoque vulputate? Sint ornare, ornare orci, taciti ligula.</p><p>Egestas id molestie arcu, deserunt facilisis iste posuere vitae neque in, semper! Dictumst? Quod, ratione cupiditate varius illum semper voluptates.</p>",
         },
       ],
     };
@@ -113,7 +99,7 @@ export default {
 </script>
 
 <style scoped>
-.banner {
+/*.banner {
   position: relative;
   width: 100%;
   height: 400px;
@@ -123,7 +109,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+}*/
 
 .history-mark {
   color: #2d66b3;
@@ -168,12 +154,49 @@ export default {
   font-size: 22px;
 }
 
-.img-shadow {
+/*.img-shadow {
   width: 100%;
   height: 100%;
   position: absolute;
   background-color: #2d66b3;
   left: 20px;
   top: 20px;
+}*/
+.history_img{
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  transform: translateY(50px);
+}
+.history_img_pos{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: relative;
+  background-color: white;
+}
+  @media screen and (max-width: 768px){
+    .history-description{
+      font-size: 20px;
+      line-height: 1.0em;
+      padding-left: 40px;
+    }
+    .history-date {
+
+      padding-left: 30px;
+    }
+    .history-elem{
+      padding: 29px 0;
+    }
+  }
+@media screen and (max-width: 768px){
+  .history-description{
+    font-size: 16px;
+    line-height: 1.0em;
+    padding-left: 20px;
+  }
+  .history_img{
+    display: none;
+  }
 }
 </style>
