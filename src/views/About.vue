@@ -1,17 +1,7 @@
 <template>
     <div>
         <div class="banner">
-            <div
-                    style="
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-image: linear-gradient(#000, transparent);
-          z-index: 0;
-        "
-            ></div>
+            <div style="position: absolute;top: 0;left: 0;width: 100%;height: 100%; background-image: linear-gradient(#000, transparent); z-index: 0;"></div>
             <div class="banner_header" >
                 О НАЭСМИ
             </div>

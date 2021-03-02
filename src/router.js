@@ -32,6 +32,12 @@ const routes = [
     name: "News",
     component: () => import('./views/News.vue'),
   },
+  {
+    path: "/News_detail",
+    name: "News_detail",
+    component: () => import('./views/News_details.vue'),
+  },
+
   // {
   //   path: "/rulers",
   //   name: "Rulers",
