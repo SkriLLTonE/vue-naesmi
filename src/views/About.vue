@@ -19,7 +19,11 @@
         <br/>
         <br/>
         <br/>
-        <div style="display: flex; justify-content: center">
+
+        <div style="display: flex; justify-content: space-between">
+            <div class="bg_right">
+
+            </div>
             <div style="
           max-width: 1200px;
           width: 100%;
@@ -121,10 +125,10 @@
           которыми мы сейчас стоим на пороге сотрудничества.</span
         >
             </div>
+            <div class="bg_left">
+
         </div>
-        <br/>
-        <br/>
-        <br/>
+        </div>
     </div>
 </template>
 
@@ -154,10 +158,28 @@
         color: white;
         position: relative;
     }
+    .bg_right{
+        background: url("../assets/bg.png") repeat-y;
+        background-size: contain;
+        width: 250px;
+       }
+    .bg_left{
+        background: url("../assets/bg.png") repeat-y;
+        background-size: contain;
+        width: 250px;
+    }
 
     @media screen and (max-width:768px) {
         .banner_header{
             font-size: 30px;
+        }
+    }
+    @media screen and (max-width:1200px){
+        .bg_right{
+            display: none;
+        }
+        .bg_left{
+            display: none;
         }
     }
 </style>

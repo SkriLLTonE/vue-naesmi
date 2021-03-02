@@ -6,7 +6,7 @@
                 <div class="footer_links">
                     <button class="button-container">
                         <div style="font-weight: bold; color: white">
-                            Send an application
+                           Отправить заявку
                         </div>
                     </button>
                     <div class="social_network_block">
@@ -38,20 +38,20 @@
                         <div style="padding: 0px 30px">
                             <div style="position: relative; margin-bottom: 30px">
                                 <div style=" font-size: 30px; font-weight: bold; padding: 30px 0 10px 0; ">
-                                    Contacts:
+                                    Контакты:
                                 </div>
-                                <div style="position: absolute; background-color: #4493ff; width: 40px;height: 3px;bottom: 0px;left: 10px;"></div>
+                                <div style="position: absolute; background-color: #4493ff; width: 40px;height: 3px;bottom: 0px;left: 0;"></div>
                             </div>
                             <div style="font-size: 18px; line-height: 1.5em">
-                                Uzbekistan, 100106, Tashkent
-                                <p>Navoiu St., h. 15, r. 1</p>
+                                Узбекистан, 100106, Ташкент
+                                <p>Навои, д. 15, к. 1</p>
 
                                 <br/>
                                 <div style="font-size: 18px; line-height: 1.5em">
-                                    Phone: +998(99) 777-77-77
+                                    Тел: +998(99) 777-77-77
                                 </div>
                                 <div style="font-size: 18px; line-height: 1.5em">
-                                    Fax: +998(99) 777-77-76
+                                    Факс: +998(99) 777-77-76
                                 </div>
                                 <div style="font-size: 18px; line-height: 1.5em">
                                     E-mail: info@naesmi.uz
@@ -62,21 +62,21 @@
                         <div style="padding: 0px 30px">
                             <div style="position: relative; margin-bottom: 30px">
                                 <div style=" font-size: 30px; font-weight: bold; padding: 30px 0 10px 0;">
-                                    About:
+                                    О нас:
                                 </div>
-                                <div style=" position: absolute; background-color: #4493ff;  width: 40px; bottom: 0px; left: 0; "></div>
+                                <div style="position: absolute; background-color: #4493ff; width: 40px;height: 3px;bottom: 0px;left: 0px;"></div>
                             </div>
-                            <div class="route">History</div>
-                            <div class="route">State</div>
-                            <div class="route">Direction</div>
-                            <div class="route">Symbolics</div>
-                            <div class="route">Performance</div>
+                            <div class="route">История</div>
+                            <div class="route">Новости</div>
+                            <div class="route">Правление</div>
+                            <div class="route">Символика</div>
+                            <div class="route">Исполнение</div>
                         </div>
 
                         <div style="padding: 0px 30px">
                             <div style="position: relative; margin-bottom: 30px">
                                 <div style=" font-size: 30px;font-weight: bold; padding: 30px 0 10px 0; ">
-                                    Projects:
+                                    Проекты:
                                 </div>
                                 <div style=" position: absolute;background-color: #4493ff;width: 40px;height: 3px;bottom: 0px; left: 0; ">
 
@@ -94,9 +94,9 @@
                 </div>
 
                 <div style=" font-weight: bold; text-align: start;padding: 20px 30px;line-height: 1.8em;">
-                    © 2004 - 2021. "National Association of Electronic Mass Media of
+                    © 2004 - 2021. «Национальная ассоциация электронных СМИ Узбекистан.
                     <br/>
-                    Uzbekistan" All rights reserved.
+                    Все права защищены.
                 </div>
             </div>
             <div
