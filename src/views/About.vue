@@ -1,30 +1,20 @@
 <template>
     <div>
         <div class="banner">
-            <div
-                    style="
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-image: linear-gradient(#000, transparent);
-          z-index: 0;
-        "
-            ></div>
+            <div style="position: absolute;top: 0;left: 0;width: 100%;height: 100%; background-image: linear-gradient(#000, transparent); z-index: 0;"></div>
             <div class="banner_header" >
                 О НАЭСМИ
             </div>
         </div>
-        <br/>
-        <br/>
-        <br/>
-        <div style="display: flex; justify-content: center">
+
+        <div style="display: flex; justify-content: center; ">
             <div style="
           max-width: 1200px;
           width: 100%;
           display: flex;
           justify-content: flex-start;
+          margin-top: 70px;
+          margin-bottom: 50px;
         ">
         <span style="font-size: 18px; text-align: start; line-height: 30px; padding: 0 20px"><br>
           <span style="font-weight: bold; font-size: 32px;">Кто мы ?</span> <br><br>
@@ -121,10 +111,8 @@
           которыми мы сейчас стоим на пороге сотрудничества.</span
         >
             </div>
+
         </div>
-        <br/>
-        <br/>
-        <br/>
     </div>
 </template>
 
@@ -155,9 +143,11 @@
         position: relative;
     }
 
+
     @media screen and (max-width:768px) {
         .banner_header{
             font-size: 30px;
         }
     }
+
 </style>
