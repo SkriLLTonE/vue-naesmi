@@ -123,12 +123,12 @@
               ></div>
               <img
                 class="carousel-item-img"
-                :src="item.backdrop"
+                :src="item.image"
                 :alt="item.title"
               />
               <div class="carousel-meta">
                 <transition name="sliderleft2" appear>
-                  <div class="carousel-headline">{{ item.headline }}</div>
+                  <div class="carousel-headline">{{ item.category.name }}</div>
                 </transition>
                 <transition name="sliderleft2" appear>
                   <div class="carousel-meta-title">{{ item.title }}</div>
@@ -161,7 +161,7 @@
               padding-top: 30px;
             "
           >
-            <transition-group name="fadebottom" appear>
+            <!-- <transition-group name="fadebottom" appear>
               <div
                 class="read-also-rec"
                 v-for="(rec, index) in lastNews[active_rec_index].readAlso"
@@ -169,7 +169,7 @@
                 v-show="showRec"
               >
                 <img
-                  :src="rec.backdrop"
+                  :src="rec.image"
                   :alt="rec.title"
                   style="
                     width: 60px;
@@ -182,7 +182,7 @@
                   {{ rec.title }}
                 </div>
               </div>
-            </transition-group>
+            </transition-group> -->
           </div>
         </div>
         <div
@@ -253,8 +253,10 @@
             font-family: 'Times New Roman', Times, serif;
           "
         >
-          <span style="font-size: 36px; font-weight: bold">Trending</span>
-          <span style="font-size: 20px; color: gray">Hashtags</span>
+          <span style="font-size: 36px; font-weight: bold; line-height: 1.5em"
+            >Партнёры</span
+          >
+          <span style="font-size: 20px; color: gray">НАЭСМИ</span>
         </div>
       </div>
       <div
@@ -279,16 +281,22 @@
           "
         >
           <transition-group name="fade" appear>
-            <div v-for="(brand, index) in organizations" :key="index">
+            <a
+              :href="brand.url"
+              rel="noopener noreferrer"
+              target="_blank"
+              v-for="(brand, index) in organizations"
+              :key="index"
+            >
               <div class="brand-wrapper">
                 <div class="brand-wrapper-grayscale"></div>
                 <img
                   style="width: 100%; height: 100%; object-fit: scale-down"
-                  :src="brand.img"
+                  :src="brand.image"
                   :alt="brand.name"
                 />
               </div>
-            </div>
+            </a>
           </transition-group>
         </div>
         <transition name="fade">
@@ -852,7 +860,6 @@
 </template>
 
 <script>
-
 export default {
   name: "Home",
   data() {
@@ -869,126 +876,97 @@ export default {
       isMobile: false,
       isTablet: false,
       isDesktop: true,
-      organizations: [
-        {
-          name: "Kamolot",
-          img:
-            "https://www.gazeta.uz/media/img/2013/01/8CjGwf13587025540229_m.jpg",
-        },
-        {
-          name: "OzYosh",
-          img: "https://yoshlarittifoqi.uz/assets/public/images/logo_uz.png",
-        },
-        {
-          name: "Legacy",
-          img:
-            "http://stv.uz/uploads/posts/2018-06/1527835094_anrje7en6ladsfyotlgq-3pcde_cbeze.png",
-        },
-        {
-          name: "Journalist",
-          img:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFxCaK11bM5BXQINBds8eB2f-GGGHuFBq1xA&usqp=CAU",
-        },
-        {
-          name: "Nimfogo",
-          img: "http://www.fjrm.uz/local/templates/main/i/logo.png",
-        },
-        {
-          name: "Fundngouz",
-          img:
-            "https://parliament.gov.uz/upload/resize_cache/iblock/164/577_354_1/3kpcOH2YuOLzG7CLJ5bZ2qgibTQ8R4gY.jpg",
-        },
-      ],
+      organizations: [],
       topStories: [],
       lastNews: [
-        {
-          title:
-            "The country may have found $2 billion to extend Metritrail. But there's a catch",
-          backdrop:
-            "https://mediacdn.acciona.com/media/0gbk5wai/acciona-metro-quito.jpg",
-          headline: "South Florida",
-          readAlso: [
-            {
-              title:
-                "Cras convallis nostra, iaculis ipsam aut veritatis consequuntur, ante, inventore.",
-              backdrop:
-                "https://cdn1.img.sputniknews-uz.com/images/07e4/09/0e/14970398.jpg",
-              headline: "South Florida",
-            },
-            {
-              title: "Orci ac atque! Nostrum, tempor eligendi nonummy montes.",
-              backdrop:
-                "https://ichef.bbci.co.uk/news/1024/cpsprodpb/1418C/production/_107461328_index.jpg",
-              headline: "South Florida",
-            },
-          ],
-        },
-        {
-          title:
-            "Turpis, ligula scelerisque voluptatem integer consectetur orci tenetur alias incididunt.",
-          backdrop:
-            "https://jaxenter.com/wp-content/uploads/2019/12/shutterstock_437705467.jpg",
-          headline: "South Florida",
-          readAlso: [
-            {
-              title:
-                "Cras convallis nostra, iaculis ipsam aut veritatis consequuntur, ante, inventore.",
-              backdrop:
-                "https://a9p9n2x2.stackpathcdn.com/wp-content/blogs.dir/1/files/2020/03/BuyGun-2621.jpg",
-              headline: "Tashkent",
-            },
-            {
-              title: "Orci ac atque! Nostrum, tempor eligendi nonummy montes.",
-              backdrop:
-                "https://images.theconversation.com/files/350234/original/file-20200729-31-3i8ett.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop",
-              headline: "South Florida",
-            },
-          ],
-        },
-        {
-          title:
-            "Quibusdam. In aliquid irure quaerat, dicta pretium architecto! Diamlorem sequi laoreet magna augue.",
-          backdrop:
-            "http://www.bu.edu/files/2018/12/social-iStock-588258692.jpg",
-          headline: "South Florida",
-          readAlso: [
-            {
-              title:
-                "Cras convallis nostra, iaculis ipsam aut veritatis consequuntur, ante, inventore.",
-              backdrop:
-                "https://images-na.ssl-images-amazon.com/images/I/61RTtsq2YzL._AC_SL1200_.jpg",
-              headline: "Tashkent",
-            },
-            {
-              title: "Orci ac atque! Nostrum, tempor eligendi nonummy montes.",
-              backdrop:
-                "https://images.theconversation.com/files/350234/original/file-20200729-31-3i8ett.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop",
-              headline: "South Florida",
-            },
-          ],
-        },
-        {
-          title:
-            "Quibusdam. In aliquid irure quaerat, dicta pretium architecto! Diamlorem sequi laoreet magna augue.",
-          backdrop:
-            "http://www.bu.edu/files/2018/12/social-iStock-588258692.jpg",
-          headline: "South Florida",
-          readAlso: [
-            {
-              title:
-                "Cras convallis nostra, iaculis ipsam aut veritatis consequuntur, ante, inventore.",
-              backdrop:
-                "https://a9p9n2x2.stackpathcdn.com/wp-content/blogs.dir/1/files/2020/03/BuyGun-2621.jpg",
-              headline: "Tashkent",
-            },
-            {
-              title: "Orci ac atque! Nostrum, tempor eligendi nonummy montes.",
-              backdrop:
-                "https://images.theconversation.com/files/350234/original/file-20200729-31-3i8ett.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop",
-              headline: "South Florida",
-            },
-          ],
-        },
+        // {
+        //   title:
+        //     "The country may have found $2 billion to extend Metritrail. But there's a catch",
+        //   backdrop:
+        //     "https://mediacdn.acciona.com/media/0gbk5wai/acciona-metro-quito.jpg",
+        //   headline: "South Florida",
+        //   readAlso: [
+        //     {
+        //       title:
+        //         "Cras convallis nostra, iaculis ipsam aut veritatis consequuntur, ante, inventore.",
+        //       backdrop:
+        //         "https://cdn1.img.sputniknews-uz.com/images/07e4/09/0e/14970398.jpg",
+        //       headline: "South Florida",
+        //     },
+        //     {
+        //       title: "Orci ac atque! Nostrum, tempor eligendi nonummy montes.",
+        //       backdrop:
+        //         "https://ichef.bbci.co.uk/news/1024/cpsprodpb/1418C/production/_107461328_index.jpg",
+        //       headline: "South Florida",
+        //     },
+        //   ],
+        // },
+        // {
+        //   title:
+        //     "Turpis, ligula scelerisque voluptatem integer consectetur orci tenetur alias incididunt.",
+        //   backdrop:
+        //     "https://jaxenter.com/wp-content/uploads/2019/12/shutterstock_437705467.jpg",
+        //   headline: "South Florida",
+        //   readAlso: [
+        //     {
+        //       title:
+        //         "Cras convallis nostra, iaculis ipsam aut veritatis consequuntur, ante, inventore.",
+        //       backdrop:
+        //         "https://a9p9n2x2.stackpathcdn.com/wp-content/blogs.dir/1/files/2020/03/BuyGun-2621.jpg",
+        //       headline: "Tashkent",
+        //     },
+        //     {
+        //       title: "Orci ac atque! Nostrum, tempor eligendi nonummy montes.",
+        //       backdrop:
+        //         "https://images.theconversation.com/files/350234/original/file-20200729-31-3i8ett.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop",
+        //       headline: "South Florida",
+        //     },
+        //   ],
+        // },
+        // {
+        //   title:
+        //     "Quibusdam. In aliquid irure quaerat, dicta pretium architecto! Diamlorem sequi laoreet magna augue.",
+        //   backdrop:
+        //     "http://www.bu.edu/files/2018/12/social-iStock-588258692.jpg",
+        //   headline: "South Florida",
+        //   readAlso: [
+        //     {
+        //       title:
+        //         "Cras convallis nostra, iaculis ipsam aut veritatis consequuntur, ante, inventore.",
+        //       backdrop:
+        //         "https://images-na.ssl-images-amazon.com/images/I/61RTtsq2YzL._AC_SL1200_.jpg",
+        //       headline: "Tashkent",
+        //     },
+        //     {
+        //       title: "Orci ac atque! Nostrum, tempor eligendi nonummy montes.",
+        //       backdrop:
+        //         "https://images.theconversation.com/files/350234/original/file-20200729-31-3i8ett.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop",
+        //       headline: "South Florida",
+        //     },
+        //   ],
+        // },
+        // {
+        //   title:
+        //     "Quibusdam. In aliquid irure quaerat, dicta pretium architecto! Diamlorem sequi laoreet magna augue.",
+        //   backdrop:
+        //     "http://www.bu.edu/files/2018/12/social-iStock-588258692.jpg",
+        //   headline: "South Florida",
+        //   readAlso: [
+        //     {
+        //       title:
+        //         "Cras convallis nostra, iaculis ipsam aut veritatis consequuntur, ante, inventore.",
+        //       backdrop:
+        //         "https://a9p9n2x2.stackpathcdn.com/wp-content/blogs.dir/1/files/2020/03/BuyGun-2621.jpg",
+        //       headline: "Tashkent",
+        //     },
+        //     {
+        //       title: "Orci ac atque! Nostrum, tempor eligendi nonummy montes.",
+        //       backdrop:
+        //         "https://images.theconversation.com/files/350234/original/file-20200729-31-3i8ett.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop",
+        //       headline: "South Florida",
+        //     },
+        //   ],
+        // },
       ],
     };
   },
@@ -999,11 +977,12 @@ export default {
     window.removeEventListener("resize", this.checkResponsive);
   },
   mounted: function () {
-    this.checkResponsive()
-    this.$refs.gradient_bar.style.width = `${this.$refs.main_carousel.childNodes[1].children[0].children[0].offsetWidth}px`;
+    this.checkResponsive();
+    this.getNews()
+    this.getPartners();
+    // this.$refs.gradient_bar.style.width = `${this.$refs.main_carousel.childNodes[1].children[0].children[0].offsetWidth}px`;
     this.fetchData();
     // this.brandsCarouselHendler();
-    this.handleBrandsScrollIndicator();
     if (this.main_carousel_timer) clearTimeout(this.main_carousel_timer);
     this.main_carousel_timer = setTimeout(() => {
       this.handleScroll(1);
@@ -1041,6 +1020,35 @@ export default {
 
       this.showBrandControls.right =
         this.$refs.brand_scroll.scrollLeft < this.maxScrollLeft;
+      console.log(this.$refs.brand_carousel.offsetWidth);
+    },
+    getPartners() {
+      fetch("http://127.0.0.1:8000/partners/")
+        .then((res) => {
+          return res.json();
+        })
+        .then((json) => {
+          this.organizations = json["results"];
+
+          this.$nextTick(function () {
+            this.handleBrandsScrollIndicator();
+          });
+        });
+    },
+    getNews() {
+      fetch("http://127.0.0.1:8000/news/?ordering=-pub_date&limit=7")
+        .then((res) => {
+          return res.json();
+        })
+        .then((json) => {
+          this.lastNews = json["results"];
+          console.log(json["results"])
+
+          this.$nextTick(function () {
+            this.$refs.gradient_bar.style.width = `${this.$refs.main_carousel.childNodes[1].children[0].children[0].offsetWidth}px`;
+            
+          });
+        });
     },
     // brandsCarouselHendler() {
     //   // console.log(this.$refs.brand_carousel.offsetWidth)
