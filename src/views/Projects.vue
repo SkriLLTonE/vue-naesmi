@@ -2,40 +2,18 @@
   <div>
     <div style="display: flex; justify-content: center">
       <div style="max-width: 1200px; width: 100%; position: relative">
-        <div
-          v-for="(project, index) in projects"
-          :key="index"
-          style="
-            display: flex;
-            width: 100%;
-            margin-top: 60px;
-            justify-content: space-around;
-          "
-        >
+        <div class="project_cont"
+          v-for="(project, index) in projects" :key="index">
           <transition name="sliderleft" appear>
             <div>
-              <div
-                style="
-                  width: 300px;
-                  height: 450px;
-                  position: relative;
-                  margin-right: 40px;
-                "
-              >
-                <img
-                  class="project-image"
-                  :src="project.img"
-                  :alt="project.name"
-                />
+              <div style=" width: 300px; height: 450px;position: relative; ">
+                <img class="project-image" :src="project.img" :alt="project.name"/>
                 <div class="project-date">
-                  <div
-                    style="
+                  <div style="
                       font-size: 50px;
                       font-family: 'Times New Roman', Times, serif;
                       color: #4493ff;
-                      font-weight: bold;
-                    "
-                  >
+                      font-weight: bold;">
                     2021
                   </div>
                   <div
@@ -51,7 +29,7 @@
               </div>
             </div>
           </transition>
-          <div style="text-align: start">
+          <div class="project_full_disc" >
             <transition name="topper" appear>
               <div
                 style="
@@ -66,7 +44,7 @@
               </div>
             </transition>
             <transition name="sliderleft2" appear>
-              <div style="font-size: 18px; line-height: 1.6em; color: gray">
+              <div class="project_disc">
                 <span v-html="project.description"></span>
               </div>
             </transition>
@@ -153,7 +131,7 @@ export default {
   height: 100%;
   object-fit: cover;
   border-radius: 4px;
-  background-color: lightgray;
+  padding-left: 20px;
 }
 
 .project-date {
@@ -164,6 +142,7 @@ export default {
   text-align: start;
   padding-bottom: 16px;
   padding-right: 40px;
+  margin-left: 15px;
 }
 
 .button-container {
@@ -179,4 +158,40 @@ export default {
   background-color: #4493ff;
   color: white;
 }
+.project_cont{
+  display: flex;
+  width: 100%;
+  margin-top: 60px;
+  justify-content: space-around;
+}
+.project_disc{
+  font-size: 18px;
+  line-height: 1.6em;
+  color: gray;
+}
+.project_full_disc{
+  text-align: start;
+  padding: 0 65px;
+}
+  @media screen and (max-width: 768px) {
+    .project_cont{
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .project_full_disc{
+      padding: 0 15px;
+    }
+    .project_disc{
+      font-size: 15px;
+      line-height: 1.6em;
+      color: gray;
+    }
+    .project-image{
+      padding: 0;
+    }
+    .project-date{
+      margin: 0;
+    }
+  }
 </style>

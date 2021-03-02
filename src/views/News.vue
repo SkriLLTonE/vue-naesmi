@@ -1,11 +1,11 @@
 <template>
   <div style="width: 100%; display: flex; justify-content: center">
+
     <div style="width: 100%; max-width: 1200px">
       <br />
       <br />
       <br />
-      <div
-        style="
+      <div style="
           font-size: 40px;
           text-align: start;
           position: relative;
@@ -14,21 +14,13 @@
           height: 60px;
           display: flex;
           align-items: center;
-        "
-      >
+        ">
       <div style="position: absolute; height: 100%; width: 50px;top: 0; left: 0; background-color: rgba(68, 147, 255, 0.6);"></div>
         <div style="position: relative;">Новости</div>
       </div>
       <div class="main-card-wrapper">
         <div>
-          <div
-            style="
-              width: 610px;
-              height: 330px;
-              overflow: hidden;
-              border-radius: 6px;
-            "
-          >
+          <div class="main-news-img">
             <img
               src="https://www.uzdaily.uz/storage/img/september2020/3c54fa25-10bc-38ff-a068-234ab71c8389.jpg"
               class="main-card-wrapper-img"
@@ -36,7 +28,7 @@
           </div>
         </div>
         <div class="main-card">
-          <div style="margin: 20px 0 0 20px; text-align: start">
+          <div class="card_st">
             <div
               class="main-card-meta"
               style="font-size: 14px; padding: 0 0 0 10px"
@@ -60,8 +52,7 @@
               The Latest: Officer in Canada prime minister motorcade hurt
             </div>
             <div
-              class="main-card-meta"
-              style="
+              class="main-card-meta" style="
                 font-size: 14px;
                 padding: 14px 0 0 10px;
                 line-height: 2em;
@@ -70,8 +61,7 @@
                 display: -webkit-box;
                 -webkit-line-clamp: 3;
                 -webkit-box-orient: vertical;
-              "
-            >
+              ">
               Nulla animi aperiam mattis. Malesuada. Architecto. Mauris quod
               montes ipsam! Esse vitae, adipisicing fugiat molestiae
               accusantium, rerum, conubia laboriosam volutpat sit, nostra eum
@@ -155,40 +145,32 @@
                 {{ item.time }}
               </div>
             </div>
-
-            <!-- <div
-              style="display: flex; align-items: center; padding: 16px 0 0 10px"
-            >
-              <img
-                style="
-                  height: 34px;
-                  width: 34px;
-                  object-fit: cover;
-                  border-radius: 50%;
-                "
-                src="https://dyl80ryjxr1ke.cloudfront.net/external_assets/hero_examples/hair_beach_v1785392215/original.jpeg"
-                alt=""
-              />
-              <div style="font-weight: bold; font-size: 14px; padding: 0 12px">
-                Ben The Journalist
-              </div>
-              <div
-                style="
-                  width: 4px;
-                  height: 4px;
-                  background-color: black;
-                  border-radius: 50%;
-                "
-              ></div>
-              <div style="font-weight: bold; font-size: 14px; padding: 0 12px">
-                Jan 5
-              </div>
-            </div> -->
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <div class="pagination">
+      <div class="pagination-list">
+        <a href="#">
+          <i class="fas fa-chevron-left">
+          </i>
+        </a>
+        <a href="#">1</a>
+        <a href="#" class="active">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#">6</a>
+        <a href="#">
+          <i class="fas fa-chevron-right">
+
+          </i>
+        </a>
+      </div>
+    </div>
+
 </template>
 
 <script>
@@ -283,6 +265,12 @@ export default {
 </script>
 
 <style scoped>
+  .main-news-img{
+    width: 610px;
+    height: 330px;
+    overflow: hidden;
+    border-radius: 6px;
+  }
 .main-card-wrapper {
   display: flex;
   height: 330px;
@@ -383,4 +371,110 @@ export default {
   transition: all 0.6s ease;
   transform: translateY(-20px) translateX(-20px);
 }
+  .card_st{
+    margin: 20px 0 0 20px; text-align: start
+  }
+
+  .pagination-list{
+    display: flex;
+    justify-content: center;
+    padding: 0 5px;
+  }
+
+  .pagination a {
+    color: black;
+    float: left;
+    padding: 8px 10px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border-radius: 50%;
+    margin: 0 5px;
+  }
+
+  .pagination a:hover {
+    background-color: #2d66b3;
+    color: white;
+
+  }
+
+.active{
+  background-color: #2d66b3;
+
+}
+  .active{
+    color: white!important;
+  }
+
+  @media screen and (max-width: 1200px){
+    .main-news-img{
+      width: 500px;
+    }
+    .main-card-wrapper {
+      padding: 0 30px;
+    }
+    .main-card-wrapper-img{
+      width: 500px;
+    }
+    .main-card{
+    width: 600px;
+    }
+  }
+
+  @media screen and (max-width: 991px){
+    .main-news-img{
+      width: 400px;
+
+    }
+    .main-card-wrapper {
+      padding: 0 30px;
+    }
+    .main-card-wrapper-img{
+      width: 400px;
+    }
+  }
+  @media screen and (max-width: 768px){
+    .main-card{
+      padding: 40px;
+      transform: translate(0px, 20px);
+    }
+    .main-card-wrapper{
+      align-items: center;
+      justify-content: center;
+     flex-direction: column;
+      height: auto;
+    }
+
+    .main-card-wrapper:hover .main-card {
+      transform: translate(0, -36px);
+      color: white !important;
+      background-color: #2d66b3;
+    }
+
+    .main-card-wrapper:hover .main-card-meta {
+      color: white !important;
+    }
+
+  }
+  @media screen and (max-width: 576px){
+    .main-news-img{
+      width: 400px;
+
+    }
+    .main-card-wrapper {
+      padding: 0 30px;
+    }
+    .main-card-wrapper-img{
+      width: 400px;
+    }
+    .main-card{
+      width: 360px;
+      padding: 33px;
+    }
+  }
+  @media screen and (max-width: 360px){
+    .main-card{
+      width: 320px;
+      padding: 15px;
+    }
+  }
 </style>

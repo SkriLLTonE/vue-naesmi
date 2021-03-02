@@ -16,19 +16,15 @@
                 О НАЭСМИ
             </div>
         </div>
-        <br/>
-        <br/>
-        <br/>
 
-        <div style="display: flex; justify-content: space-between">
-            <div class="bg_right">
-
-            </div>
+        <div style="display: flex; justify-content: center; ">
             <div style="
           max-width: 1200px;
           width: 100%;
           display: flex;
           justify-content: flex-start;
+          margin-top: 70px;
+          margin-bottom: 50px;
         ">
         <span style="font-size: 18px; text-align: start; line-height: 30px; padding: 0 20px"><br>
           <span style="font-weight: bold; font-size: 32px;">Кто мы ?</span> <br><br>
@@ -125,9 +121,7 @@
           которыми мы сейчас стоим на пороге сотрудничества.</span
         >
             </div>
-            <div class="bg_left">
 
-        </div>
         </div>
     </div>
 </template>
@@ -158,28 +152,12 @@
         color: white;
         position: relative;
     }
-    .bg_right{
-        background: url("../assets/bg.png") repeat-y;
-        background-size: contain;
-        width: 250px;
-       }
-    .bg_left{
-        background: url("../assets/bg.png") repeat-y;
-        background-size: contain;
-        width: 250px;
-    }
+
 
     @media screen and (max-width:768px) {
         .banner_header{
             font-size: 30px;
         }
     }
-    @media screen and (max-width:1200px){
-        .bg_right{
-            display: none;
-        }
-        .bg_left{
-            display: none;
-        }
-    }
+
 </style>
