@@ -1,20 +1,33 @@
 <template>
   <div>
     <div style="display: flex; justify-content: center">
-      <div style="max-width: 1200px; width: 100%; position: relative">
-        <div class="project_cont"
-          v-for="(project, index) in projects" :key="index">
+      <div
+        style="max-width: 1200px; width: 100%; position: relative"
+        ref="main_list"
+      >
+        <div
+          class="project_cont"
+          v-for="(project, index) in projects"
+          :key="index"
+        >
           <transition name="sliderleft" appear>
-            <div>
-              <div style=" width: 300px; height: 450px;position: relative; ">
-                <img class="project-image" :src="project.img" :alt="project.name"/>
+            <div data-aos="fade-up">
+              <div style="width: 300px; height: 450px; position: relative">
+                <img
+                  class="project-image"
+                  :src="project.image"
+                  :alt="project.name"
+                />
                 <div class="project-date">
-                  <div style="
+                  <div
+                    style="
                       font-size: 50px;
                       font-family: 'Times New Roman', Times, serif;
                       color: #4493ff;
-                      font-weight: bold;">
-                    2021
+                      font-weight: bold;
+                    "
+                  >
+                    {{ new Date(project.date).getFullYear() }}
                   </div>
                   <div
                     style="
@@ -23,13 +36,13 @@
                       text-transform: lowercase;
                     "
                   >
-                    апрель
+                    {{ months[new Date(project.date).getMonth()] }}
                   </div>
                 </div>
               </div>
             </div>
           </transition>
-          <div class="project_full_disc" >
+          <div class="project_full_disc">
             <transition name="topper" appear>
               <div
                 style="
@@ -40,7 +53,7 @@
                   font-family: 'Times New Roman', Times, serif;
                 "
               >
-                {{ project.name }}
+                {{ project.id }}
               </div>
             </transition>
             <transition name="sliderleft2" appear>
@@ -51,9 +64,14 @@
             <br />
             <br />
             <transition name="fade" appear>
-              <a v-if="project.url" :href="project.url" rel="noopener noreferrer" target="_blank">
+              <a
+                v-if="project.url"
+                :href="project.url"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
                 <button class="button-container">
-                  <div style="font-weight: bold">More</div>
+                  <div style="font-weight: bold">Подробнее</div>
                 </button></a
               >
             </transition>
@@ -62,62 +80,87 @@
       </div>
     </div>
   </div>
+  <br />
+  <br />
 </template>
 
 <script>
 export default {
+  name: "Projects",
+  created() {
+    window.addEventListener("scroll", this.checkScroll);
+    this.getProjects();
+  },
+  unmounted() {
+    window.removeEventListener("scroll", this.checkScroll);
+    clearTimeout(this.fetchTimeout);
+  },
+  methods: {
+    getProjects() {
+      fetch(
+        `http://127.0.0.1:8000/projects/?ordering=-pub_date&limit=2&offset=${this.offset*2}`
+      )
+        .then((res) => {
+          return res.json();
+        })
+        .then((json) => {
+          if (json.count.length <= this.projects.length) {
+            window.removeEventListener("scroll", this.checkScroll);
+            if (this.fetchTimeout) clearTimeout(this.fetchTimeout);
+          }
+          if (this.offset === 0) {
+            this.projects = (json["results"]);
+          } else {
+            this.projects = this.projects.concat(json["results"]);
+          }
+          this.offset++;
+          console.log("me")
+          console.log(json)
+          console.log(this.offset)
+        });
+    },
+    checkScroll() {
+      this.diff =
+        document.documentElement.scrollTop + window.innerHeight >=
+        this.$refs.main_list.offsetHeight;
+
+      if (this.fetchTimeout) clearTimeout(this.fetchTimeout);
+      this.fetchTimeout = setTimeout(() => {
+          this.getProjects();
+      }, 200);
+    },
+    unmounted() {
+      clearTimeout(this.fetchTimeout);
+    },
+  },
   data() {
     return {
+      offset: 0,
+      busy: false,
+      diff: true,
+      months: [
+        "Янв",
+        "Фев",
+        "Мар",
+        "Апр",
+        "Май",
+        "Июн",
+        "Июл",
+        "Авг",
+        "Сен",
+        "Окт",
+        "Ноя",
+        "Дек",
+      ],
       projects: [
         {
-          year: 2021,
-          month: "Апрель",
-          name: "Legacy",
-          img:
-            "https://cfsjets.com/wp-content/uploads/2018/10/Legacy-650-14.jpg",
-          description:
-            "<p>Montes eligendi tellus conubia fames! Nobis tempus taciti nihil condimentum ullam. Id, vulputate excepturi, accumsan lorem? Praesentium in? Praesent sapien.</p><p>Sociosqu. Explicabo eius porttitor cupidatat consectetur, lacus vestibulum numquam optio faucibus quasi gravida sociis sollicitudin et, quisque cum, pellentesque scelerisque.</p>",
-          url: "https://example.com",
-        },
-        {
-          year: 2021,
-          month: "Апрель",
-          name: "Legacy",
-          img:
-            "https://cfsjets.com/wp-content/uploads/2018/10/Legacy-650-14.jpg",
-          description:
-            "<p>Montes eligendi tellus conubia fames! Nobis tempus taciti nihil condimentum ullam. Id, vulputate excepturi, accumsan lorem? Praesentium in? Praesent sapien.</p><p>Sociosqu. Explicabo eius porttitor cupidatat consectetur, lacus vestibulum numquam optio faucibus quasi gravida sociis sollicitudin et, quisque cum, pellentesque scelerisque.</p>",
-          url: "https://example.com",
-        },
-        {
-          year: 2021,
-          month: "Апрель",
-          name: "Legacy",
-          img:
-            "https://cfsjets.com/wp-content/uploads/2018/10/Legacy-650-14.jpg",
-          description:
-            "<p>Montes eligendi tellus conubia fames! Nobis tempus taciti nihil condimentum ullam. Id, vulputate excepturi, accumsan lorem? Praesentium in? Praesent sapien.</p><p>Sociosqu. Explicabo eius porttitor cupidatat consectetur, lacus vestibulum numquam optio faucibus quasi gravida sociis sollicitudin et, quisque cum, pellentesque scelerisque.</p>",
-          url: "",
-        },
-        {
-          year: 2021,
-          month: "Апрель",
-          name: "Legacy",
-          img:
-            "https://cfsjets.com/wp-content/uploads/2018/10/Legacy-650-14.jpg",
-          description:
-            "<p>Montes eligendi tellus conubia fames! Nobis tempus taciti nihil condimentum ullam. Id, vulputate excepturi, accumsan lorem? Praesentium in? Praesent sapien.</p><p>Sociosqu. Explicabo eius porttitor cupidatat consectetur, lacus vestibulum numquam optio faucibus quasi gravida sociis sollicitudin et, quisque cum, pellentesque scelerisque.</p>",
-          url: "https://example.com",
-        },
-        {
-          year: 2021,
-          month: "Апрель",
-          name: "Legacy",
-          img:
-            "https://cfsjets.com/wp-content/uploads/2018/10/Legacy-650-14.jpg",
-          description:
-            "<p>Montes eligendi tellus conubia fames! Nobis tempus taciti nihil condimentum ullam. Id, vulputate excepturi, accumsan lorem? Praesentium in? Praesent sapien.</p><p>Sociosqu. Explicabo eius porttitor cupidatat consectetur, lacus vestibulum numquam optio faucibus quasi gravida sociis sollicitudin et, quisque cum, pellentesque scelerisque.</p>",
-          url: "https://example.com",
+          id: 1,
+          name: "",
+          description: "",
+          image: "",
+          url: null,
+          date: "",
+          last_change: "",
         },
       ],
     };
@@ -158,40 +201,40 @@ export default {
   background-color: #4493ff;
   color: white;
 }
-.project_cont{
+.project_cont {
   display: flex;
   width: 100%;
   margin-top: 60px;
   justify-content: space-around;
 }
-.project_disc{
+.project_disc {
   font-size: 18px;
   line-height: 1.6em;
   color: gray;
 }
-.project_full_disc{
+.project_full_disc {
   text-align: start;
   padding: 0 65px;
 }
-  @media screen and (max-width: 768px) {
-    .project_cont{
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-    .project_full_disc{
-      padding: 0 15px;
-    }
-    .project_disc{
-      font-size: 15px;
-      line-height: 1.6em;
-      color: gray;
-    }
-    .project-image{
-      padding: 0;
-    }
-    .project-date{
-      margin: 0;
-    }
+@media screen and (max-width: 768px) {
+  .project_cont {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
+  .project_full_disc {
+    padding: 0 15px;
+  }
+  .project_disc {
+    font-size: 15px;
+    line-height: 1.6em;
+    color: gray;
+  }
+  .project-image {
+    padding: 0;
+  }
+  .project-date {
+    margin: 0;
+  }
+}
 </style>
