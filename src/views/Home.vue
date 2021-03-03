@@ -102,7 +102,7 @@
       </div>
 
       <div class="middle-block">
-        <div class="carousel" ref="main_carousel">
+        <div class="carousel" ref="main_carousel" v-if="lastNews">
           <div
             v-for="(item, index) in lastNews"
             :key="index"
@@ -161,15 +161,19 @@
               padding-top: 30px;
             "
           >
-            <!-- <transition-group name="fadebottom" appear>
+            <transition-group
+              name="fadebottom"
+              appear
+              v-if="lastNews[active_rec_index]"
+            >
               <div
                 class="read-also-rec"
-                v-for="(rec, index) in lastNews[active_rec_index].readAlso"
+                v-for="(rec, index) in lastNews[active_rec_index].read_also"
                 :key="index"
                 v-show="showRec"
               >
                 <img
-                  :src="rec.image"
+                  :src="'http://127.0.0.1:8000' + rec.image"
                   :alt="rec.title"
                   style="
                     width: 60px;
@@ -182,7 +186,7 @@
                   {{ rec.title }}
                 </div>
               </div>
-            </transition-group> -->
+            </transition-group>
           </div>
         </div>
         <div
@@ -285,7 +289,7 @@
               :href="brand.url"
               rel="noopener noreferrer"
               target="_blank"
-              v-for="(brand, index) in organizations"
+              v-for="(brand, index) in partners"
               :key="index"
             >
               <div class="brand-wrapper">
@@ -369,11 +373,13 @@
               font-family: 'Times New Roman', Times, serif;
             "
           >
-            Stories for you, dad
+            Главные новости
           </div>
           <div style="display: flex; align-items: center; position: relative">
-            <div class="tab-btn active">Latest News</div>
-            <div class="tab-btn">Featured</div>
+            <div @click="routerHandler('/news')">
+              <div class="tab-btn active">Все новости</div>
+            </div>
+            <!-- <div class="tab-btn">Featured</div> -->
             <div class="tab-btn-indicator"></div>
           </div>
         </div>
@@ -389,7 +395,8 @@
               "
             >
               <img
-                src="https://www.uzdaily.uz/storage/img/september2020/3c54fa25-10bc-38ff-a068-234ab71c8389.jpg"
+                :src="otherNewsFirst.image"
+                :alt="otherNewsFirst.title"
                 class="main-card-wrapper-img"
               />
             </div>
@@ -400,7 +407,7 @@
                 class="main-card-meta"
                 style="font-size: 14px; padding: 0 0 0 10px"
               >
-                INTERNATIONAL
+                {{ otherNewsFirst.category.name }}
               </div>
               <div
                 style="
@@ -416,9 +423,9 @@
                   -webkit-box-orient: vertical;
                 "
               >
-                The Latest: Officer in Canada prime minister motorcade hurt
+                {{ otherNewsFirst.title }}
               </div>
-              <div
+              <!-- <div
                 class="main-card-meta"
                 style="
                   font-size: 14px;
@@ -435,7 +442,7 @@
                 montes ipsam! Esse vitae, adipisicing fugiat molestiae
                 accusantium, rerum, conubia laboriosam volutpat sit, nostra eum
                 delectus? Platea! Sed. Diamlorem. Eros, primis, anim.
-              </div>
+              </div> -->
               <div
                 style="
                   display: flex;
@@ -443,7 +450,7 @@
                   padding: 16px 0 0 16px;
                 "
               >
-                <img
+                <!-- <img
                   style="
                     height: 34px;
                     width: 34px;
@@ -457,7 +464,7 @@
                   style="font-weight: bold; font-size: 14px; padding: 0 12px"
                 >
                   Ben The Journalist
-                </div>
+                </div> -->
                 <div
                   style="
                     width: 4px;
@@ -469,7 +476,8 @@
                 <div
                   style="font-weight: bold; font-size: 14px; padding: 0 12px"
                 >
-                  Jan 5
+                  {{ months[new Date(otherNewsFirst.pub_date).getMonth()] }}
+                  {{ new Date(otherNewsFirst.pub_date).getDate() }}
                 </div>
               </div>
             </div>
@@ -485,85 +493,24 @@
             justify-content: space-between;
           "
         >
-          <div class="single-card">
-            <img
-              class="single-card-img"
-              src="https://cdnb.artstation.com/p/assets/images/images/011/449/401/large/febri-ferdian-b-x177c.jpg?1529631793"
-            />
-            <div class="card-content">
-              <div
-                class="main-card-meta"
-                style="font-size: 14px; padding: 0 0 0 10px"
-              >
-                INTERNATIONAL
-              </div>
-
-              <div
-                style="
-                  font-size: 24px;
-                  padding: 0 0 0 10px;
-                  line-height: 1.4em;
-                  padding-top: 10px;
-                  font-weight: bold;
-                  overflow: hidden;
-                  height: 4em;
-                  display: -webkit-box;
-                  -webkit-line-clamp: 3;
-                  -webkit-box-orient: vertical;
-                "
-              >
-                The Latest: Officer in Canada prime minister motorcade hurt
-              </div>
-
-              <div
-                style="
-                  display: flex;
-                  align-items: center;
-                  padding: 16px 0 0 10px;
-                "
-              >
-                <img
-                  style="
-                    height: 34px;
-                    width: 34px;
-                    object-fit: cover;
-                    border-radius: 50%;
-                  "
-                  src="https://dyl80ryjxr1ke.cloudfront.net/external_assets/hero_examples/hair_beach_v1785392215/original.jpeg"
-                  alt=""
-                />
-                <div
-                  style="font-weight: bold; font-size: 14px; padding: 0 12px"
-                >
-                  Ben The Journalist
-                </div>
-                <div
-                  style="
-                    width: 4px;
-                    height: 4px;
-                    background-color: black;
-                    border-radius: 50%;
-                  "
-                ></div>
-                <div
-                  style="font-weight: bold; font-size: 14px; padding: 0 12px"
-                >
-                  Jan 5
-                </div>
-              </div>
+          <div
+            class="single-card"
+            v-for="(news, index) in otherNews"
+            :key="index"
+          >
+            <div>
+              <img
+                class="single-card-img"
+                :src="news.image"
+                :alt="news.title"
+              />
             </div>
-          </div>
-          <div class="single-card">
-            <img
-              class="single-card-img"
-              src="https://cdnb.artstation.com/p/assets/images/images/011/449/401/large/febri-ferdian-b-x177c.jpg?1529631793"
-            />
             <div class="card-content">
               <div
                 class="main-card-meta"
                 style="font-size: 14px; padding: 0 0 0 10px"
               >
-                INTERNATIONAL
+                {{ news.category.name }}
               </div>
 
               <div
@@ -580,7 +527,7 @@
                   -webkit-box-orient: vertical;
                 "
               >
-                The Latest: Officer in Canada prime minister motorcade hurt
+                {{ news.title }}
               </div>
 
               <div
@@ -590,7 +537,7 @@
                   padding: 16px 0 0 10px;
                 "
               >
-                <img
+                <!-- <img
                   style="
                     height: 34px;
                     width: 34px;
@@ -604,7 +551,7 @@
                   style="font-weight: bold; font-size: 14px; padding: 0 12px"
                 >
                   Ben The Journalist
-                </div>
+                </div> -->
                 <div
                   style="
                     width: 4px;
@@ -616,75 +563,8 @@
                 <div
                   style="font-weight: bold; font-size: 14px; padding: 0 12px"
                 >
-                  Jan 5
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="single-card">
-            <img
-              class="single-card-img"
-              src="https://cdnb.artstation.com/p/assets/images/images/011/449/401/large/febri-ferdian-b-x177c.jpg?1529631793"
-            />
-            <div class="card-content">
-              <div
-                class="main-card-meta"
-                style="font-size: 14px; padding: 0 0 0 10px"
-              >
-                INTERNATIONAL
-              </div>
-
-              <div
-                style="
-                  font-size: 24px;
-                  padding: 0 0 0 10px;
-                  line-height: 1.4em;
-                  padding-top: 10px;
-                  font-weight: bold;
-                  overflow: hidden;
-                  height: 4em;
-                  display: -webkit-box;
-                  -webkit-line-clamp: 3;
-                  -webkit-box-orient: vertical;
-                "
-              >
-                The Latest: Officer in Canada prime minister motorcade hurt
-              </div>
-
-              <div
-                style="
-                  display: flex;
-                  align-items: center;
-                  padding: 16px 0 0 10px;
-                "
-              >
-                <img
-                  style="
-                    height: 34px;
-                    width: 34px;
-                    object-fit: cover;
-                    border-radius: 50%;
-                  "
-                  src="https://dyl80ryjxr1ke.cloudfront.net/external_assets/hero_examples/hair_beach_v1785392215/original.jpeg"
-                  alt=""
-                />
-                <div
-                  style="font-weight: bold; font-size: 14px; padding: 0 12px"
-                >
-                  Ben The Journalist
-                </div>
-                <div
-                  style="
-                    width: 4px;
-                    height: 4px;
-                    background-color: black;
-                    border-radius: 50%;
-                  "
-                ></div>
-                <div
-                  style="font-weight: bold; font-size: 14px; padding: 0 12px"
-                >
-                  Jan 5
+                  {{ months[new Date(news.pub_date).getMonth()] }}
+                  {{ new Date(news.pub_date).getDate() }}
                 </div>
               </div>
             </div>
@@ -715,10 +595,10 @@
                 font-family: 'Times New Roman', Times, serif;
               "
             >
-              Latest Project
+              Поледний Проект
             </div>
             <div style="display: flex; align-items: center; position: relative">
-              <div class="tab-btn active">All Projects</div>
+              <div @click="routerHandler('/projects')" class="tab-btn active">Все проекты</div>
               <div class="tab-btn-indicator"></div>
             </div>
           </div>
@@ -741,8 +621,8 @@
               >
                 <img
                   class="project-image"
-                  src="https://uzreport.news/fotobank/image/942cdb94b25609a203d0185dc43aa601.jpeg"
-                  alt=""
+                  :src="lastProject.image"
+                  :alt="lastProject.name"
                 />
                 <div class="project-date">
                   <div
@@ -753,9 +633,11 @@
                       font-weight: bold;
                     "
                   >
-                    2021
+                    {{ new Date(lastProject.date).getFullYear() }}
                   </div>
-                  <div style="font-size: 22px; color: #000">апрель</div>
+                  <div style="font-size: 22px; color: #000">
+                    {{ months[new Date(lastProject.date).getMonth()] }}
+                  </div>
                 </div>
               </div>
             </div>
@@ -769,31 +651,23 @@
                   font-family: 'Times New Roman', Times, serif;
                 "
               >
-                Headliner
+                {{ lastProject.name }}
               </div>
               <div style="font-size: 18px; line-height: 1.6em; color: gray">
-                Eu occaecat lectus lectus quos similique voluptas dui rhoncus,
-                consequuntur morbi convallis ullamcorper pulvinar nam convallis
-                atque lacus? Temporibus anim, tenetur aliquid. Assumenda per
-                ratione laudantium anim reiciendis, exercitationem accumsan
-                posuere reiciendis erat urna provident doloremque donec urna
-                alias, porta habitasse magni! Reprehenderit quae omnis, vero
-                egestas taciti provident natus? Occaecat porta beatae
-                repellendus, magna, dictumst ad sociis placerat beatae. Maiores
-                minim incidunt quos. Ab suspendisse mollis? Dicta? Ullam
-                necessitatibus quasi beatae culpa pariatur dis iure donec,
-                tempore faucibus quod, eos lobortis aut faucibus. Adipisci?
-                Doloribus, torquent elementum eius auctor dictum officiis donec,
-                nibh! Lacinia sed, quisquam excepturi. Ultricies mollis luctus
-                congue! Aliquam perferendis do, netus quod fermentum! Conubia
-                lobortis, blandit lobortis montes accumsan magna? Eius vel est
-                hic! Mollit.
+                <span v-html="lastProject.description"></span>
               </div>
               <br />
               <br />
-              <button class="button-container">
-                <div style="font-weight: bold">More</div>
-              </button>
+              <a
+                v-if="lastProject.url"
+                :href="lastProject.url"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <button class="button-container">
+                  <div style="font-weight: bold">Подробнее</div>
+                </button></a
+              >
             </div>
           </div>
         </div>
@@ -823,12 +697,15 @@
                   font-family: 'Times New Roman', Times, serif;
                 "
               >
-                Top Stories
+                Организации
               </div>
 
-              <div
+              <a
+                :href="story.url"
+                rel="noopener noreferrer"
+                target="_blank"
                 class="right-card-wrapper"
-                v-for="(story, index) in topStories"
+                v-for="(story, index) in organs"
                 :key="index"
               >
                 <div>
@@ -842,15 +719,15 @@
                   >
                     <img
                       class="right-card-img"
-                      :src="story.url"
-                      :alt="story.title"
+                      :src="story.image"
+                      :alt="story.name"
                     />
                   </div>
                 </div>
                 <div class="right-card-meta">
-                  {{ story.title }}
+                  {{ story.name }}
                 </div>
-              </div>
+              </a>
             </div>
           </div>
         </div>
@@ -876,112 +753,167 @@ export default {
       isMobile: false,
       isTablet: false,
       isDesktop: true,
-      organizations: [],
-      topStories: [],
+      partners: [
+        {
+          id: 1,
+          name: "",
+          image: "",
+          url: null,
+          pub_date: "",
+          last_change: "",
+        },
+      ],
+      months: [
+        "Янв",
+        "Фев",
+        "Мар",
+        "Апр",
+        "Май",
+        "Июн",
+        "Июл",
+        "Авг",
+        "Сен",
+        "Окт",
+        "Ноя",
+        "Дек",
+      ],
+      organs: [
+        {
+          id: 1,
+          name: "",
+          image: "",
+          url: null,
+        },
+      ],
+      otherNews: [
+        {
+          id: 1,
+          category: {
+            id: 1,
+            name: "",
+          },
+          read_also: [
+            {
+              id: 7,
+              category: {
+                id: 1,
+                name: "",
+              },
+              title: "",
+              image: "",
+              pub_date: "2021-02-28T18:04:58+05:00",
+              last_change: "2021-02-28T18:06:25.838162+05:00",
+            },
+            {
+              id: 6,
+              category: {
+                id: 1,
+                name: "",
+              },
+              title: "",
+              image: "",
+              pub_date: "2021-02-28T18:04:25+05:00",
+              last_change: "2021-02-28T18:04:55.652744+05:00",
+            },
+          ],
+          title: "",
+          image: "",
+          pub_date: "2021-02-28T18:03:08+05:00",
+          last_change: "2021-02-28T18:03:29.295596+05:00",
+        },
+      ],
+      otherNewsFirst: {
+        id: 1,
+        category: {
+          id: 1,
+          name: "",
+        },
+        read_also: [
+          {
+            id: 7,
+            category: {
+              id: 1,
+              name: "",
+            },
+            title: "",
+            image: "",
+            pub_date: "2021-02-28T18:04:58+05:00",
+            last_change: "2021-02-28T18:06:25.838162+05:00",
+          },
+          {
+            id: 6,
+            category: {
+              id: 1,
+              name: "",
+            },
+            title: "",
+            image: "",
+            pub_date: "2021-02-28T18:04:25+05:00",
+            last_change: "2021-02-28T18:04:55.652744+05:00",
+          },
+        ],
+        title: "",
+        image: "",
+        pub_date: "2021-02-28T18:03:08+05:00",
+        last_change: "2021-02-28T18:03:29.295596+05:00",
+      },
+      lastProject: {
+        id: 1,
+        name: "",
+        description: "",
+        image: "",
+        url: null,
+        last_change: "",
+      },
       lastNews: [
-        // {
-        //   title:
-        //     "The country may have found $2 billion to extend Metritrail. But there's a catch",
-        //   backdrop:
-        //     "https://mediacdn.acciona.com/media/0gbk5wai/acciona-metro-quito.jpg",
-        //   headline: "South Florida",
-        //   readAlso: [
-        //     {
-        //       title:
-        //         "Cras convallis nostra, iaculis ipsam aut veritatis consequuntur, ante, inventore.",
-        //       backdrop:
-        //         "https://cdn1.img.sputniknews-uz.com/images/07e4/09/0e/14970398.jpg",
-        //       headline: "South Florida",
-        //     },
-        //     {
-        //       title: "Orci ac atque! Nostrum, tempor eligendi nonummy montes.",
-        //       backdrop:
-        //         "https://ichef.bbci.co.uk/news/1024/cpsprodpb/1418C/production/_107461328_index.jpg",
-        //       headline: "South Florida",
-        //     },
-        //   ],
-        // },
-        // {
-        //   title:
-        //     "Turpis, ligula scelerisque voluptatem integer consectetur orci tenetur alias incididunt.",
-        //   backdrop:
-        //     "https://jaxenter.com/wp-content/uploads/2019/12/shutterstock_437705467.jpg",
-        //   headline: "South Florida",
-        //   readAlso: [
-        //     {
-        //       title:
-        //         "Cras convallis nostra, iaculis ipsam aut veritatis consequuntur, ante, inventore.",
-        //       backdrop:
-        //         "https://a9p9n2x2.stackpathcdn.com/wp-content/blogs.dir/1/files/2020/03/BuyGun-2621.jpg",
-        //       headline: "Tashkent",
-        //     },
-        //     {
-        //       title: "Orci ac atque! Nostrum, tempor eligendi nonummy montes.",
-        //       backdrop:
-        //         "https://images.theconversation.com/files/350234/original/file-20200729-31-3i8ett.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop",
-        //       headline: "South Florida",
-        //     },
-        //   ],
-        // },
-        // {
-        //   title:
-        //     "Quibusdam. In aliquid irure quaerat, dicta pretium architecto! Diamlorem sequi laoreet magna augue.",
-        //   backdrop:
-        //     "http://www.bu.edu/files/2018/12/social-iStock-588258692.jpg",
-        //   headline: "South Florida",
-        //   readAlso: [
-        //     {
-        //       title:
-        //         "Cras convallis nostra, iaculis ipsam aut veritatis consequuntur, ante, inventore.",
-        //       backdrop:
-        //         "https://images-na.ssl-images-amazon.com/images/I/61RTtsq2YzL._AC_SL1200_.jpg",
-        //       headline: "Tashkent",
-        //     },
-        //     {
-        //       title: "Orci ac atque! Nostrum, tempor eligendi nonummy montes.",
-        //       backdrop:
-        //         "https://images.theconversation.com/files/350234/original/file-20200729-31-3i8ett.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop",
-        //       headline: "South Florida",
-        //     },
-        //   ],
-        // },
-        // {
-        //   title:
-        //     "Quibusdam. In aliquid irure quaerat, dicta pretium architecto! Diamlorem sequi laoreet magna augue.",
-        //   backdrop:
-        //     "http://www.bu.edu/files/2018/12/social-iStock-588258692.jpg",
-        //   headline: "South Florida",
-        //   readAlso: [
-        //     {
-        //       title:
-        //         "Cras convallis nostra, iaculis ipsam aut veritatis consequuntur, ante, inventore.",
-        //       backdrop:
-        //         "https://a9p9n2x2.stackpathcdn.com/wp-content/blogs.dir/1/files/2020/03/BuyGun-2621.jpg",
-        //       headline: "Tashkent",
-        //     },
-        //     {
-        //       title: "Orci ac atque! Nostrum, tempor eligendi nonummy montes.",
-        //       backdrop:
-        //         "https://images.theconversation.com/files/350234/original/file-20200729-31-3i8ett.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop",
-        //       headline: "South Florida",
-        //     },
-        //   ],
-        // },
+        {
+          id: 1,
+          category: {
+            id: 1,
+            name: "",
+          },
+          read_also: [
+            {
+              id: 7,
+              category: {
+                id: 1,
+                name: "",
+              },
+              title: "",
+              image: "",
+              pub_date: "2021-02-28T18:04:58+05:00",
+              last_change: "2021-02-28T18:06:25.838162+05:00",
+            },
+            {
+              id: 6,
+              category: {
+                id: 1,
+                name: "",
+              },
+              title: "",
+              image: "",
+              pub_date: "2021-02-28T18:04:25+05:00",
+              last_change: "2021-02-28T18:04:55.652744+05:00",
+            },
+          ],
+          title: "",
+          image: "",
+          pub_date: "2021-02-28T18:03:08+05:00",
+          last_change: "2021-02-28T18:03:29.295596+05:00",
+        },
       ],
     };
   },
   created() {
     window.addEventListener("resize", this.checkResponsive);
-  },
-  checkResponsive() {
-    window.removeEventListener("resize", this.checkResponsive);
+    this.fetchData();
+    this.getNews();
+    this.getPartners();
+    this.getLastProject();
   },
   mounted: function () {
     this.checkResponsive();
-    this.getNews()
-    this.getPartners();
     // this.$refs.gradient_bar.style.width = `${this.$refs.main_carousel.childNodes[1].children[0].children[0].offsetWidth}px`;
-    this.fetchData();
     // this.brandsCarouselHendler();
     if (this.main_carousel_timer) clearTimeout(this.main_carousel_timer);
     this.main_carousel_timer = setTimeout(() => {
@@ -989,6 +921,7 @@ export default {
     }, 2500);
   },
   unmounted() {
+    window.removeEventListener("resize", this.checkResponsive);
     clearTimeout(this.main_carousel_timer);
   },
   watch: {},
@@ -998,10 +931,10 @@ export default {
       this.isMobile = window.innerWidth <= 800 && window.innerWidth > 600;
       this.isTablet = window.innerWidth < 1444 && window.innerWidth > 800;
       this.isDesktop = window.innerWidth >= 1444;
-      console.log(window.innerWidth);
-      console.log("desktop ", this.isDesktop);
-      console.log("mobile ", this.isMobile);
-      console.log("tablet ", this.isTablet);
+      // console.log(window.innerWidth);
+      // console.log("desktop ", this.isDesktop);
+      // console.log("mobile ", this.isMobile);
+      // console.log("tablet ", this.isTablet);
     },
     handleBrandsScroll(dir) {
       this.$refs.brand_scroll.scrollBy({
@@ -1028,7 +961,7 @@ export default {
           return res.json();
         })
         .then((json) => {
-          this.organizations = json["results"];
+          this.partners = json["results"];
 
           this.$nextTick(function () {
             this.handleBrandsScrollIndicator();
@@ -1041,14 +974,37 @@ export default {
           return res.json();
         })
         .then((json) => {
-          this.lastNews = json["results"];
-          console.log(json["results"])
+          this.lastNews = [];
+          this.otherNews = [];
+          console.log(json["results"]);
+          this.lastNews.push(json["results"][0]);
+          this.lastNews.push(json["results"][1]);
+          this.lastNews.push(json["results"][2]);
+
+          // this.otherNews.push(json["results"][3])
+          this.otherNews.push(json["results"][4]);
+          this.otherNews.push(json["results"][5]);
+          this.otherNews.push(json["results"][6]);
+
+          this.otherNewsFirst = json["results"][3];
 
           this.$nextTick(function () {
             this.$refs.gradient_bar.style.width = `${this.$refs.main_carousel.childNodes[1].children[0].children[0].offsetWidth}px`;
-            
           });
         });
+    },
+    getLastProject() {
+      fetch("http://127.0.0.1:8000/projects/?limit=1")
+        .then((res) => {
+          return res.json();
+        })
+        .then((json) => {
+          this.lastProject = json["results"][0];
+        });
+    },
+    routerHandler(route) {
+      this.$router.push(route);
+      window.scrollTo(0, 0);
     },
     // brandsCarouselHendler() {
     //   // console.log(this.$refs.brand_carousel.offsetWidth)
@@ -1060,12 +1016,13 @@ export default {
     //   // setTimeout(this.brandsCarouselHendler(), 100);
     // },
     fetchData() {
-      fetch("https://jsonplaceholder.typicode.com/photos")
+      fetch("http://127.0.0.1:8000/org")
         .then((res) => {
           return res.json();
         })
         .then((json) => {
-          this.topStories = json.splice(0, 8);
+          console.log(json);
+          this.organs = json["results"];
         });
     },
     handleScroll(dir) {
@@ -1362,10 +1319,11 @@ export default {
 .tab-btn-indicator {
   position: absolute;
   bottom: 0;
-  left: 30px;
+  left: 50%;
   width: 100px;
   height: 3px;
   background-color: #4493ff;
+  transform: translateX(-50%);
 }
 
 .main-card-wrapper {
