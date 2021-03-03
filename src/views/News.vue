@@ -99,15 +99,7 @@
         </div>
       </div>
 
-      <div
-        style="
-          margin-top: 50px;
-          display: flex;
-          flex-wrap: wrap;
-          position: relative;
-          justify-content: center;
-        "
-      >
+      <div style="margin-top: 50px;display: flex; flex-wrap: wrap;position: relative;justify-content: center;">
         <div v-for="(item, index) in news" :key="index" class="single-card">
           <img
             class="single-card-img"
@@ -319,58 +311,58 @@ export default {
 }
 
 .single-card {
-  width: 340px;
-  height: 440px;
-  max-width: 370px;
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  border-radius: 6px;
-  margin-left: 15px;
-  margin-right: 15px;
-  margin-bottom: 40px;
-  flex-basis: auto;
-  flex-grow: 1;
-  flex-shrink: 1;
-  cursor: pointer;
-}
+     width: 340px;
+     height: 440px;
+     max-width: 370px;
+     overflow: hidden;
+     position: relative;
+     display: flex;
+     flex-direction: column;
+     border-radius: 6px;
+     margin-left: 15px;
+     margin-right: 15px;
+     margin-bottom: 40px;
+     flex-basis: auto;
+     flex-grow: 1;
+     flex-shrink: 1;
+     cursor: pointer;
+   }
 
-.single-card:hover .single-card-img {
-  transform: scale(1.05);
-}
+  .single-card:hover .single-card-img {
+    transform: scale(1.05);
+  }
 
-.single-card:hover .card-content {
-  transform: translateY(-30px) translateX(-20px);
-  background-color: #2d66b3;
-  color: white;
-}
+  .single-card:hover .card-content {
+    transform: translateY(-30px) translateX(-20px);
+    background-color: #2d66b3;
+    color: white;
+  }
 
-.single-card:hover .main-card-meta {
-  color: white;
-}
+  .single-card:hover .main-card-meta {
+    color: white;
+  }
 
-.single-card-img {
-  width: 100%;
-  height: 240px;
-  object-fit: cover;
-  border-radius: 6px;
-  transition: all 0.4s ease;
-}
+  .single-card-img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 6px;
+    transition: all 0.4s ease;
+  }
 
-.card-content {
-  width: 90%;
-  height: 100%;
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding-left: 20px;
-  padding-top: 20px;
-  text-align: start;
-  transition: all 0.6s ease;
-  transform: translateY(-20px) translateX(-20px);
-}
+  .card-content {
+    width: 90%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 20px;
+    padding-top: 20px;
+    text-align: start;
+    transition: all 0.6s ease;
+    transform: translateY(-20px) translateX(-20px);
+  }
   .card_st{
     margin: 20px 0 0 20px; text-align: start
   }
