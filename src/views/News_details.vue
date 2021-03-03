@@ -269,7 +269,7 @@
         }
 
         .heading {
-            padding: 50px 70px;
+            padding: 0 25px ;
         }
 
 
