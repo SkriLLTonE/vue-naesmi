@@ -5,6 +5,9 @@ import router from './router.js'
 
 const app = createApp(App);
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+app.AOS = new AOS.init({});
 
 app.directive('click-outside', {
     beforeMount(el, binding) {
