@@ -1,120 +1,35 @@
 <template>
-    <div class="news">
-        <div class="container">
-            <div class="all-content">
-                <div class="news_content">
-                    <div class="news_date">
-                        <span>02.03.2021</span>
-                    </div>
-                    <div class="news_title">
+
+    <div class="wrap">
+        <div class="news">
+            <div class="container">
+                <div class="all-content">
+                    <div class="news_content">
+                        <div class="news_date">
+                            <span>02.03.2021</span>
+                        </div>
+                        <div class="news_title">
                 <span>
                   The Latest: Officer in Canada prime minister motorcade hurt
                 </span>
+                        </div>
+                    </div>
+                    <div class="news_img">
+                        <img src="../assets/verstka.jpg" alt="">
                     </div>
                 </div>
-                <div class="news_img">
-                    <img src="../assets/Nature.jpeg" alt="">
-                </div>
-            </div>
-            <div class="news_disc">
+                <div class="news_disc">
                 <span>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum illo provident suscipit voluptates. Accusamus accusantium ad amet consequatur dignissimos, enim excepturi explicabo iusto maiores odio quam sunt ut voluptate, voluptatibus!
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.Earum illo provident suscipit voluptates. Accusamus accusantium ad amet consequatur dignissimos, enim excepturi explicabo iusto maiores odio quam sunt ut voluptate, voluptatibus!
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum illo provident suscipit voluptates. Accusamus accusantium ad amet consequatur dignissimos, enim excepturi explicabo iusto maiores odio quam sunt ut voluptate, voluptatibus!
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Earum illo provident suscipit voluptates. Accusamus accusantium ad amet consequatur dignissimos, enim excepturi explicabo iusto maiores odio quam sunt ut voluptate, voluptatibus!
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum illo provident suscipit voluptates. Accusamus accusantium ad amet consequatur dignissimos, enim excepturi explicabo iusto maiores odio quam sunt ut voluptate, voluptatibus!
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum illo provident suscipit voluptates. Accusamus accusantium ad amet consequatur dignissimos, enim excepturi explicabo iusto maiores odio quam sunt ut voluptate, voluptatibus!
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum illo provident suscipit voluptates. Accusamus accusantium ad amet consequatur dignissimos, enim excepturi explicabo iusto maiores odio quam sunt ut voluptate, voluptatibus!
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum illo provident suscipit voluptates. Accusamus accusantium ad amet consequatur dignissimos, enim excepturi explicabo iusto maiores odio quam sunt ut voluptate, voluptatibus!
+                    Lorem i   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum illo provident suscipit voluptates. Accusamus accusantium ad amet consequatur dignissimos, enim excepturi explicabo iusto maiores odio quam sunt ut voluptate, voluptatibus!
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum illo provident suscipit voluptates. Accusamus accusantium ad amet consequatur dignissimos, enim excepturi explicabo iusto maiores odio quam sunt ut voluptate, voluptatibus!
                 </span>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container">
-        <div class="heading">
-            <span>Другие новости</span>
-        </div>
-    </div>
-    <div class="another_news">
-        <div class="container">
-            <div class="card_cont">
-                <div class="card">
-                    <div class="card_img">
-                        <img src="https://cdnb.artstation.com/p/assets/images/images/011/449/401/large/febri-ferdian-b-x177c.jpg?1529631793"
-                             alt="">
-                    </div>
-                    <div class="card_title">
-                        <div class="news_category">
-                            international
-                        </div>
-                        <div class="title">
-                            <span>
-                                The Latest: Officer in Canada prime minister motorcade hurt
-                            </span>
-                        </div>
-                        <div class="card_date">
-                            <span>
-                               2 Марта
-                            </span>
-
-                        </div>
-                    </div>
-                        <div class="btn_link">
-                            <div class="btn">Подробнее</div>
-                        </div>
-                </div>
-                <div class="card">
-                    <div class="card_img">
-                        <img src="https://cdnb.artstation.com/p/assets/images/images/011/449/401/large/febri-ferdian-b-x177c.jpg?1529631793"
-                             alt="">
-                    </div>
-                    <div class="card_title">
-                        <div class="news_category">
-                            international
-                        </div>
-                        <div class="title">
-                            <span>
-                                The Latest: Officer in Canada prime minister motorcade hurt
-                            </span>
-                        </div>
-                        <div class="card_date">
-                            <span>
-                               2 Марта
-                            </span>
-
-                        </div>
-                    </div>
-                        <div class="btn_link">
-                            <div class="btn">Подробнее</div>
-                        </div>
-                </div>
-                <div class="card">
-                    <div class="card_img">
-                        <img src="https://cdnb.artstation.com/p/assets/images/images/011/449/401/large/febri-ferdian-b-x177c.jpg?1529631793"
-                             alt="">
-                    </div>
-                    <div class="card_title">
-                        <div class="news_category">
-                            international
-                        </div>
-                        <div class="title">
-                            <span>
-                                The Latest: Officer in Canada prime minister motorcade hurt
-                            </span>
-                        </div>
-                        <div class="card_date">
-                            <span>
-                               2 Марта
-                            </span>
-
-                        </div>
-                    </div>
-                        <div class="btn_link">
-                            <div class="btn">Подробнее</div>
-                        </div>
-                </div>
+        <div class="container_n">
+            <div class="heading">
+                <span>Другие новости</span>
             </div>
         </div>
     </div>
@@ -130,20 +45,22 @@
 </script>
 
 <style scoped>
-    .news {
+    .wrap {
         width: 94%;
         left: 3%;
     }
-
+    .container_n{
+        padding: 0 15px;
+    }
     .all-content {
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         flex-direction: row;
     }
 
     .container {
-        padding: 20px;
+        padding: 0 20px;
         width: 100%;
         height: auto;
         text-align: left;
@@ -185,38 +102,23 @@
         width: 100%;
     }
 
+
     .news_disc {
-        padding: 30px 50px;
+        padding: 30px 150px;
         font-size: 23px;
     }
 
+    .container {
+
+    }
+
     .heading {
-        text-align: center;
+        text-align: left;
         font-size: 50px;
-        text-decoration: underline black;
         color: #2d66b3;
+        padding: 50px 150px;
     }
 
-    .news_category {
-        padding: 10px 0;
-        color: gray;
-        text-transform: uppercase;
-    }
-
-    .card_cont {
-        display: flex;
-        justify-content: center;
-    }
-
-    .title {
-        font-size: 20px;
-        font-weight: bold;
-    }
-
-    .card {
-        width: 300px;
-        margin-right: 40px;
-    }
 
     .card_img img {
         width: 300px;
@@ -224,29 +126,93 @@
         object-fit: cover;
         border-radius: 6px;
     }
-    .btn_link{
-    width: 120px;
-    }
-    .btn {
-        padding: 15px 0px;
-        text-align: center;
-        background: #2d66b3;
-        border-radius: 15px;
-        outline: none;
-        color: white;
-        transition: all 0.3s ease-in-out;
-        border: 1px solid;
 
-    }
-        .card_date{
-            padding: 10px 0;
+
+    @media screen and (max-width: 1200px) {
+        .all-content {
+            flex-direction: column;
         }
-    .btn:hover{
 
-        background: white;
-        color: #2d66b3;
-        border: 1px solid #4992f7;
-        box-shadow: 0 0 10px #719ece;
+        .news_content {
+            padding: 20px 0;
+            flex-direction: column;
+            width: 100%;
+            margin-left: 0;
+        }
+
+        .news_img {
+            width: 100%;
+        }
+
+        .news_disc {
+            padding: 30px 15px;
+            font-size: 23px;
+        }
+
+        .heading {
+            padding: 50px 0;
+        }
+
+
+        .news_title {
+            font-size: 30px;
+        }
+
+        .news_img img {
+            height: auto;
+        }
+
+        .heading {
+            font-size: 30px;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .all-content {
+            flex-direction: column;
+        }
+
+        .container {
+            padding: 0;
+        }
+
+        .news_content {
+            padding: 20px 0px;
+            flex-direction: column;
+            width: 100%;
+            margin-left: 0;
+        }
+
+        .news_img {
+            width: 100%;
+        }
+
+        .news_disc {
+            padding: 30px 15px;
+            font-size: 23px;
+        }
+
+
+        .news_title {
+            font-size: 30px;
+
+        }
+
+        .all-content {
+            padding: 0 10px;
+        }
+
+        .news_img img {
+            height: auto;
+        }
+
+        .heading {
+            font-size: 30px;
+        }
+
+        .news_disc {
+            font-size: 16px;
+        }
 
     }
 </style>
