@@ -35,7 +35,9 @@
                                 <div>История</div>
                             </router-link>
                             <div>Устав</div>
+                            <router-link to="/grants">
                             <div>Гранты</div>
+                            </router-link>
                             <div>Исследования и отчеты</div>
                             <router-link to="/projects">
                                 <div>Проекты</div>

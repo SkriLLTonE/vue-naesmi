@@ -105,34 +105,19 @@
                 ></div>
               </div>
               <div class="route">
-                <div
-                  @click="routerHandler('/history')"
-                  >История</div
-                >
+                <div @click="routerHandler('/history')">История</div>
               </div>
               <div class="route">
-                <div
-                  @click="routerHandler('/news')"
-                  >Новости</div
-                >
+                <div @click="routerHandler('/news')">Новости</div>
               </div>
               <div class="route">
-                <div
-                  @click="routerHandler('/rulers')"
-                  >Правление</div
-                >
+                <div @click="routerHandler('/rulers')">Правление</div>
               </div>
               <div class="route">
-                <div
-                  @click="routerHandler('/about')"
-                  >Об Ассоциации</div
-                >
+                <div @click="routerHandler('/about')">Об Ассоциации</div>
               </div>
               <div class="route">
-                <div
-                  @click="routerHandler('/events')"
-                  >Ивенты</div
-                >
+                <div @click="routerHandler('/events')">Ивенты</div>
               </div>
             </div>
 
@@ -158,13 +143,19 @@
                   "
                 ></div>
               </div>
-              <div class="route">NAEMM Academy</div>
-              <div class="route">On Board!</div>
-              <div class="route">Heroes of our time</div>
-              <div class="route">Legacy</div>
-              <div class="route">NAEMM Congress</div>
-              <div class="route">First step</div>
-              <div class="route">NAEMMEXPO</div>
+              <div
+                class="route"
+                v-for="(project, index) in projects"
+                :key="index"
+              >
+                <a
+                  :href="project.url"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  {{ project.name }}</a
+                >
+              </div>
             </div>
           </div>
         </div>
@@ -201,15 +192,37 @@ export default {
   name: "Home",
   components: {},
   data() {
-    return {};
+    return {
+      projects: [
+        {
+          id: 1,
+          name: "",
+          description: "",
+          image: "",
+          url: null,
+          last_change: "",
+        },
+      ],
+    };
   },
-  mounted: function () {},
+  mounted: function () {
+    this.getProjects();
+  },
   watch: {},
   methods: {
-      routerHandler(route) {
-          this.$router.push(route)
-          window.scrollTo(0, 0)
-      }
+    routerHandler(route) {
+      this.$router.push(route);
+      window.scrollTo(0, 0);
+    },
+    getProjects() {
+      fetch("http://127.0.0.1:8000/projects/?limit=7&ordering=-last_change")
+        .then((res) => {
+          return res.json();
+        })
+        .then((json) => {
+          this.projects = json["results"];
+        });
+    },
   },
 };
 </script>

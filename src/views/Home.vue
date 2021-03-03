@@ -994,7 +994,7 @@ export default {
         });
     },
     getLastProject() {
-      fetch("http://127.0.0.1:8000/projects/?limit=1")
+      fetch("http://127.0.0.1:8000/projects/?ordering=-last_change&limit=1")
         .then((res) => {
           return res.json();
         })
