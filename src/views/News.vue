@@ -1,11 +1,11 @@
 <template>
   <div style="width: 100%; display: flex; justify-content: center">
-
     <div style="width: 100%; max-width: 1200px">
       <br />
       <br />
       <br />
-      <div style="
+      <div
+        style="
           font-size: 40px;
           text-align: start;
           position: relative;
@@ -14,9 +14,19 @@
           height: 60px;
           display: flex;
           align-items: center;
-        ">
-      <div style="position: absolute; height: 100%; width: 50px;top: 0; left: 0; background-color: rgba(68, 147, 255, 0.6);"></div>
-        <div style="position: relative;">Новости</div>
+        "
+      >
+        <div
+          style="
+            position: absolute;
+            height: 100%;
+            width: 50px;
+            top: 0;
+            left: 0;
+            background-color: rgba(68, 147, 255, 0.6);
+          "
+        ></div>
+        <div style="position: relative">Новости</div>
       </div>
       <div class="main-card-wrapper">
         <div>
@@ -52,7 +62,8 @@
               The Latest: Officer in Canada prime minister motorcade hurt
             </div>
             <div
-              class="main-card-meta" style="
+              class="main-card-meta"
+              style="
                 font-size: 14px;
                 padding: 14px 0 0 10px;
                 line-height: 2em;
@@ -61,7 +72,8 @@
                 display: -webkit-box;
                 -webkit-line-clamp: 3;
                 -webkit-box-orient: vertical;
-              ">
+              "
+            >
               Nulla animi aperiam mattis. Malesuada. Architecto. Mauris quod
               montes ipsam! Esse vitae, adipisicing fugiat molestiae
               accusantium, rerum, conubia laboriosam volutpat sit, nostra eum
@@ -99,7 +111,15 @@
         </div>
       </div>
 
-      <div style="margin-top: 50px;display: flex; flex-wrap: wrap;position: relative;justify-content: center;">
+      <div
+        style="
+          margin-top: 50px;
+          display: flex;
+          flex-wrap: wrap;
+          position: relative;
+          justify-content: center;
+        "
+      >
         <div v-for="(item, index) in news" :key="index" class="single-card">
           <img
             class="single-card-img"
@@ -144,25 +164,21 @@
   </div>
 
   <div class="pagination">
-      <div class="pagination-list">
-        <a href="#">
-          <i class="fas fa-chevron-left">
-          </i>
-        </a>
-        <a href="#">1</a>
-        <a href="#" class="active">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">5</a>
-        <a href="#">6</a>
-        <a href="#">
-          <i class="fas fa-chevron-right">
-
-          </i>
-        </a>
-      </div>
+    <div class="pagination-list">
+      <a href="#">
+        <i class="fas fa-chevron-left"> </i>
+      </a>
+      <a href="#">1</a>
+      <a href="#" class="active">2</a>
+      <a href="#">3</a>
+      <a href="#">4</a>
+      <a href="#">5</a>
+      <a href="#">6</a>
+      <a href="#">
+        <i class="fas fa-chevron-right"> </i>
+      </a>
     </div>
-
+  </div>
 </template>
 
 <script>
@@ -257,12 +273,12 @@ export default {
 </script>
 
 <style scoped>
-  .main-news-img{
-    width: 610px;
-    height: 330px;
-    overflow: hidden;
-    border-radius: 6px;
-  }
+.main-news-img {
+  width: 610px;
+  height: 330px;
+  overflow: hidden;
+  border-radius: 6px;
+}
 .main-card-wrapper {
   display: flex;
   height: 330px;
@@ -311,162 +327,158 @@ export default {
 }
 
 .single-card {
-     width: 340px;
-     height: 440px;
-     max-width: 370px;
-     overflow: hidden;
-     position: relative;
-     display: flex;
-     flex-direction: column;
-     border-radius: 6px;
-     margin-left: 15px;
-     margin-right: 15px;
-     margin-bottom: 40px;
-     flex-basis: auto;
-     flex-grow: 1;
-     flex-shrink: 1;
-     cursor: pointer;
-   }
-
-  .single-card:hover .single-card-img {
-    transform: scale(1.05);
-  }
-
-  .single-card:hover .card-content {
-    transform: translateY(-30px) translateX(-20px);
-    background-color: #2d66b3;
-    color: white;
-  }
-
-  .single-card:hover .main-card-meta {
-    color: white;
-  }
-
-  .single-card-img {
-    width: 100%;
-    height: 240px;
-    object-fit: cover;
-    border-radius: 6px;
-    transition: all 0.4s ease;
-  }
-
-  .card-content {
-    width: 90%;
-    height: 100%;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding-left: 20px;
-    padding-top: 20px;
-    text-align: start;
-    transition: all 0.6s ease;
-    transform: translateY(-20px) translateX(-20px);
-  }
-  .card_st{
-    margin: 20px 0 0 20px; text-align: start
-  }
-
-  .pagination-list{
-    display: flex;
-    justify-content: center;
-    padding: 0 5px;
-  }
-
-  .pagination a {
-    color: black;
-    float: left;
-    padding: 8px 10px;
-    text-decoration: none;
-    transition: background-color .3s;
-    border-radius: 50%;
-    margin: 0 5px;
-  }
-
-  .pagination a:hover {
-    background-color: #2d66b3;
-    color: white;
-
-  }
-
-.active{
-  background-color: #2d66b3;
-
+  width: 340px;
+  height: 440px;
+  max-width: 370px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 40px;
+  flex-basis: auto;
+  flex-grow: 1;
+  flex-shrink: 1;
+  cursor: pointer;
 }
-  .active{
-    color: white!important;
-  }
 
-  @media screen and (max-width: 1200px){
-    .main-news-img{
-      width: 500px;
-    }
-    .main-card-wrapper {
-      padding: 0 30px;
-    }
-    .main-card-wrapper-img{
-      width: 500px;
-    }
-    .main-card{
+.single-card:hover .single-card-img {
+  transform: scale(1.05);
+}
+
+.single-card:hover .card-content {
+  transform: translateY(-30px) translateX(-20px);
+  background-color: #2d66b3;
+  color: white;
+}
+
+.single-card:hover .main-card-meta {
+  color: white;
+}
+
+.single-card-img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 6px;
+  transition: all 0.4s ease;
+}
+
+.card-content {
+  width: 90%;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 20px;
+  padding-top: 20px;
+  text-align: start;
+  transition: all 0.6s ease;
+  transform: translateY(-20px) translateX(-20px);
+}
+.card_st {
+  margin: 20px 0 0 20px;
+  text-align: start;
+}
+
+.pagination-list {
+  display: flex;
+  justify-content: center;
+  padding: 0 5px;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 10px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  border-radius: 50%;
+  margin: 0 5px;
+}
+
+.pagination a:hover {
+  background-color: #2d66b3;
+  color: white;
+}
+
+.active {
+  background-color: #2d66b3;
+}
+.active {
+  color: white !important;
+}
+
+@media screen and (max-width: 1200px) {
+  .main-news-img {
+    width: 500px;
+  }
+  .main-card-wrapper {
+    padding: 0 30px;
+  }
+  .main-card-wrapper-img {
+    width: 500px;
+  }
+  .main-card {
     width: 600px;
-    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .main-news-img {
+    width: 400px;
+  }
+  .main-card-wrapper {
+    padding: 0 30px;
+  }
+  .main-card-wrapper-img {
+    width: 400px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .main-card {
+    padding: 40px;
+    transform: translate(0px, 20px);
+  }
+  .main-card-wrapper {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: auto;
   }
 
-  @media screen and (max-width: 991px){
-    .main-news-img{
-      width: 400px;
-
-    }
-    .main-card-wrapper {
-      padding: 0 30px;
-    }
-    .main-card-wrapper-img{
-      width: 400px;
-    }
+  .main-card-wrapper:hover .main-card {
+    transform: translate(0, -36px);
+    color: white !important;
+    background-color: #2d66b3;
   }
-  @media screen and (max-width: 768px){
-    .main-card{
-      padding: 40px;
-      transform: translate(0px, 20px);
-    }
-    .main-card-wrapper{
-      align-items: center;
-      justify-content: center;
-     flex-direction: column;
-      height: auto;
-    }
 
-    .main-card-wrapper:hover .main-card {
-      transform: translate(0, -36px);
-      color: white !important;
-      background-color: #2d66b3;
-    }
-
-    .main-card-wrapper:hover .main-card-meta {
-      color: white !important;
-    }
-
+  .main-card-wrapper:hover .main-card-meta {
+    color: white !important;
   }
-  @media screen and (max-width: 576px){
-    .main-news-img{
-      width: 400px;
-
-    }
-    .main-card-wrapper {
-      padding: 0 30px;
-    }
-    .main-card-wrapper-img{
-      width: 400px;
-    }
-    .main-card{
-      width: 360px;
-      padding: 33px;
-    }
+}
+@media screen and (max-width: 576px) {
+  .main-news-img {
+    width: 400px;
   }
-  @media screen and (max-width: 360px){
-    .main-card{
-      width: 320px;
-      padding: 15px;
-    }
+  .main-card-wrapper {
+    padding: 0 30px;
   }
+  .main-card-wrapper-img {
+    width: 400px;
+  }
+  .main-card {
+    width: 360px;
+    padding: 33px;
+  }
+}
+@media screen and (max-width: 360px) {
+  .main-card {
+    width: 320px;
+    padding: 15px;
+  }
+}
 </style>
