@@ -43,17 +43,22 @@ const routes = [
     name: "Grants",
     component: () => import('./views/Grants.vue'),
   },
+  {
+    path: '/NotFound',
+    name: 'NotFound',
+    component: () => import('./views/NotFound.vue'),
+  },
+  {
+    path: '/Events',
+    name: 'Events',
+    component: () => import('./views/Events.vue'),
+  },
 
-  // {
-  //   path: "/rulers",
-  //   name: "Rulers",
-  //   component: Rulers,
-  // },
 ];
-
 const router = createRouter({
   history: createWebHistory(),
   routes,
+
 });
 
 export default router;
