@@ -2,12 +2,12 @@
     <div class="grants">
         <div class="container">
             <div class="row">
-                <div class="about_grant" v-for="(item , index) in grants" :key="index">
-                    <div class="grants-content">
-                        <div class="grants-img">
+                <div  class="about_grant" v-for="(item , index) in grants" :key="index">
+                    <div class="grants-content" >
+                        <div class="grants-img" data-aos="fade-right" >
                             <img :src="item.image" alt="">
                         </div>
-                        <div class="grants-title">
+                        <div class="grants-title" data-aos="fade-up">
                             <div class="heading">
                                 <div>
                                     <span>{{item.title}}</span>
@@ -16,11 +16,8 @@
                             <div class="grants-date">
                                 <div>
                                     <span>
-                                        {{ ("0" + new Date(item.date).getDate()).substr(-2) }}
-                                        .
-                                        {{
-                                        ("0" + (new Date(item.date).getMonth() + 1)).substr(-2)}}
-                                        .
+                                        {{ ("0" + new Date(item.date).getDate()).substr(-2) }}.
+                                        {{("0" + (new Date(item.date).getMonth() + 1)).substr(-2)}}.
                                         {{ new Date(item.date).getFullYear() }}
                                     </span>
 
@@ -44,12 +41,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="grants-full-disc">
+                    <div class="grants-full-disc" data-aos="fade-up">
                          <span v-html="item.description">
                         </span>
                     </div>
                     <div class="line">
-
                     </div>
                 </div>
             </div>
@@ -63,8 +59,7 @@
             return {
                 grants:[
                     {
-
-                        "id": 1,
+                        "id": '',
                         "title": "",
                         "date": "",
                         "pers_name": "",
@@ -72,21 +67,25 @@
                         "description": "",
                         "image": ""
 
-                },
+                     },
                 ],
             }
         },
         created() {
-            this.getGrants()
+            this.getGrants(20)
         },
         methods: {
-            getGrants() {
-                fetch(`http://localhost:8000/grants/`)
+            getGrants(limit) {
+                fetch(`http://127.0.0.1:8000/grants/?ordering=-pub_date&limit=${limit}`)
                     .then((res) => res.json())
                     .then((resJSON) => {
                         console.log(resJSON)
                         this.grants = resJSON['results'];
                         console.log('asd', this.grants)
+                        if (resJSON.count > limit){
+                            console.log(resJSON.count)
+                            this.getGrants(resJSON.count)
+                        }
                     });
             },
         },
@@ -108,6 +107,7 @@
     }
 
     .grants-img img {
+        width: 350px;
         height: 450px;
         object-fit: cover;
         border-radius: 10px;
@@ -146,6 +146,7 @@
 
     .about_grant {
         margin-top: 30px;
+        width: 100%;
     }
 
     .grants-about {

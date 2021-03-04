@@ -5,9 +5,7 @@
         position: relative;
         display: flex;
         align-items: flex-end;
-        height: 68px;
-      "
-        >
+        height: 68px;">
             <!-- <img class="logo" src="../assets/logo2_white.png" /> -->
             <div class="naesmi" ref="naesmi">
                 <router-link to="/">НАЭСМИ</router-link>
@@ -23,7 +21,7 @@
                     <router-link to="/news">новости</router-link>
                 </div>
                 <div>
-                    <router-link to="/events">ивенты</router-link>
+                    <router-link to="/events">Ивенты</router-link>
                 </div>
                 <div style="position: relative" class="more-btn" tabindex="0" @mousedown="open.sheet = !open.sheet" v-click-outside="closeTab">
                     другое
@@ -34,7 +32,9 @@
                             <router-link to="/history">
                                 <div>История</div>
                             </router-link>
-                            <div>Устав</div>
+                            <div>
+                                <a href="../assets/research.pdf" target="_blank">Устав</a>
+                            </div>
                             <router-link to="/grants">
                             <div>Гранты</div>
                             </router-link>
@@ -126,7 +126,7 @@
                             </div>
                             <div class="sub_menu_item">
                                 <div class="sub_menu_item_link">
-                                    Устав
+                                    <a href="../assets/research.pdf" target="_blank">Устав</a>
                                 </div>
                             </div>
                             <div class="sub_menu_item">
