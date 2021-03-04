@@ -108,7 +108,7 @@
                     </div>
                     <div class="nav_menu_item">
                         <div class="nav_menu_item_link">
-                            <router-link to="/events">Ивенты</router-link>
+                           <!-- <router-link to="/events">Ивенты</router-link>--> Ивенты
                         </div>
                     </div>
                     <div :class="expandedList === 'about' ? 'nav_menu_item active' : 'nav_menu_item'">
@@ -131,7 +131,9 @@
                             </div>
                             <div class="sub_menu_item">
                                 <div class="sub_menu_item_link">
-                                    Гранты
+                                    <router-link to="/grants">
+                                        Гранты
+                                    </router-link>
                                 </div>
                             </div>
                             <div class="sub_menu_item">
@@ -218,6 +220,7 @@
             this.checkResponsive();
         },
         methods: {
+
             checkResponsive() {
                 this.isMini = window.innerWidth <= 600;
                 this.isMobile = window.innerWidth <= 800 && window.innerWidth > 600;
