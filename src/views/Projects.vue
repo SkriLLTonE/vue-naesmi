@@ -11,8 +11,11 @@
           :key="index"
         >
           <transition name="sliderleft" appear>
-            <div data-aos="fade-up">
-              <div style="width: 300px; height: 450px; position: relative">
+            <div
+              data-aos="fade-up"
+              style="display: flex; justify-content: center"
+            >
+              <div class="proj-image-cont">
                 <img
                   class="project-image"
                   :src="project.image"
@@ -53,7 +56,7 @@
                   font-family: 'Times New Roman', Times, serif;
                 "
               >
-                {{ project.id }}
+                {{ project.name }}
               </div>
             </transition>
             <transition name="sliderleft2" appear>
@@ -98,25 +101,27 @@ export default {
   methods: {
     getProjects() {
       fetch(
-        `http://127.0.0.1:8000/projects/?ordering=-pub_date&limit=2&offset=${this.offset*2}`
+        `http://127.0.0.1:8000/projects/?ordering=-pub_date&limit=30&offset=${
+          this.offset * 30
+        }`
       )
         .then((res) => {
           return res.json();
         })
         .then((json) => {
-          if (json.count.length <= this.projects.length) {
-            window.removeEventListener("scroll", this.checkScroll);
-            if (this.fetchTimeout) clearTimeout(this.fetchTimeout);
-          }
           if (this.offset === 0) {
-            this.projects = (json["results"]);
+            this.projects = json["results"];
           } else {
             this.projects = this.projects.concat(json["results"]);
           }
+          if (json.count <= this.projects.length) {
+            window.removeEventListener("scroll", this.checkScroll);
+            if (this.fetchTimeout) clearTimeout(this.fetchTimeout);
+          }
           this.offset++;
-          console.log("me")
-          console.log(json)
-          console.log(this.offset)
+          console.log("me");
+          console.log(json);
+          console.log(this.offset);
         });
     },
     checkScroll() {
@@ -124,10 +129,12 @@ export default {
         document.documentElement.scrollTop + window.innerHeight >=
         this.$refs.main_list.offsetHeight;
 
-      if (this.fetchTimeout) clearTimeout(this.fetchTimeout);
-      this.fetchTimeout = setTimeout(() => {
+      if (this.diff) {
+        if (this.fetchTimeout) clearTimeout(this.fetchTimeout);
+        this.fetchTimeout = setTimeout(() => {
           this.getProjects();
-      }, 200);
+        }, 200);
+      }
     },
     unmounted() {
       clearTimeout(this.fetchTimeout);
@@ -213,8 +220,15 @@ export default {
   color: gray;
 }
 .project_full_disc {
+  width: 100%;
   text-align: start;
   padding: 0 65px;
+}
+
+.proj-image-cont {
+  width: 300px;
+  height: 450px;
+  position: relative;
 }
 @media screen and (max-width: 768px) {
   .project_cont {
@@ -223,7 +237,8 @@ export default {
     align-items: center;
   }
   .project_full_disc {
-    padding: 0 15px;
+    width: 80%;
+    padding: 0;
   }
   .project_disc {
     font-size: 15px;
@@ -232,6 +247,13 @@ export default {
   }
   .project-image {
     padding: 0;
+    width: 100%;
+  }
+
+  .proj-image-cont {
+    width: 70%;
+    display: flex;
+    justify-content: center;
   }
   .project-date {
     margin: 0;
