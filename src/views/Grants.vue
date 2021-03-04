@@ -5,7 +5,7 @@
                 <div class="about_grant" v-for="(item , index) in grants" :key="index">
                     <div class="grants-content">
                         <div class="grants-img">
-                            <img :src="item.img" alt="">
+                            <img :src="item.image" alt="">
                         </div>
                         <div class="grants-title">
                             <div class="heading">
@@ -15,14 +15,22 @@
                             </div>
                             <div class="grants-date">
                                 <div>
-                                    <span>{{item.date}}</span>
+                                    <span>
+                                        {{ ("0" + new Date(item.date).getDate()).substr(-2) }}
+                                        .
+                                        {{
+                                        ("0" + (new Date(item.date).getMonth() + 1)).substr(-2)}}
+                                        .
+                                        {{ new Date(item.date).getFullYear() }}
+                                    </span>
+
                                 </div>
                             </div>
                             <div class="grants_given">
                                 <span> Получатели</span>
                             </div>
                             <div class="grants-fio">
-                                <span>{{item.personName}}</span>
+                                <span>{{item.pers_name}}</span>
                             </div>
                             <div class="grants-about">
                                 <div>
@@ -31,14 +39,13 @@
                             </div>
                             <div class="grants-about-disc">
                                 <div>
-                                    <span>{{item.rewardFor}}</span>
+                                    <span v-html="item.what"></span>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="grants-full-disc">
-                         <span>
-                            {{item.discription}}
+                         <span v-html="item.description">
                         </span>
                     </div>
                     <div class="line">
@@ -54,67 +61,36 @@
         name: "Grants",
         data() {
             return {
-                grants: [
+                grants:[
                     {
-                        img: "https://jets.ru/upload/resize_cache/iblock/174/867_482_2/Legacy_650_1.jpg",
-                        title: "Оскар",
-                        date: "01.02.2021",
-                        personName: "вася, петя, жора, Гоша, Андрей,вася, петя, жора, Гоша, Андрей,вася, петя, жора, Гоша, Андрей,вася, петя, жора, Гоша, Андрей,вася, петя, жора, Гоша, Андрей,вася, петя, жора, Гоша, Андрей,вася, петя, жора, Гоша, Андрей,вася, петя, жора, Гоша, Андрей,",
-                        rewardFor: "Лучший текст в новости об смерти смерти ",
-                        discription: " Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium autem beatae cumque deserunt eveniet fugiat modi molestiae, neque omnis repellendus suscipit tempore vero. Ad consectetur corporis eius et perspiciatis?Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium autem beatae cumque deserunt eveniet fugiat modi molestiae, neque omnis repellendus suscipit tempore vero. Ad consectetur corporis eius et perspiciatis?",
-                    },
-                    {
-                        img: "https://jets.ru/upload/resize_cache/iblock/174/867_482_2/Legacy_650_1.jpg",
-                        title: "Награда за что то",
-                        date: "01.02.2021",
-                        personName: "вася, петя, жора, Гоша, Андрей,",
-                        rewardFor: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, enim, nesciunt. Assumenda dolor dolore eaque, eius, ipsa laborum laudantium magnam necessitatibus odio perspiciatis quo similique! Maiores nam nihil odit totam.",
-                        discription: " Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium autem beatae cumque deserunt eveniet fugiat modi molestiae, neque omnis repellendus suscipit tempore vero. Ad consectetur corporis eius et perspiciatis?Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium autem beatae cumque deserunt eveniet fugiat modi molestiae, neque omnis repellendus suscipit tempore vero. Ad consectetur corporis eius et perspiciatis?",
-                    },
-                    {
-                        img: "https://jets.ru/upload/resize_cache/iblock/174/867_482_2/Legacy_650_1.jpg",
-                        title: "Награда за что то",
-                        date: "01.02.2021",
-                        personName: "вася, петя, жора, Гоша, Андрей,",
-                        rewardFor: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, enim, nesciunt. Assumenda dolor dolore eaque, eius, ipsa laborum laudantium magnam necessitatibus odio perspiciatis quo similique! Maiores nam nihil odit totam.",
-                        discription: " Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium autem beatae cumque deserunt eveniet fugiat modi molestiae, neque omnis repellendus suscipit tempore vero. Ad consectetur corporis eius et perspiciatis?Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium autem beatae cumque deserunt eveniet fugiat modi molestiae, neque omnis repellendus suscipit tempore vero. Ad consectetur corporis eius et perspiciatis?",
-                    },
-                    {
-                        img: "https://jets.ru/upload/resize_cache/iblock/174/867_482_2/Legacy_650_1.jpg",
-                        title: "Награда за что то",
-                        date: "01.02.2021",
-                        personName: "вася, петя, жора, Гоша, Андрей,",
-                        rewardFor: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, enim, nesciunt. Assumenda dolor dolore eaque, eius, ipsa laborum laudantium magnam necessitatibus odio perspiciatis quo similique! Maiores nam nihil odit totam.",
-                        discription: " Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium autem beatae cumque deserunt eveniet fugiat modi molestiae, neque omnis repellendus suscipit tempore vero. Ad consectetur corporis eius et perspiciatis?Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium autem beatae cumque deserunt eveniet fugiat modi molestiae, neque omnis repellendus suscipit tempore vero. Ad consectetur corporis eius et perspiciatis?",
-                    },
-                    {
-                        img: "https://jets.ru/upload/resize_cache/iblock/174/867_482_2/Legacy_650_1.jpg",
-                        title: "Награда за что то",
-                        date: "01.02.2021",
-                        personName: "вася, петя, жора, Гоша, Андрей,",
-                        rewardFor: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, enim, nesciunt. Assumenda dolor dolore eaque, eius, ipsa laborum laudantium magnam necessitatibus odio perspiciatis quo similique! Maiores nam nihil odit totam.",
-                        discription: " Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium autem beatae cumque deserunt eveniet fugiat modi molestiae, neque omnis repellendus suscipit tempore vero. Ad consectetur corporis eius et perspiciatis?Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium autem beatae cumque deserunt eveniet fugiat modi molestiae, neque omnis repellendus suscipit tempore vero. Ad consectetur corporis eius et perspiciatis?",
-                    },
-                    {
-                        img: "https://jets.ru/upload/resize_cache/iblock/174/867_482_2/Legacy_650_1.jpg",
-                        title: "Награда за что то",
-                        date: "01.02.2021",
-                        personName: "вася, петя, жора, Гоша, Андрей,",
-                        rewardFor: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, enim, nesciunt. Assumenda dolor dolore eaque, eius, ipsa laborum laudantium magnam necessitatibus odio perspiciatis quo similique! Maiores nam nihil odit totam.",
-                        discription: " Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium autem beatae cumque deserunt eveniet fugiat modi molestiae, neque omnis repellendus suscipit tempore vero. Ad consectetur corporis eius et perspiciatis?Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium autem beatae cumque deserunt eveniet fugiat modi molestiae, neque omnis repellendus suscipit tempore vero. Ad consectetur corporis eius et perspiciatis?",
-                    },
-                    {
-                        img: "https://jets.ru/upload/resize_cache/iblock/174/867_482_2/Legacy_650_1.jpg",
-                        title: "Награда за что то",
-                        date: "01.02.2021",
-                        personName: "вася, петя, жора, Гоша, Андрей,",
-                        rewardFor: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, enim, nesciunt. Assumenda dolor dolore eaque, eius, ipsa laborum laudantium magnam necessitatibus odio perspiciatis quo similique! Maiores nam nihil odit totam.",
-                        discription: " Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium autem beatae cumque deserunt eveniet fugiat modi molestiae, neque omnis repellendus suscipit tempore vero. Ad consectetur corporis eius et perspiciatis?Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium autem beatae cumque deserunt eveniet fugiat modi molestiae, neque omnis repellendus suscipit tempore vero. Ad consectetur corporis eius et perspiciatis?",
-                    },
 
+                        "id": 1,
+                        "title": "",
+                        "date": "",
+                        "pers_name": "",
+                        "what": "",
+                        "description": "",
+                        "image": ""
+
+                },
                 ],
             }
-        }
+        },
+        created() {
+            this.getGrants()
+        },
+        methods: {
+            getGrants() {
+                fetch(`http://localhost:8000/grants/`)
+                    .then((res) => res.json())
+                    .then((resJSON) => {
+                        console.log(resJSON)
+                        this.grants = resJSON['results'];
+                        console.log('asd', this.grants)
+                    });
+            },
+        },
+
     }
 </script>
 
@@ -132,7 +108,6 @@
     }
 
     .grants-img img {
-        width: 100%;
         height: 450px;
         object-fit: cover;
         border-radius: 10px;
@@ -219,11 +194,13 @@
             margin-right: auto;
             margin-left: auto;
         }
+
         .grants-img img {
             width: 300px;
             object-fit: none;
         }
-        .grants-title{
+
+        .grants-title {
             width: 100%;
         }
     }
@@ -252,7 +229,8 @@
         .grants-title {
             margin: 20px 0;
         }
-        .grants-full-disc{
+
+        .grants-full-disc {
             padding: 0;
         }
 
@@ -276,6 +254,7 @@
             color: gray;
             padding: 10px 0;
         }
+
         .grants-img img {
             width: 100%;
             height: 100%;
