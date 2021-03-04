@@ -173,7 +173,7 @@
                 v-show="showRec"
               >
                 <img
-                  :src="'http://127.0.0.1:8000' + rec.image"
+                  :src="rec.image"
                   :alt="rec.title"
                   style="
                     width: 60px;
@@ -641,7 +641,7 @@
                 </div>
               </div>
             </div>
-            <div style="text-align: start">
+            <div style="text-align: start; width: 100%">
               <div
                 style="
                   font-size: 30px;

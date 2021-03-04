@@ -17,7 +17,7 @@
           margin-bottom: 50px;
         ">
         <span style="font-size: 18px; text-align: start; line-height: 30px; padding: 0 20px"><br>
-          <span style="font-weight: bold; font-size: 32px;">Кто мы ?</span> <br><br>
+          <span style="font-weight: bold; font-size: 32px;">Кто мы?</span> <br><br>
           Национальная Ассоциация электронных средств массовой информации была
           основана в 2003 году. На сегодняшний день НАЭСМИ является крупнейшей
           негосударственной некоммерческой медиа-организацией, объединяющей

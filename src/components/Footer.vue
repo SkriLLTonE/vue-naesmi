@@ -14,8 +14,8 @@
     >
       <div style="height: 100%; position: relative; z-index: 20">
         <div class="footer_links">
-          <button class="button-container">
-            <div style="font-weight: bold; color: white">Отправить заявку</div>
+          <button class="button-container" style="height: 60px;">
+            <div style="font-weight: bold; color: white; font-size: 20px;">Отправить заявку</div>
           </button>
           <div class="social_network_block">
             <div class="social-network">
