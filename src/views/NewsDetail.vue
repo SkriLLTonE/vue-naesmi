@@ -1,4 +1,5 @@
 <template>
+
     <div class="wrap">
         <div class="news">
             <div class="container">
