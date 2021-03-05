@@ -11,22 +11,24 @@
               align-items: flex-end;
               padding-bottom: 120px;
               border-left: 12px solid #2d66b3;
-         "
+            "
           >
             <transition name="sliderleft" appear>
               <div class="history-mark">ИСТОРИЯ</div>
             </transition>
             <div class="history_img" style="">
-              <img class="history_img_pos"
-                src="../assets/logo_uz.png"
-                alt=""/>
+              <img class="history_img_pos" src="../assets/logo_uz.png" alt="" />
             </div>
           </div>
           <div
             v-for="(item, index) in history"
             :key="index"
             class="history-elem"
-            :style="index + 1 === history.length ? 'border: none;' : ''"
+            :style="
+              index + 1 === history.length
+                ? 'border-left: 12px solid transparent;'
+                : ''
+            "
           >
             <div
               v-if="index + 1 === history.length"
@@ -37,24 +39,15 @@
                 height: 40px;
                 width: 12px;
                 background-color: #2d66b3;
+                transform: translateX(-12px);
               "
             ></div>
-            <div
-              class="history-dot"
-              :style="
-                index + 1 === history.length
-                  ? 'transform: translateX(-19px);'
-                  : ''
-              "
-            ></div>
-            <div
-              class="history-date"
-              :style="index + 1 === history.length ? 'padding-left: 40px;' : ''"
-            >
-              {{ item.date }}
+            <div class="history-dot"></div>
+            <div class="history-date">
+              {{ months[new Date(item.date).getMonth()] }}
+              {{ new Date(item.date).getFullYear() }}
             </div>
-            <div
-              class="history-description" :style="index + 1 === history.length ? 'padding-left: 60px;' : ''">
+            <div class="history-description">
               <span v-html="item.description"></span>
             </div>
           </div>
@@ -69,28 +62,44 @@
 
 <script>
 export default {
+  created() {
+    this.getGrants(30);
+  },
+  methods: {
+    getGrants(limit) {
+      fetch(`http://127.0.0.1:8000/history/?ordering=-date&limit=${limit}`)
+        .then((res) => res.json())
+        .then((resJSON) => {
+          console.log(resJSON);
+          this.history = resJSON["results"];
+          console.log("asd", this.history);
+          if (resJSON.count > limit) {
+            console.log(resJSON.count);
+            this.getGrants(resJSON.count);
+          }
+        });
+    },
+  },
   data() {
     return {
+      months: [
+        "Январь",
+        "Февраль",
+        "Март",
+        "Апрель",
+        "Май",
+        "Июнь",
+        "Июль",
+        "Август",
+        "Сентябрь",
+        "Октябрь",
+        "Ноябрь",
+        "Декабрь",
+      ],
       history: [
         {
-          date: "Апрель, 1995",
-          description:
-                  "<p>Diam faucibus dignissimos hymenaeos, provident impedit eros dolor ex. Lorem.</p><p>Lacus saepe convallis magna ipsa primis. Nobis voluptates, imperdiet soluta.</p>",
-        },
-        {
-          date: "Май, 1995",
-          description:
-                  "<p>Diam faucibus dignissimos hymenaeos, provident impedit eros dolor ex. Lorem.</p><p>Lacus saepe convallis magna ipsa primis. Nobis voluptates, imperdiet soluta.</p>",
-        },
-        {
-          date: "Май, 1995",
-          description:
-                  "<p>Possimus. Porta voluptas, magna egestas dicta sapien facere, iste debitis? Venenatis condimentum natoque vulputate? Sint ornare, ornare orci, taciti ligula.</p><p>Egestas id molestie arcu, deserunt facilisis iste posuere vitae neque in, semper! Dictumst? Quod, ratione cupiditate varius illum semper voluptates.</p>",
-        },
-        {
-          date: "Май, 1995",
-          description:
-                  "<p>Possimus. Porta voluptas, magna egestas dicta sapien facere, iste debitis? Venenatis condimentum natoque vulputate? Sint ornare, ornare orci, taciti ligula.</p><p>Egestas id molestie arcu, deserunt facilisis iste posuere vitae neque in, semper! Dictumst? Quod, ratione cupiditate varius illum semper voluptates.</p>",
+          date: "",
+          description: "",
         },
       ],
     };
@@ -162,40 +171,39 @@ export default {
   left: 20px;
   top: 20px;
 }*/
-.history_img{
+.history_img {
   width: 100%;
   height: 100%;
   background-size: cover;
   transform: translateY(50px);
 }
-.history_img_pos{
+.history_img_pos {
   width: 100%;
   height: 100%;
   object-fit: contain;
   position: relative;
   background-color: white;
 }
-  @media screen and (max-width: 768px){
-    .history-description{
-      font-size: 20px;
-      line-height: 1.0em;
-      padding-left: 40px;
-    }
-    .history-date {
-
-      padding-left: 30px;
-    }
-    .history-elem{
-      padding: 29px 0;
-    }
+@media screen and (max-width: 768px) {
+  .history-description {
+    font-size: 20px;
+    line-height: 1em;
+    padding-left: 40px;
   }
-@media screen and (max-width: 768px){
-  .history-description{
+  .history-date {
+    padding-left: 30px;
+  }
+  .history-elem {
+    padding: 29px 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .history-description {
     font-size: 16px;
-    line-height: 1.0em;
+    line-height: 1em;
     padding-left: 20px;
   }
-  .history_img{
+  .history_img {
     display: none;
   }
 }

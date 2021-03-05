@@ -1,9 +1,9 @@
 <template>
   <div>
     <div
+    :style="'background-image: url(' + background + ')'"
       style="
         width: 100%;
-        background: url('https://tvkinoradio.ru/upload/ckeditor/article/images/2016-05-26_RUS_MSK_TVKINORADIO_RT%28STUDIO%29-0017.jpg');
         background-size: cover;
         background-position: center;
         margin-top: 50px;
@@ -14,8 +14,10 @@
     >
       <div style="height: 100%; position: relative; z-index: 20">
         <div class="footer_links">
-          <button class="button-container" style="height: 60px;">
-            <div style="font-weight: bold; color: white; font-size: 20px;">Отправить заявку</div>
+          <button class="button-container" style="height: 60px">
+            <div style="font-weight: bold; color: white; font-size: 20px">
+              Отправить заявку
+            </div>
           </button>
           <div class="social_network_block">
             <div class="social-network">
@@ -204,6 +206,11 @@ export default {
         },
       ],
     };
+  },
+  computed: {
+    background() {
+      return require("../assets/foot_bg.jpg");
+    },
   },
   mounted: function () {
     this.getProjects();
