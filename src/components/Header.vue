@@ -129,7 +129,7 @@
             </div>
           </div>
           <div class="nav_menu_item">
-            <div class="nav_menu_item_link">
+            <div class="nav_menu_item_link" @click="routerHandler('/events')">
               <!-- <router-link to="/events">Ивенты</router-link>-->
               Ивенты
             </div>
