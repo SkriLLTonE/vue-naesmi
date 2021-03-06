@@ -39,19 +39,19 @@ const routes = [
     component: () => import('./views/NewsDetail.vue'),
   },
   {
-    path: "/Grants",
+    path: "/grants",
     name: "Grants",
     component: () => import('./views/Grants.vue'),
   },
   {
-    path: '/NotFound',
-    name: 'NotFound',
-    component: () => import('./views/NotFound.vue'),
-  },
-  {
-    path: '/Events',
+    path: '/events',
     name: 'Events',
     component: () => import('./views/Events.vue'),
+  },
+  {
+    path: "/:catchAll(.*)",
+    name: 'NotFound',
+    component: () => import('./views/NotFound.vue'),
   },
 
 ];

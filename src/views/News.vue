@@ -324,6 +324,7 @@ export default {
 .main-card-meta {
   color: gray;
   transition: all 1s ease;
+  pointer-events: none;
 }
 
 .single-card {
