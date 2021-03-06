@@ -8,6 +8,7 @@
           <div class="img">
             <img :src="item.img" :alt="item.title" />
           </div>
+          <div class="text">
           <div class="heading">
             <p>{{ item.title }}</p>
           </div>
@@ -32,6 +33,7 @@
               >
             </transition>
           </div>
+          </div>
         </div>
       </div>
       <br />
@@ -46,7 +48,7 @@ export default {
       events: [
         {
           img: "https://www.nat.ru/images/event-1.jpg",
-          title: "Золотой грамафvseryvgsrthbyedrtyjон",
+          title: "Золотой грамафvseryvgsrthtyjон",
           date: "04 Марта 2021",
           place: "Москва, AZIMUT Отель Смоленская",
           url: "https://example.com",
@@ -72,9 +74,6 @@ export default {
   padding: auto;
 }
 
-.events_card {
-  padding: 20px;
-}
 
 .events_card:hover .img img {
   transform: scale(1.05);
@@ -142,14 +141,18 @@ export default {
   }
 
   .img {
+    width: 100%;
     height: 100%;
   }
 
   .img img {
     object-fit: contain;
+    width: 100%;
     height: 100%;
   }
-
+  .text{
+    padding: 0 15px;
+  }
   .discription {
     font-size: 18px;
   }
