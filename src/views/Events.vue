@@ -18,7 +18,7 @@
                   ("0" + (new Date(item.date).getMonth() + 1)).substr(-2)
                 }}.{{ new Date(item.date).getFullYear() }}&nbsp; / &nbsp;</span
               >
-              <span> {{ item.location }}</span>
+              <span> {{item.location}}</span>
             </div>
             <div class="discription">
               <span v-html="item.description"></span>

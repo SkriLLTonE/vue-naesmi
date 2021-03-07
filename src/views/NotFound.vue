@@ -1,6 +1,6 @@
 <template>
     <div class="error">
-       <p> not found</p>
+       <p> TOPILMAGAN</p>
         <p class="error_404">
             <i class="fas fa-exclamation-circle icon" ></i>
             404

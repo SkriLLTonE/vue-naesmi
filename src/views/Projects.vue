@@ -77,7 +77,7 @@
                 target="_blank"
               >
                 <button class="button-container">
-                  <div style="font-weight: bold">Подробнее</div>
+                  <div style="font-weight: bold">Batafsil</div>
                 </button></a
               >
             </transition>

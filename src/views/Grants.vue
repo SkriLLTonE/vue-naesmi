@@ -34,14 +34,14 @@
                 </div>
               </div>
               <div class="grants_given">
-                <span> Получатели</span>
+                <span> Qabul qiluvchilar</span>
               </div>
               <div class="grants-fio">
                 <span>{{ item.pers_name }}</span>
               </div>
               <div class="grants-about">
                 <div>
-                  <span>Награда за </span>
+                  <span>Mukofotlar </span>
                 </div>
               </div>
               <div class="grants-about-disc">

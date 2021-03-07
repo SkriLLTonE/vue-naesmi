@@ -14,16 +14,16 @@
       </div>
       <div v-if="isDesktop" class="nav-control">
         <div>
-          <div @click="routerHandler('/rulers')">правление</div>
+          <div @click="routerHandler('/rulers')">boshqaruv </div>
         </div>
         <div>
-          <router-link to="/about">Об ассоциации</router-link>
+          <router-link to="/about">Uyushma haqida</router-link>
         </div>
         <div>
-          <router-link to="/news">новости</router-link>
+          <router-link to="/news">yangiliklar</router-link>
         </div>
         <div>
-          <router-link to="/events">Ивенты</router-link>
+          <router-link to="/events">Tadbirlar</router-link>
         </div>
         <div
           style="position: relative"
@@ -32,7 +32,7 @@
           @mousedown="open.sheet = !open.sheet"
           v-click-outside="closeTab"
         >
-          другое
+          qo'shimcha
           <i
             class="fas fa-chevron-down"
             style="padding-left: 8px; font-size: 12px; padding-top: 2px"
@@ -40,17 +40,17 @@
           <transition name="topopac" appear>
             <div v-show="open.sheet" class="open-sheet">
               <router-link to="/history">
-                <div>История</div>
+                <div>Tarix</div>
               </router-link>
               <div>
-                <a href="../assets/research.pdf" target="_blank">Устав</a>
+                <a @click="routerHandler('/docs')" target="_blank">Hujjatlar</a>
               </div>
               <router-link to="/grants">
-                <div>Гранты</div>
+                <div>Grantlar</div>
               </router-link>
               <!-- <div>Исследования и отчеты</div> -->
               <router-link to="/projects">
-                <div>Проекты</div>
+                <div>Loyihalar</div>
               </router-link>
             </div>
           </transition>
@@ -85,7 +85,7 @@
           <div class="search-btn">
             <i class="far fa-search" style=""></i>
           </div>
-          <input placeholder="search" class="search-input" />
+          <input placeholder="Qidirish" class="search-input" />
           <div
             style="
               width: 70px;
@@ -115,23 +115,23 @@
         <div class="nav-menu">
           <div class="nav_menu_item">
             <div class="nav_menu_item_link">
-              <div @click="routerHandler('/rulers')">Правление</div>
+              <div @click="routerHandler('/rulers')">Boshqaruv</div>
             </div>
           </div>
           <div class="nav_menu_item">
             <div class="nav_menu_item_link">
-              <div @click="routerHandler('/about')">Об Ассоциации</div>
+              <div @click="routerHandler('/about')">Uyushma Haqida</div>
             </div>
           </div>
           <div class="nav_menu_item">
             <div class="nav_menu_item_link">
-              <div @click="routerHandler('/news')">Новости</div>
+              <div @click="routerHandler('/news')">Yangiliklar</div>
             </div>
           </div>
           <div class="nav_menu_item">
             <div class="nav_menu_item_link" @click="routerHandler('/events')">
               <!-- <router-link to="/events">Ивенты</router-link>-->
-              Ивенты
+              Tadbirlar
             </div>
           </div>
           <div
@@ -145,31 +145,29 @@
               class="nav_menu_item_link"
               @click="expandedList = expandedList !== 'about' ? 'about' : ''"
             >
-              Другое <i class="fas fa-chevron-down down"> </i>
+              Qo'shimcha <i class="fas fa-chevron-down down"> </i>
             </div>
             <div class="sub_menu">
               <div class="sub_menu_item">
                 <div class="sub_menu_item_link">
-                  <div @click="routerHandler('/history')">История</div>
+                  <div @click="routerHandler('/history')">Tarix</div>
                 </div>
               </div>
               <!-- TODO -->
               <div class="sub_menu_item">
                 <div class="sub_menu_item_link">
-                  <a href="static/research.pdf" target="_blank">Устав</a>
+                  <a @click="routerHandler('/docs')" target="_blank">Hujjatlar</a>
                 </div>
               </div>
               <div class="sub_menu_item">
                 <div class="sub_menu_item_link">
-                  <div @click="routerHandler('/grants')">Гранты</div>
+                  <div @click="routerHandler('/grants')">Grantlar</div>
                 </div>
               </div>
-              <!-- <div class="sub_menu_item">
-                <div class="sub_menu_item_link">Исследования и Отчеты</div>
-              </div> -->
+
               <div class="sub_menu_item">
                 <div class="sub_menu_item_link">
-                  <div @click="routerHandler('/projects')">Проекты</div>
+                  <div @click="routerHandler('/projects')">Loyihalar</div>
                 </div>
               </div>
             </div>
@@ -181,7 +179,7 @@
           <div class="search_btn">
             <i class="far fa-search" style=""></i>
           </div>
-          <input placeholder="search" class="second_search_input" />
+          <input placeholder="Qidirish" class="second_search_input" />
           <div
             style="
               color: black;
