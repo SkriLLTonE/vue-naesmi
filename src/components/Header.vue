@@ -59,7 +59,7 @@
     </div>
 
     <div>
-      <div style="position: relative; display: flex; align-items: center">
+      <div class="social-net">
         <div style="display: flex">
           <div v-if="!isMini" class="social-net-item">
             <i
@@ -74,7 +74,7 @@
             <i class="fab fa-twitter" style="font-size: 26px"></i>
           </div>
           <div
-            class="social-net-item"
+            class="social-net-item-g"
             v-if="!isDesktop"
             @click="open.drawer = !open.drawer"
           >
@@ -469,7 +469,17 @@ export default {
   transition: all 0.2s ease;
   margin: 0 8px;
 }
-
+.social-net-item-g {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  margin: 0 8px;
+}
 .social-net-item:hover {
   background-color: white;
   color: #000;
@@ -613,6 +623,19 @@ export default {
 .sub_menu_item:hover {
   color: lightgray;
 }
+.social-net{
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+@media screen and (max-width: 1200px) {
+  .nav-control{
+    display: none;
+  }
+}
+@media screen and (max-width: 991px) {
+
+}
 
 @media screen and (max-width: 768px) {
   .drawer-wrapper {
@@ -622,6 +645,9 @@ export default {
 @media screen and (max-width: 576px) {
   .drawer-wrapper {
     width: 100%;
+  }
+  .social-net-item{
+    display: none;
   }
 }
 </style>
