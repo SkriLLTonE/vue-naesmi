@@ -1,14 +1,8 @@
 <template>
   <div class="app-bar">
-    <div
-      style="
-        position: relative;
-        display: flex;
-        align-items: flex-end;
-        height: 68px;
-      "
-    >
-      <!-- <img class="logo" src="../assets/logo2_white.png" /> -->
+    <div style="
+      position: relative;display: flex; align-items: flex-end; height: 68px; ">
+
       <div class="naesmi" ref="naesmi">
         <router-link to="/">НАЭСМИ</router-link>
       </div>
@@ -632,9 +626,6 @@ export default {
   .nav-control{
     display: none;
   }
-}
-@media screen and (max-width: 991px) {
-
 }
 
 @media screen and (max-width: 768px) {
