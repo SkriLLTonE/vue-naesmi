@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div style="display: flex; justify-content: center">
+    <div
+      style="display: flex; justify-content: center"
+      v-if="projects.length > 0"
+    >
       <div
         style="max-width: 1200px; width: 100%; position: relative"
         ref="main_list"
@@ -82,6 +85,22 @@
         </div>
       </div>
     </div>
+    <transition name="fade" appear>
+      <div style="margin-top: 50px" class="lds-spinner" v-if="projects.length === 0">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </transition>
   </div>
   <br />
   <br />
@@ -119,9 +138,9 @@ export default {
             if (this.fetchTimeout) clearTimeout(this.fetchTimeout);
           }
           this.offset++;
-          console.log("me");
-          console.log(json);
-          console.log(this.offset);
+          // console.log("me");
+          // console.log(json);
+          // console.log(this.offset);
         });
     },
     checkScroll() {
@@ -160,15 +179,15 @@ export default {
         "Дек",
       ],
       projects: [
-        {
-          id: 1,
-          name: "",
-          description: "",
-          image: "",
-          url: null,
-          date: "",
-          last_change: "",
-        },
+        // {
+        //   id: 1,
+        //   name: "",
+        //   description: "",
+        //   image: "",
+        //   url: null,
+        //   date: "",
+        //   last_change: "",
+        // },
       ],
     };
   },
