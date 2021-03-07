@@ -239,7 +239,7 @@ export default {
     window.addEventListener("resize", this.checkResponsive);
   },
   unmounted() {
-    window.removeEventListener("resize", this.checkResponsive());
+    window.removeEventListener("resize", this.checkResponsive);
   },
   watch: {},
   mounted: function () {

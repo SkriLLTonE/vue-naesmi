@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div v-if="events.length > 0">
     <br />
     <br />
-    <div class="container" v-for="(item, index) in events" :key="index">
+    <div data-aos="fade-up" class="container" v-for="(item, index) in events" :key="index">
       <div class="row">
         <div class="events_card">
           <div class="img">
@@ -43,6 +43,22 @@
       <br />
     </div>
   </div>
+  <transition name="fade" appear>
+    <div style="margin-top: 50px" class="lds-spinner" v-if="events.length === 0">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </transition>
 </template>
 <script>
 export default {
@@ -50,23 +66,23 @@ export default {
   data() {
     return {
       events: [
-        {
-          id: 1,
-          title: "",
-          description: "",
-          location: "",
-          image: "",
-          date: "",
-          url: null,
-        },
+        // {
+        //   id: 1,
+        //   title: "",
+        //   description: "",
+        //   location: "",
+        //   image: "",
+        //   date: "",
+        //   url: null,
+        // },
       ],
     };
   },
   created() {
-    this.getGrants(30);
+    this.getEvents(30);
   },
   methods: {
-    getGrants(limit) {
+    getEvents(limit) {
       fetch(`http://127.0.0.1:8000/events/?ordering=-pub_date&limit=${limit}`)
         .then((res) => res.json())
         .then((resJSON) => {

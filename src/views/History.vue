@@ -1,59 +1,85 @@
 <template>
   <div>
-    <div>
-      <div style="padding: 0 40px">
-        <div style="width: 100%; height: auto; position: relative">
-          <div
-            style="
-              width: 100%;
-              height: 240px;
-              display: flex;
-              align-items: flex-end;
-              padding-bottom: 120px;
-              border-left: 12px solid #2d66b3;
-            "
-          >
-            <transition name="sliderleft" appear>
-              <div class="history-mark">ИСТОРИЯ</div>
-            </transition>
-            <div class="history_img" style="">
-              <img class="history_img_pos" src="../assets/logo_uz.png" alt="" />
-            </div>
-          </div>
-          <div
-            v-for="(item, index) in history"
-            :key="index"
-            class="history-elem"
-            :style="
-              index + 1 === history.length
-                ? 'border-left: 12px solid transparent;'
-                : ''
-            "
-          >
+    <transition name="fade" appear>
+      <div v-if="history.length > 0">
+        <div style="padding: 0 40px">
+          <div style="width: 100%; height: auto; position: relative">
             <div
-              v-if="index + 1 === history.length"
               style="
-                top: 0;
-                left: 0;
-                position: absolute;
-                height: 40px;
-                width: 12px;
-                background-color: #2d66b3;
-                transform: translateX(-12px);
+                width: 100%;
+                height: 240px;
+                display: flex;
+                align-items: flex-end;
+                padding-bottom: 120px;
+                border-left: 12px solid #2d66b3;
               "
-            ></div>
-            <div class="history-dot"></div>
-            <div class="history-date">
-              {{ months[new Date(item.date).getMonth()] }}
-              {{ new Date(item.date).getFullYear() }}
+            >
+              <transition name="sliderleft" appear>
+                <div class="history-mark">ИСТОРИЯ</div>
+              </transition>
+              <div class="history_img" style="">
+                <img
+                  class="history_img_pos"
+                  src="../assets/logo_uz.png"
+                  alt=""
+                />
+              </div>
             </div>
-            <div class="history-description">
-              <span v-html="item.description"></span>
+            <div
+              v-for="(item, index) in history"
+              :key="index"
+              class="history-elem"
+              :style="
+                index + 1 === history.length
+                  ? 'border-left: 12px solid transparent;'
+                  : ''
+              "
+            >
+              <div
+                v-if="index + 1 === history.length"
+                style="
+                  top: 0;
+                  left: 0;
+                  position: absolute;
+                  height: 40px;
+                  width: 12px;
+                  background-color: #2d66b3;
+                  transform: translateX(-12px);
+                "
+              ></div>
+              <div class="history-dot"></div>
+              <div class="history-date">
+                {{ months[new Date(item.date).getMonth()] }}
+                {{ new Date(item.date).getFullYear() }}
+              </div>
+              <div class="history-description">
+                <span v-html="item.description"></span>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </transition>
+    <transition name="fade" appear>
+      <div
+        style="margin-top: 50px"
+        class="lds-spinner"
+        v-if="history.length === 0"
+      >
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </transition>
     <br />
     <br />
     <br />
@@ -97,10 +123,10 @@ export default {
         "Декабрь",
       ],
       history: [
-        {
-          date: "",
-          description: "",
-        },
+        // {
+        //   date: "",
+        //   description: "",
+        // },
       ],
     };
   },

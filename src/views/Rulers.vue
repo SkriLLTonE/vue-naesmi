@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="rulers.length > 0">
     <br />
     <br />
     <br />
@@ -15,16 +15,12 @@
         :key="index"
       >
         <div class="human-photo-wrapper">
-          <transition name="scale" appear>
-            <div class="human-photo-back">
-              <div></div>
-            </div>
-          </transition>
-          <transition name="scale2" appear>
-            <div>
-              <img :src="human.image" :alt="human.name" />
-            </div>
-          </transition>
+          <div data-aos="fade-right" class="human-photo-back">
+            <div></div>
+          </div>
+          <div data-aos="zoom-in">
+            <img :src="human.image" :alt="human.name" />
+          </div>
         </div>
         <div class="human_width">
           <div>
@@ -36,24 +32,24 @@
                   : 'flex-direction: row;'
               "
             >
-              <transition name="leftop" appear>
-                <div
-                  :style="
-                    (index + 1) % 2 == 0
-                      ? 'text-align: end;'
-                      : 'text-align: start;'
-                  "
-                  style="
-                    padding-right: 0.4em;
-                    width: 100%;
-                    font-weight: bold;
-                    font-size: 40px;
-                    line-height: 65px;
-                  "
-                >
-                  {{ human.title }}
-                </div>
-              </transition>
+              <div
+                data-aos="fade-right"
+                data-aos-duration="800"
+                :style="
+                  (index + 1) % 2 == 0
+                    ? 'text-align: end;'
+                    : 'text-align: start;'
+                "
+                style="
+                  padding-right: 0.4em;
+                  width: 100%;
+                  font-weight: bold;
+                  font-size: 40px;
+                  line-height: 65px;
+                "
+              >
+                {{ human.title }}
+              </div>
               <template v-if="(index + 1) % 2 == 0">
                 <transition name="topop" appear>
                   <div style="padding-right: 0.4em">{{ human.last_name }}</div>
@@ -109,13 +105,34 @@
       </div>
     </div>
   </div>
+  <transition name="fade" appear>
+    <div
+      style="margin-top: 50px"
+      class="lds-spinner"
+      v-if="rulers.length === 0"
+    >
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </transition>
 </template>
 
 <script>
 export default {
   name: "Rulers",
   created() {
-    this.getRulers();
+    // setTimeout(() => this.getRulers(), 1000)
+    this.getRulers()
   },
   methods: {
     getRulers() {
@@ -131,14 +148,14 @@ export default {
   data() {
     return {
       rulers: [
-        {
-          title: "",
-          image: "",
-          name: "",
-          first_name: "",
-          last_name: "",
-          description: "",
-        },
+        // {
+        //   title: "",
+        //   image: "",
+        //   name: "",
+        //   first_name: "",
+        //   last_name: "",
+        //   description: "",
+        // },
       ],
     };
   },
