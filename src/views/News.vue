@@ -1,5 +1,5 @@
 <template>
-  <div style="width: 100%; display: flex; justify-content: center">
+  <div style="width: 100%; display: flex; justify-content: center" ref="main_wrapper">
     <div style="width: 100%; max-width: 1200px">
       <br />
       <br />
@@ -26,13 +26,13 @@
             background-color: rgba(68, 147, 255, 0.6);
           "
         ></div>
-        <div style="position: relative">Новости</div>
+        <div style="position: relative">Yangiliklar</div>
       </div>
-      <div class="main-card-wrapper">
+      <div data-aos="fade-up" class="main-card-wrapper" v-if="news.length > 0">
         <div>
           <div class="main-news-img">
             <img
-              src="https://www.uzdaily.uz/storage/img/september2020/3c54fa25-10bc-38ff-a068-234ab71c8389.jpg"
+             :src="news[0].image"
               class="main-card-wrapper-img"
             />
           </div>
@@ -43,7 +43,7 @@
               class="main-card-meta"
               style="font-size: 14px; padding: 0 0 0 10px"
             >
-              INTERNATIONAL
+              {{ news[0].category.name}}
             </div>
             <div
               style="
@@ -59,7 +59,7 @@
                 -webkit-box-orient: vertical;
               "
             >
-              The Latest: Officer in Canada prime minister motorcade hurt
+              {{ news[0].title}}
             </div>
             <div
               class="main-card-meta"
@@ -74,111 +74,95 @@
                 -webkit-box-orient: vertical;
               "
             >
-              Nulla animi aperiam mattis. Malesuada. Architecto. Mauris quod
-              montes ipsam! Esse vitae, adipisicing fugiat molestiae
-              accusantium, rerum, conubia laboriosam volutpat sit, nostra eum
-              delectus? Platea! Sed. Diamlorem. Eros, primis, anim.
             </div>
-            <div
-              style="display: flex; align-items: center; padding: 16px 0 0 16px"
-            >
-              <img
-                style="
-                  height: 34px;
-                  width: 34px;
-                  object-fit: cover;
-                  border-radius: 50%;
-                "
-                src="https://dyl80ryjxr1ke.cloudfront.net/external_assets/hero_examples/hair_beach_v1785392215/original.jpeg"
-                alt=""
-              />
-              <div style="font-weight: bold; font-size: 14px; padding: 0 12px">
-                Ben The Journalist
+            <div style="display: flex; align-items: center; padding: 16px 0 0 16px">
+              <div style="font-weight: bold; font-size: 14px; padding: 0 12px;">
+                {{ months[new Date(news[0].pub_date).getMonth()] }}
+                {{ new Date(news[0].pub_date).getDate() }}
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="
+          margin-top: 50px; display: flex;flex-wrap: wrap; position: relative;justify-content: center;" class="single-card-holder" v-if="news.length > 0">
+        <div data-aos="fade-up" v-for="(item, index) in news" :key="index" class="single-card">
+            <img
+              class="single-card-img"
+              :src="item.image"/>
+              :alt="item.title"/>
+            <div class="card-content">
+              <div
+                class="main-card-meta"
+                style="font-size: 14px; padding: 0 0 0 10px"
+              >
+                {{ item.category.name }}
+              </div>
+
               <div
                 style="
-                  width: 4px;
-                  height: 4px;
-                  background-color: black;
-                  border-radius: 50%;
+                  font-size: 24px;
+                  padding: 0 0 0 10px;
+                  line-height: 1.4em;
+                  padding-top: 10px;
+                  font-weight: bold;
+                  overflow: hidden;
+                  height: 4em;
+                  display: -webkit-box;
+                  -webkit-line-clamp: 3;
+                  -webkit-box-orient: vertical;
                 "
-              ></div>
-              <div style="font-weight: bold; font-size: 14px; padding: 0 12px">
-                Jan 5
+              >
+                {{ item.title }}
+              </div>
+
+              <div
+                style="display: flex; align-items: center; padding: 16px 0 0 10px"
+              >
+                <div style="font-weight: bold; font-size: 14px">
+                  {{ months[new Date(item.pub_date).getMonth()] }}
+                  {{ new Date(item.pub_date).getDate() }}
+                </div>
               </div>
             </div>
           </div>
-        </div>
       </div>
-
-      <div
-        style="
-          margin-top: 50px;
-          display: flex;
-          flex-wrap: wrap;
-          position: relative;
-          justify-content: center;
-        "
-      >
-        <div v-for="(item, index) in news" :key="index" class="single-card">
-          <img
-            class="single-card-img"
-            src="https://cdnb.artstation.com/p/assets/images/images/011/449/401/large/febri-ferdian-b-x177c.jpg?1529631793"
-          />
-          <div class="card-content">
-            <div
-              class="main-card-meta"
-              style="font-size: 14px; padding: 0 0 0 10px"
-            >
-              {{ item.category }}
-            </div>
-
-            <div
-              style="
-                font-size: 24px;
-                padding: 0 0 0 10px;
-                line-height: 1.4em;
-                padding-top: 10px;
-                font-weight: bold;
-                overflow: hidden;
-                height: 4em;
-                display: -webkit-box;
-                -webkit-line-clamp: 3;
-                -webkit-box-orient: vertical;
-              "
-            >
-              {{ item.title }}
-            </div>
-
-            <div
-              style="display: flex; align-items: center; padding: 16px 0 0 10px"
-            >
-              <div style="font-weight: bold; font-size: 14px">
-                {{ item.time }}
-              </div>
-            </div>
-          </div>
+      <transition name="fade" appear>
+        <div style="margin-top: 50px" class="lds-spinner" v-if="news.length === 0">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
-      </div>
+      </transition>
     </div>
   </div>
 
-  <div class="pagination">
-    <div class="pagination-list">
-      <a href="#">
-        <i class="fas fa-chevron-left"> </i>
-      </a>
-      <a href="#">1</a>
-      <a href="#" class="active">2</a>
-      <a href="#">3</a>
-      <a href="#">4</a>
-      <a href="#">5</a>
-      <a href="#">6</a>
-      <a href="#">
-        <i class="fas fa-chevron-right"> </i>
-      </a>
-    </div>
-  </div>
+<!--  <div class="pagination">-->
+<!--    <div class="pagination-list">-->
+<!--      <a href="#">-->
+<!--        <i class="fas fa-chevron-left"> </i>-->
+<!--      </a>-->
+<!--      <a href="#">1</a>-->
+<!--      <a href="#" class="active">2</a>-->
+<!--      <a href="#">3</a>-->
+<!--      <a href="#">4</a>-->
+<!--      <a href="#">5</a>-->
+<!--      <a href="#">6</a>-->
+<!--      <a href="#">-->
+<!--        <i class="fas fa-chevron-right"> </i>-->
+<!--      </a>-->
+<!--    </div>-->
+<!--  </div>-->
 </template>
 
 <script>
@@ -194,64 +178,42 @@ export default {
       open: {
         sheet: false,
       },
+      offset: 0,
+      diff: true,
+      months: [
+        "Янв",
+        "Фев",
+        "Мар",
+        "Апр",
+        "Май",
+        "Июн",
+        "Июл",
+        "Авг",
+        "Сен",
+        "Окт",
+        "Ноя",
+        "Дек",
+      ],
       news: [
-        {
-          title: "The Latest: Officer in Canada prime minister motorcade hurt",
-          category: "INTERNATIONAL",
-          description:
-            "The Latest: Officer in Canada prime minister motorcade hurt",
-          time: "Янв 25",
-        },
-        {
-          title: "The Latest: Officer in Canada prime minister motorcade hurt",
-          category: "INTERNATIONAL",
-          description:
-            "The Latest: Officer in Canada prime minister motorcade hurt",
-          time: "Янв 25",
-        },
-        {
-          title: "The Latest: Officer in Canada prime minister motorcade hurt",
-          category: "INTERNATIONAL",
-          description:
-            "The Latest: Officer in Canada prime minister motorcade hurt",
-          time: "Янв 25",
-        },
-        {
-          title: "The Latest: Officer in Canada prime minister motorcade hurt",
-          category: "INTERNATIONAL",
-          description:
-            "The Latest: Officer in Canada prime minister motorcade hurt",
-          time: "Янв 25",
-        },
-        {
-          title: "The Latest: Officer in Canada prime minister motorcade hurt",
-          category: "INTERNATIONAL",
-          description:
-            "The Latest: Officer in Canada prime minister motorcade hurt",
-          time: "Янв 25",
-        },
-        {
-          title: "The Latest: Officer in Canada prime minister motorcade hurt",
-          category: "INTERNATIONAL",
-          description:
-            "The Latest: Officer in Canada prime minister motorcade hurt",
-          time: "Янв 25",
-        },
-        {
-          title: "The Latest: Officer in Canada prime minister motorcade hurt",
-          category: "INTERNATIONAL",
-          description:
-            "The Latest: Officer in Canada prime minister motorcade hurt",
-          time: "Янв 25",
-        },
+        // {
+        //   title: "The Latest: Officer in Canada prime minister motorcade hurt",
+        //   category: "INTERNATIONAL",
+        //   description:
+        //     "The Latest: Officer in Canada prime minister motorcade hurt",
+        //   time: "Янв 25",
+        // },
       ],
     };
   },
   created() {
     window.addEventListener("resize", this.checkResponsive);
+    window.addEventListener("scroll", this.checkScroll);
+    this.getNews();
   },
   unmounted() {
     window.removeEventListener("resize", this.checkResponsive());
+    window.removeEventListener("scroll", this.checkScroll);
+    clearTimeout(this.fetchTimeout);
   },
   watch: {},
   mounted: function () {
@@ -267,6 +229,43 @@ export default {
       // console.log("desktop ", this.isDesktop);
       // console.log("mobile ", this.isMobile);
       // console.log("tablet ", this.isTablet);
+    },
+    getNews() {
+      fetch(
+              `http://127.0.0.1:8000/news2/?ordering=-pub_date&limit=4&offset=${
+                      this.offset * 4
+              }`
+      )
+              .then((res) => {
+                return res.json();
+              })
+              .then((json) => {
+                if (this.offset === 0) {
+                  this.news = json["results"];
+                } else {
+                  this.news = this.news.concat(json["results"]);
+                }
+                if (json.count <= this.news.length) {
+                  window.removeEventListener("scroll", this.checkScroll);
+                  if (this.fetchTimeout) clearTimeout(this.fetchTimeout);
+                }
+                this.offset++;
+                console.log("me");
+                console.log(json);
+                console.log(this.offset);
+              });
+    },
+    checkScroll() {
+      this.diff =
+              document.documentElement.scrollTop + window.innerHeight >=
+              this.$refs.main_wrapper.offsetHeight;
+
+      if (this.diff) {
+        if (this.fetchTimeout) clearTimeout(this.fetchTimeout);
+        this.fetchTimeout = setTimeout(() => {
+          this.getNews();
+        }, 200);
+      }
     },
   },
 };
@@ -325,6 +324,10 @@ export default {
   color: gray;
   transition: all 1s ease;
   pointer-events: none;
+}
+
+.single-card-holder .single-card:first-child{
+  display: none;
 }
 
 .single-card {

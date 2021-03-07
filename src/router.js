@@ -49,6 +49,11 @@ const routes = [
     component: () => import('./views/Events.vue'),
   },
   {
+    path: '/docs',
+    name: 'Docs',
+    component: () => import('./views/Docs.vue'),
+  },
+  {
     path: "/:catchAll(.*)",
     name: 'NotFound',
     component: () => import('./views/NotFound.vue'),

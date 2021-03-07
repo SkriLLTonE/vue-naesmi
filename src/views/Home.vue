@@ -4,7 +4,7 @@
             <div class="weather-block">
                 <div class="weather-inner">
                     <transition name="fadetop" appear>
-                        <div class="headline">Погода</div>
+                        <div class="headline">Ob-havo</div>
                     </transition>
                     <transition name="sliderleft" appear>
                         <div class="weekday">Saturday</div>
@@ -150,7 +150,7 @@
               font-weight: bold;
               color: lightgray;
             "
-          >READ ALSO</span
+          >BOSHQA SAHIFALAR</span
           >
                     <div
                             style="
@@ -238,9 +238,9 @@
             <div>
                 <div class="partners">
           <span style="font-size: 36px; font-weight: bold; line-height: 1.5em"
-          >Партнёры</span
+          >Hamkorlar</span
           >
-                    <span style="font-size: 20px; color: gray">НАЭСМИ</span>
+                    <span style="font-size: 20px; color: gray">OAV</span>
                 </div>
             </div>
             <div
@@ -344,11 +344,11 @@
               font-family: 'Times New Roman', Times, serif;
             "
                     >
-                        Главные новости
+                        Asosiy yangiliklar
                     </div>
                     <div class="all_news">
                         <div @click="routerHandler('/news')">
-                            <div class="tab-btn active">Все новости</div>
+                            <div class="tab-btn active">Barcha yangiliklar</div>
                         </div>
                         <!-- <div class="tab-btn">Featured</div> -->
                         <div class="tab-btn-indicator"></div>
@@ -558,11 +558,11 @@
                 font-family: 'Times New Roman', Times, serif;
               "
                         >
-                            Поледний Проект
+                            Oxirgi Loyiha
                         </div>
                         <div class="all_news">
                             <div @click="routerHandler('/projects')" class="tab-btn active">
-                                Все проекты
+                                Barcha loyihalar
                             </div>
                             <div class="tab-btn-indicator"></div>
                         </div>
@@ -614,7 +614,7 @@
                                     target="_blank"
                             >
                                 <button class="button-container">
-                                    <div style="font-weight: bold">Подробнее</div>
+                                    <div style="font-weight: bold">Batafsil</div>
                                 </button>
                             </a>
                         </div>
@@ -646,7 +646,7 @@
                   font-family: 'Times New Roman', Times, serif;
                 "
                             >
-                                Организации
+                                Tashkilotlar
                             </div>
 
                             <a

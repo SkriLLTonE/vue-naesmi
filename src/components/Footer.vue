@@ -23,8 +23,7 @@
       >
         <div class="footer_links">
           <button class="button-container" style="height: 60px">
-            <div style="font-weight: bold; color: white; font-size: 20px">
-              Отправить заявку
+            <div style="font-weight: bold; color: white; font-size: 20px">Ariza yuborish
             </div>
           </button>
           <div class="social_network_block">
@@ -62,7 +61,7 @@
                     padding: 30px 0 10px 0;
                   "
                 >
-                  Контакты:
+                  BIZ BILAN ULANISH:
                 </div>
                 <div
                   style="
@@ -76,15 +75,16 @@
                 ></div>
               </div>
               <div style="font-size: 18px; line-height: 1.5em">
-                Узбекистан, 100106, Ташкент
-                <p>Навои, д. 15, к. 1</p>
+                O'zbekiston, 100106, Toshkent
+
+                <p>Н Navoiy, 15-uy, 1-uy</p>
 
                 <br />
                 <div style="font-size: 18px; line-height: 1.5em">
-                  Тел: +998(99) 777-77-77
+                  Tel: +998(99) 777-77-77
                 </div>
                 <div style="font-size: 18px; line-height: 1.5em">
-                  Факс: +998(99) 777-77-76
+                  Faks: +998(99) 777-77-76
                 </div>
                 <div style="font-size: 18px; line-height: 1.5em">
                   E-mail: info@naesmi.uz
@@ -101,7 +101,7 @@
                     padding: 30px 0 10px 0;
                   "
                 >
-                  О нас:
+                  Biz haqimizda:
                 </div>
                 <div
                   style="
@@ -115,19 +115,19 @@
                 ></div>
               </div>
               <div class="route">
-                <div @click="routerHandler('/history')">История</div>
+                <div @click="routerHandler('/history')">Tarix</div>
               </div>
               <div class="route">
-                <div @click="routerHandler('/news')">Новости</div>
+                <div @click="routerHandler('/news')">Yangiliklar</div>
               </div>
               <div class="route">
-                <div @click="routerHandler('/rulers')">Правление</div>
+                <div @click="routerHandler('/rulers')">Boshqaruv</div>
               </div>
               <div class="route">
-                <div @click="routerHandler('/about')">Об Ассоциации</div>
+                <div @click="routerHandler('/about')">Uyushma Haqida</div>
               </div>
               <div class="route">
-                <div @click="routerHandler('/events')">Ивенты</div>
+                <div @click="routerHandler('/events')">Tadbirlar</div>
               </div>
             </div>
 
@@ -140,7 +140,7 @@
                     padding: 30px 0 10px 0;
                   "
                 >
-                  Проекты:
+                  Loyihalar:
                 </div>
                 <div
                   style="
@@ -178,9 +178,9 @@
             line-height: 1.8em;
           "
         >
-          © 2004 - 2021. «Национальная ассоциация электронных СМИ Узбекистан.
+          © 2004 - 2021. "O'zbekiston elektron ommaviy axborot vositalari milliy assotsiatsiyasi.
           <br />
-          Все права защищены.
+          Barcha huquqlar himoyalangan.
         </div>
       </div>
       <div

@@ -2,8 +2,8 @@
     <div>
         <div class="banner">
             <div style="position: absolute;top: 0;left: 0;width: 100%;height: 100%; background-image: linear-gradient(#000, transparent); z-index: 0;"></div>
-            <div class="banner_header" >
-                О НАЭСМИ
+            <div class="banner_header">
+                OAV HAQIDA
             </div>
         </div>
 
@@ -17,99 +17,97 @@
           margin-bottom: 50px;
         ">
         <span style="font-size: 18px; text-align: start; line-height: 30px; padding: 0 20px"><br>
-          <span style="font-weight: bold; font-size: 32px;">Кто мы?</span> <br><br>
-          Национальная Ассоциация электронных средств массовой информации была
-          основана в 2003 году. На сегодняшний день НАЭСМИ является крупнейшей
-          негосударственной некоммерческой медиа-организацией, объединяющей
-          более 100 негосударственных телерадиостанций и студий кабельного
-          телевидения Узбекистана. <br> <br>
+          <span style="font-weight: bold; font-size: 32px;">Biz kimmiz?</span> <br><br>
+       Elektron ommaviy axborot vositalari Milliy assotsiatsiyasi edi
+2003 yilda tashkil etilgan. Bugungi kunda O'zEOAVMA eng katta hisoblanadi
+nodavlat notijorat media-tashkiloti
+100 dan ortiq nodavlat teleradiostansiyalar va kabel studiyalari
+O'zbekiston televideniyesi. <br> <br>
            <span style="font-weight: bold;font-size: 32px;">
-             Цели:
+             Maqsadlar:
            </span> <br><br>
-          НАЭСМИ ставит перед собой задачу по
-          формированию цивилизованного рынка вещания, повышение качества и
-          разнообразия контента эфира негосударственных телестанций, активизация
-          телерадиовещателей в построении гражданского общества. Одним из
-          направлений деятельности НАЭСМИ является повышение профессионального
-          уровня творческих и технических работников СМИ путем проведения
-          семинаров-тренингов с широким привлечение международных экспертов. <br><br>
+          O'zEOAVMA o'z vazifasini o'z zimmasiga oladi
+madaniyatli eshittirish bozorini shakllantirish, sifatini oshirish va
+nodavlat telestansiyalar efirining mazmuni xilma-xilligi, faollashuvi
+fuqarolik jamiyatini qurishda teleradioeshittiruvchilar. Ulardan biri
+O'zEOAVMA faoliyatining yo'nalishlari kasbiy tayyorgarlikni oshirishdir
+ommaviy axborot vositalarining ijodiy va texnik xodimlari
+xalqaro ekspertlarni keng jalb etgan holda seminar-treninglar.<br><br>
 
-          <span style="font-weight: bold;font-size: 32px;">Партнёры:</span> <br><br>
-          На
-          сегодняшний день НАЭСМИ объединяет 18 национальных телеканалов, 19
-          радиоканалов, около 100 электронных СМИ - членов кабельного
-          телевидения Узбекистана (52 зарубежных канала). Среди членов НАЭСМИ –
-          ведущие рейтинговые телеканалы страны – Sevimli TV, ZOR TV, MY5 и
-          Uzreport TV, занимающие верхние строчки рейтингов, которые получили
-          свое мощное развитие благодаря созданным в Новом Узбекистане условиям
-          для развития СМИ. В целом, 76% телезрителей доверяют именно этим
-          каналам. НАЭСМИ уделяет большое внимание развитию и укреплению
-          международного сотрудничества. Широкий комплекс вопросов и задач по
-          обеспечению партнёрства и взаимодействия НАЭСМИ с зарубежными и
-          международными организациями, культурными центрами, консульствами и
-          посольствами разных стран, а также крупными медиа-структурами,
-          направлено в первую очередь на укрепление сотрудничества в вопросах
-          привлечения зарубежных тренеров, повышения квалификации молодых
-          творческих и технических сотрудников телерадиостанций, обмена
-          контентом, реализации совместных медиа-проектов. Так, благодаря
-          поддержке Посольства Великобритании в Узбекистане, в октябре 2017 года
-          был заключен договор с международным информационным агентством «Томсон
-          Рейтерс». Результатом сотрудничества стала возможность приобретения 9
-          месячного доступа к пакету новостного контента и трансляции самых
-          свежих и актуальных новостей, происходящих на международной арене. <br><br>
+          <span style="font-weight: bold;font-size: 32px;">Hamkorlar:</span> <br><br>
+         Bugungi kunda O'zEOAVMA 18 milliy telekanallarini birlashtiradi, 19
+radiokanallar, 100 ga yaqin elektron OAV-kabel a'zolari
+O'zbekiston televideniyesi (52 ta xorijiy kanal). O'zEOAVMA a'zolari orasida –
+mamlakatning yetakchi reyting telekanallari-Sevimli TV – ZOR TV, MY5 va
+Qabul qilingan reytinglarning yuqori satrlarini egallagan Uzreport TV
+yangi O'zbekistonda yaratilgan sharoitlar tufayli uning kuchli rivojlanishi
+ommaviy axborot vositalarini rivojlantirish uchun. Umuman olganda, tomoshabinlarning 76% bunga ishonadi
+kanallar. O'zEOAVMA rivojlanish va mustahkamlashga katta e'tibor qaratmoqda
+xalqaro hamkorlik. Keng ko'lamli masalalar va vazifalar
+O'zEOAVMAning xorijiy davlatlar bilan hamkorligi va hamkorligini ta'minlash
+xalqaro tashkilotlar, madaniy markazlar, konsulliklar va
+turli mamlakatlar elchixonalari, shuningdek, yirik media tuzilmalar,
+bu, birinchi navbatda, masalalarda hamkorlikni mustahkamlashga qaratilgan
+xorijiy murabbiylarni jalb etish, yosh kadrlarni malakasini oshirish
+teleradiostansiyalarning ijodiy va texnik xodimlari almashinuvi
+kontent, qo'shma media-loyihalarni amalga oshirish. Shunday qilib, rahmat
+Buyuk Britaniyaning O'zbekistondagi elchixonasini qo'llab-quvvatlash, 2017 yil oktyabr
+"Tomson" xalqaro axborot agentligi bilan shartnoma imzolandi
+Millatlar ligasi. Hamkorlik natijasida 9 sotib olish imkoniyati paydo bo'ldi
+bir oylik axborot mazmuni to'plamiga kirish va eng ko'p efirga uzatish
+xalqaro maydonda ro'y berayotgan dolzarb va dolzarb yangiliklar. <br><br>
 
-          <span style="font-weight: bold;font-size: 32px;">Проекты: </span> <br><br>
-          В течение 9 месяцев было подготовлено более 80 выпусков информационной
-          программы «Узбекистан-онлайн» для телеканала «Менинг юртим» и в каждой
-          программе передавалось более 10 репортажей новостей от Рейтерс.  Кроме
-          того, было подготовлено более 125 выпусков программы "Хориж хабарлари"
-          ("Зарубежные новости") в рамках которого переданы в эфир 750 новостей
-          с использованием контента от Рейтерс.Кроме того, подготовлено 540
-          выпусков передачи "Замон 120", где переданы 1595 зарубежных новостей
-          от Рейтерс.<br><br>
-           <span style="font-weight: bold;font-size: 32px;">Международная деятельность:</span>
+          <span style="font-weight: bold;font-size: 32px;">Loyihalar: </span> <br><br>
+       9 oy davomida 80 dan ortiq axborot nashrlari tayyorlandi
+"mening yurtim" telekanali uchun "O'zbekiston-Online" dasturi va har birida
+dastur Reuters dan 10 dan ortiq yangiliklar hisobotlar uzatiladi. Bundan tashqari
+Togo "Xorij xabarlari" dasturining 125 dan ortiq nashri tayyorlandi"
+("Xorijiy yangiliklar") 750 yangiliklari efirga uzatildi
+Reuters tarkib foydalanish bilan.Bundan tashqari, 540 tayyorlandi
+"zamon 120" dasturining chiqishi, bu erda 1595 xorijiy yangiliklar efirga uzatildi
+Reuters tomonidan.<br><br>
+           <span style="font-weight: bold;font-size: 32px;">Xalqaro faoliyat:</span>
           <br>
           <br>
-           Еще одной, более свежей инициативой стало появление
-          проекта, инициированного Представительством ЮНЕСКО в Узбекистане,
-          между НАЭСМИ и BBC Media Action “Усиление потенциала узбекских СМИ для
-          обеспечения соблюдения общественных интересов”. В 2018-2019 гг. было
-          проведено более 10 семинаров-тренингов с участием экспертов Академии
-          BBC, где повысили свое профессиональное мастерство более 250
-          творческих и технических сотрудников негосударственных телестанций.
-          Сложно поверить, но еще несколько лет назад мы и представить себе не
-          могли то, что однажды будем так тесно сотрудничать с BBC, что
-          выдающиеся эксперты своего дела станут наставниками нашей
-          медиа-молодежи, и что мы станем друзьями! Конечно, не могу упомянуть
-          про наших постоянных партнеров из ближнего зарубежья – телеканал
-          «Россия-Культура», с которыми уже снято два документальных фильма
-          «Нукус. Неизвестная коллекция», вызвавший широкий общественный
-          резонанс и «Узбекистан. Обретенные откровения». Впереди создание еще 2
-          фильмов – «Узбекистан: легенды о любви» и «Узбекистан. Через пески и
-          горы». Две недели назад съемочная группа телеканала «Россия-Культура»
-          завершила съемки в Узбекистане и в скором времени на экранах России и
-          Узбекистана появятся два новых фильма, которые, уверен, станут очень
-          интересными. Хотел бы подчеркнуть, что мы реализуем сотрудничество с
-          нашими зарубежными коллегами не только в направлении телевещания. Мы
-          представляем большой интерес для европейских партнеров и в культурном
-          направлении. <br> <br>
+         Yana bir yangi tashabbus paydo bo'ldi
+YUNESKOning O'zbekistondagi vakolatxonasi tomonidan tashkil etilgan loyiha,
+O'zEOAVMA va BBC Media Action o'rtasida " O'zbekiston ommaviy axborot vositalari salohiyatini kuchaytirish
+ijtimoiy manfaatlarga rioya etilishini ta'minlash". 2018-2019 da.
+Akademiya ekspertlari ishtirokida 10 dan ortiq seminar-treninglar o'tkazildi
+Bi-bi-si, ularning professional mahoratini 250 dan ortiq oshirgan
+nodavlat telestansiyalarning ijodiy va texnik xodimlari.
+Ishonish qiyin, lekin bir necha yil oldin biz tasavvur qilmaymiz
+bir kun bi-bi-si bilan juda yaqin hamkorlik qilishimiz mumkin
+o'z sohasidagi taniqli mutaxassislar bizning ustozlarimiz bo'ladi
+media-yoshlar va biz do'st bo'lib qolamiz! Albatta, buni eslatib o'tolmayman
+yaqin xorijdan doimiy hamkorlarimiz haqida-telekanal
+"Rossiya-Madaniyat", u bilan ikkita hujjatli film suratga olingan
+"Nukus. Keng jamoatchilikka sabab bo'lgan" noma'lum to'plam"
+rezonans va " O'zbekiston. Topilgan vahiylar". Oldinda yaratish hali 2
+filmlar - " O'zbekiston: sevgi haqida afsonalar "va" O'zbekiston. Qum va
+tog'lar". Ikki hafta oldin "Rossiya-Madaniyat" telekanalining ekipaji»
+u O'zbekistonda va yaqin orada Rossiya ekranlarida otishmalarni yakunladi
+O'zbekiston ikki yangi filmga ega bo'ladi, deb ishonaman
+qiziqarli. Biz bilan hamkorlikni amalga oshirayotganimizni alohida ta'kidlamoqchiman
+chet ellik hamkasblarimiz nafaqat teleko'rsatuv yo'nalishida. Biz
+biz Yevropa hamkorlari va madaniy uchun katta qiziqish bor
+yo'nalish.<br> <br>
 
-          <span style="font-weight: bold;font-size: 32px;">Новые проекты:</span>
+          <span style="font-weight: bold;font-size: 32px;">Yangi loyihalar:</span>
 
           <br><br>
-          13-го апреля в офисе телеканала «Севимли» состоялась
-          встреча с представителем Гете-института Яном Хелфером, которым была
-          выдвинута инициатива о реализации совместного мультимедийного проекта,
-          направленного на изучение и оцифровку первых редчайших музыкальных
-          записей, хранящихся в настоящее время в фонограмм-архиве Берлина, а
-          также создание книги, посвященной данной тематики. Несколько дней
-          назад, в ходе нашей встречи с господином Авазом Седатом Сагыркая –
-          руководителем турецкой телекомпании ТРТ, мы договорились о реализации
-          проекта о наших великих предках, внесших свой неоценимый вклад в
-          развитие мировой цивилизации. Из ближайших перспектив – установление
-          отношений по обмену контентом с мировым медиа-брендом «Дойче Велле», с
-          которыми мы сейчас стоим на пороге сотрудничества.</span
-        >
+      13-aprel kuni "sevimli" telekanalining ofisida bo'lib o'tdi
+Gyote instituti vakili Yan Helfer bilan uchrashuv
+qo'shma multimedia loyihasini amalga oshirish tashabbusi ilgari surildi,
+birinchi noyob musiqalarni o'rganish va raqamlashtirishga qaratilgan
+hozirgi vaqtda Berlinning fonogrammarhiv shahrida saqlanadigan yozuvlar
+shuningdek, ushbu mavzuga bag'ishlangan kitob yaratish. Bir necha kun
+bundan oldin, Janob Avaz Sedat Sagyrkaya bilan uchrashuvimiz davomida –
+Turkiya TV kompaniyasi TRT rahbari, biz amalga oshirish uchun kelishib oldilar
+bizning bebaho hissa qo'shgan buyuk ajdodlarimiz haqida loyiha
+jahon sivilizatsiyasining rivojlanishi. Yaqin istiqbollardan – tashkil etish
+"Doyche Velle" global media brendi bilan kontentni almashish bo'yicha aloqalar
+biz hozirda hamkorlik ostonasida turibmiz.</span>
             </div>
 
         </div>
@@ -136,7 +134,8 @@
         justify-content: center;
         align-items: center;
     }
-    .banner_header{
+
+    .banner_header {
         font-size: 60px;
         font-weight: bold;
         color: white;
@@ -144,8 +143,8 @@
     }
 
 
-    @media screen and (max-width:768px) {
-        .banner_header{
+    @media screen and (max-width: 768px) {
+        .banner_header {
             font-size: 30px;
         }
     }
