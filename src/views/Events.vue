@@ -6,33 +6,37 @@
       <div class="row">
         <div class="events_card">
           <div class="img">
-            <img :src="item.img" :alt="item.title" />
+            <img :src="item.image" :alt="item.title" />
           </div>
           <div class="text">
-          <div class="heading">
-            <p>{{ item.title }}</p>
-          </div>
-          <div class="date_place">
-            <span>{{ item.date }} &nbsp; / &nbsp;</span>
-            <span> {{ item.place }}</span>
-          </div>
-          <div class="discription">
-            <span>{{ item.disc }}</span>
-          </div>
-          <div class="btn">
-            <transition name="fade" appear>
-              <a
-                v-if="item.url"
-                :href="item.url"
-                rel="noopener noreferrer"
-                target="_blank"
+            <div class="heading">
+              <p>{{ item.title }}</p>
+            </div>
+            <div class="date_place">
+              <span
+                >{{ ("0" + new Date(item.date).getDate()).substr(-2) }}.{{
+                  ("0" + (new Date(item.date).getMonth() + 1)).substr(-2)
+                }}.{{ new Date(item.date).getFullYear() }}&nbsp; / &nbsp;</span
               >
-                <button class="button-container">
-                  <div style="font-weight: bold">Подробнее</div>
-                </button></a
-              >
-            </transition>
-          </div>
+              <span> {{ item.location }}</span>
+            </div>
+            <div class="discription">
+              <span v-html="item.description"></span>
+            </div>
+            <div class="btn">
+              <transition name="fade" appear>
+                <a
+                  v-if="item.url"
+                  :href="item.url"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <button class="button-container">
+                    <div style="font-weight: bold">Подробнее</div>
+                  </button></a
+                >
+              </transition>
+            </div>
           </div>
         </div>
       </div>
@@ -42,21 +46,39 @@
 </template>
 <script>
 export default {
-  name: "events",
+  name: "Events",
   data() {
     return {
       events: [
         {
-          img: "https://www.nat.ru/images/event-1.jpg",
-          title: "Золотой грамафvseryvgsrthtyjон",
-          date: "04 Марта 2021",
-          place: "Москва, AZIMUT Отель Смоленская",
-          url: "https://example.com",
-          disc:
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium alias cum distinctio ipsam modi quae totam veritatis. Adipisci assumenda blanditiis, debitis enim et incidunt ipsam iste laborum molestias, officiis suscipit.\n",
+          id: 1,
+          title: "",
+          description: "",
+          location: "",
+          image: "",
+          date: "",
+          url: null,
         },
       ],
     };
+  },
+  created() {
+    this.getGrants(30);
+  },
+  methods: {
+    getGrants(limit) {
+      fetch(`http://127.0.0.1:8000/events/?ordering=-pub_date&limit=${limit}`)
+        .then((res) => res.json())
+        .then((resJSON) => {
+          console.log(resJSON);
+          this.events = resJSON["results"];
+          console.log("asd", this.events);
+          if (resJSON.count > limit) {
+            console.log(resJSON.count);
+            this.getGrants(resJSON.count);
+          }
+        });
+    },
   },
 };
 </script>
@@ -73,7 +95,6 @@ export default {
   align-items: flex-start;
   padding: auto;
 }
-
 
 .events_card:hover .img img {
   transform: scale(1.05);
@@ -150,7 +171,7 @@ export default {
     width: 100%;
     height: 100%;
   }
-  .text{
+  .text {
     padding: 0 15px;
   }
   .discription {

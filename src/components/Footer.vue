@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-    :style="'background-image: url(' + background + ')'"
+      :style="'background-image: url(' + background + ')'"
       style="
         width: 100%;
         background-size: cover;
@@ -12,7 +12,15 @@
         position: relative;
       "
     >
-      <div style="height: 100%; position: relative; z-index: 20">
+      <div
+        style="
+          height: 100%;
+          position: relative;
+          z-index: 20;
+          width: 92%;
+          margin-left: 4%;
+        "
+      >
         <div class="footer_links">
           <button class="button-container" style="height: 60px">
             <div style="font-weight: bold; color: white; font-size: 20px">
@@ -274,6 +282,8 @@ export default {
   width: auto;
   margin-bottom: 20px;
   color: white;
+  max-width: 320px;
+  line-height: 1.5em;
   transition: all 0.2s ease;
 }
 
@@ -287,7 +297,7 @@ export default {
 
 .footer_nav {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
   padding: 50px 0;
 }
