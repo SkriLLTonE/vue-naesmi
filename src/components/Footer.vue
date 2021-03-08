@@ -22,7 +22,7 @@
         "
       >
         <div class="footer_links">
-          <button class="button-container" style="height: 60px">
+          <button class="button-container" style="height: 60px" @click="show.modal = true">
             <div style="font-weight: bold; color: white; font-size: 20px">
               Ariza yuborish
             </div>
@@ -197,70 +197,71 @@
       ></div>
     </div>
   </div>
-  <div class="modal">
-    <div class="modal-content">
-      <div class="container">
-        <form>
-          <div style="display: flex; flex-direction: row-reverse">
-            <div class="social-net-item">
-              <i
-                class="far fa-times"
-                style="font-size: 26px;"
-              ></i>
+  <transition name="fade" appear>
+    <div v-show="show.modal" class="modal">
+      <div class="modal-content">
+        <div class="container">
+          <form>
+            <div style="display: flex; flex-direction: row-reverse">
+              <div class="social-net-item" @click="show.modal = false">
+                <i
+                  class="far fa-times"
+                  style="font-size: 26px;"
+                ></i>
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-25">
-              <label for="fname">Tashkilot nomi</label>
+            <div class="row">
+              <div class="col-25">
+                <label for="fname">Tashkilot nomi</label>
+              </div>
+              <div class="col-75">
+                <input type="text" id="fname" name="firstname" placeholder="" />
+              </div>
             </div>
-            <div class="col-75">
-              <input type="text" id="fname" name="firstname" placeholder="" />
+            <div class="row">
+              <div class="col-25">
+                <label for="lname">Aloqa uchun shaxs</label>
+              </div>
+              <div class="col-75">
+                <input type="text" id="lname" name="lastname" placeholder="" />
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-25">
-              <label for="lname">Aloqa uchun shaxs</label>
+            <div class="row">
+              <div class="col-25">
+                <label for="country">Telefon raqami</label>
+              </div>
+              <div class="col-75">
+                <input type="text" id="lname" name="lastname" placeholder="" />
+              </div>
             </div>
-            <div class="col-75">
-              <input type="text" id="lname" name="lastname" placeholder="" />
+            <div class="row">
+              <div class="col-25">
+                <label for="country">Email</label>
+              </div>
+              <div class="col-75">
+                <input type="text" id="lname" name="lastname" placeholder="" />
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-25">
-              <label for="country">Telefon raqami</label>
+            <div class="row">
+              <div class="col-25">
+                <label for="subject">Xabar</label>
+              </div>
+              <div class="col-75">
+                <textarea
+                  id="subject"
+                  name="subject"
+                  placeholder=""
+                  style="height: 200px"
+                ></textarea>
+              </div>
             </div>
-            <div class="col-75">
-              <input type="text" id="lname" name="lastname" placeholder="" />
+            <div class="row">
+              <input type="submit" value="Yuborish" />
             </div>
-          </div>
-          <div class="row">
-            <div class="col-25">
-              <label for="country">Email</label>
-            </div>
-            <div class="col-75">
-              <input type="text" id="lname" name="lastname" placeholder="" />
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-25">
-              <label for="subject">Xabar</label>
-            </div>
-            <div class="col-75">
-              <textarea
-                id="subject"
-                name="subject"
-                placeholder=""
-                style="height: 200px"
-              ></textarea>
-            </div>
-          </div>
-          <div class="row">
-            <input type="submit" value="Yuborish" />
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
-    </div>
-  </div>
+    </div></transition>
 </template>
 
 <script>
@@ -269,6 +270,9 @@ export default {
   components: {},
   data() {
     return {
+      show:{
+        modal: false
+      },
       projects: [
         {
           id: 1,
@@ -298,6 +302,10 @@ export default {
   },
   watch: {},
   methods: {
+    handleModal(param) {
+      console.log(param)
+      // this.show.modal = param
+    },
     routerHandler(route) {
       this.$router.push(route);
       window.scrollTo(0, 0);
@@ -482,6 +490,16 @@ input[type="submit"]:hover {
 .social-net-item:hover {
   background-color: #4493ff;
   color: #fff;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.4s ease-in-out !important;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 
 @media screen and (max-width: 768px) {

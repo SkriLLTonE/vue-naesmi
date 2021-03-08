@@ -27,13 +27,13 @@
                   "
                                 >
                                     <span style="font-weight: bold; font-size: 25px">26 C</span>
-                                    <span style="font-size: 0.9em; color: grey">Heavy Rain</span>
+                                    <!-- <span style="font-size: 0.9em; color: grey">Heavy Rain</span> -->
                                 </div>
                             </div>
                             <div
                                     style="text-align: start; padding: 20px 0; font-weight: bold"
                             >
-                                Miami
+                                Tashkent
                             </div>
                             <div style="position: relative; height: auto; width: 100%">
                                 <div
@@ -58,7 +58,7 @@
                   "
                                 >
                                     <div class="weather-elem">
-                                        <div style="color: gray; line-height: 1.4em">18:00</div>
+                                        <!-- <div style="color: gray; line-height: 1.4em">18:00</div> -->
                                         <div
                                                 style="
                         font-size: 1.4em;
@@ -75,11 +75,11 @@
                                     </div>
 
                                     <div class="weather-elem">
-                                        <div
+                                        <!-- <div
                                                 style="font-size: 0.9em; color: gray; line-height: 1.4em"
                                         >
                                             24:00
-                                        </div>
+                                        </div> -->
                                         <div
                                                 style="
                         font-size: 1.4em;
