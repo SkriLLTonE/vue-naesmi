@@ -22,8 +22,9 @@
         "
       >
         <div class="footer_links">
-          <button class="button-container" style="height: 60px">
-            <div style="font-weight: bold; color: white; font-size: 20px">Ariza yuborish
+          <button class="button-container" style="height: 60px" @click="show.modal = true">
+            <div style="font-weight: bold; color: white; font-size: 20px">
+              Ariza yuborish
             </div>
           </button>
           <div class="social_network_block">
@@ -61,7 +62,7 @@
                     padding: 30px 0 10px 0;
                   "
                 >
-                  BIZ BILAN ULANISH:
+                  Biz bilan ulanish:
                 </div>
                 <div
                   style="
@@ -178,7 +179,8 @@
             line-height: 1.8em;
           "
         >
-          © 2004 - 2021. "O'zbekiston elektron ommaviy axborot vositalari milliy assotsiatsiyasi.
+          © 2004 - {{ new Date().getFullYear() }} "O'zbekiston elektron ommaviy
+          axborot vositalari milliy assotsiatsiyasi.
           <br />
           Barcha huquqlar himoyalangan.
         </div>
@@ -195,6 +197,71 @@
       ></div>
     </div>
   </div>
+  <transition name="fade" appear>
+    <div v-show="show.modal" class="modal">
+      <div class="modal-content">
+        <div class="container">
+          <form>
+            <div style="display: flex; flex-direction: row-reverse">
+              <div class="social-net-item" @click="show.modal = false">
+                <i
+                  class="far fa-times"
+                  style="font-size: 26px;"
+                ></i>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-25">
+                <label for="fname">Tashkilot nomi</label>
+              </div>
+              <div class="col-75">
+                <input type="text" id="fname" name="firstname" placeholder="" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-25">
+                <label for="lname">Aloqa uchun shaxs</label>
+              </div>
+              <div class="col-75">
+                <input type="text" id="lname" name="lastname" placeholder="" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-25">
+                <label for="country">Telefon raqami</label>
+              </div>
+              <div class="col-75">
+                <input type="text" id="lname" name="lastname" placeholder="" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-25">
+                <label for="country">Email</label>
+              </div>
+              <div class="col-75">
+                <input type="text" id="lname" name="lastname" placeholder="" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-25">
+                <label for="subject">Xabar</label>
+              </div>
+              <div class="col-75">
+                <textarea
+                  id="subject"
+                  name="subject"
+                  placeholder=""
+                  style="height: 200px"
+                ></textarea>
+              </div>
+            </div>
+            <div class="row">
+              <input type="submit" value="Yuborish" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div></transition>
 </template>
 
 <script>
@@ -203,6 +270,9 @@ export default {
   components: {},
   data() {
     return {
+      show:{
+        modal: false
+      },
       projects: [
         {
           id: 1,
@@ -213,6 +283,13 @@ export default {
           last_change: "",
         },
       ],
+      form: {
+        title: "",
+        face: "",
+        phone: "",
+        email: "",
+        message: "",
+      },
     };
   },
   computed: {
@@ -225,6 +302,10 @@ export default {
   },
   watch: {},
   methods: {
+    handleModal(param) {
+      console.log(param)
+      // this.show.modal = param
+    },
     routerHandler(route) {
       this.$router.push(route);
       window.scrollTo(0, 0);
@@ -243,6 +324,99 @@ export default {
 </script>
 
 <style scoped>
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  padding: 20px 0;
+}
+
+input[type="text"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type="submit"] {
+  background-color: #2d66b3;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type="submit"]:hover {
+  background-color: #2d66b3;
+}
+
+.container {
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25,
+  .col-75,
+  input[type="submit"] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 100px;
+  border-radius: 8px;
+  max-width: 800px;
+  width: auto;
+}
+
 .footer_links {
   display: flex;
   padding-top: 50px;
@@ -300,6 +474,32 @@ export default {
   justify-content: space-between;
   width: 100%;
   padding: 50px 0;
+}
+
+.social-net-item {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  margin: 0 8px;
+}
+.social-net-item:hover {
+  background-color: #4493ff;
+  color: #fff;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.4s ease-in-out !important;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 
 @media screen and (max-width: 768px) {

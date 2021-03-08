@@ -28,7 +28,7 @@
         ></div>
         <div style="position: relative">Yangiliklar</div>
       </div>
-      <div data-aos="fade-up" class="main-card-wrapper" v-if="news.length > 0">
+      <div data-aos="fade-up" class="main-card-wrapper" @click="routerHandler(`/news/${news[0].id}`)" v-if="news.length > 0">
         <div>
           <div class="main-news-img">
             <img
@@ -87,7 +87,7 @@
 
       <div style="
           margin-top: 50px; display: flex;flex-wrap: wrap; position: relative;justify-content: center;" class="single-card-holder" v-if="news.length > 0">
-        <div data-aos="fade-up" v-for="(item, index) in news" :key="index" class="single-card">
+        <div data-aos="fade-up" @click="routerHandler(`/news/${item.id}`)" v-for="(item, index) in news" :key="index" class="single-card">
             <img
               class="single-card-img"
               :src="item.image"/>
@@ -180,19 +180,33 @@ export default {
       },
       offset: 0,
       diff: true,
+      // months: [
+      //   "Янв",
+      //   "Фев",
+      //   "Мар",
+      //   "Апр",
+      //   "Май",
+      //   "Июн",
+      //   "Июл",
+      //   "Авг",
+      //   "Сен",
+      //   "Окт",
+      //   "Ноя",
+      //   "Дек",
+      // ],
       months: [
-        "Янв",
-        "Фев",
-        "Мар",
-        "Апр",
-        "Май",
-        "Июн",
-        "Июл",
-        "Авг",
-        "Сен",
-        "Окт",
-        "Ноя",
-        "Дек",
+        "Yanvar",
+        "Fevral",
+        "Mart",
+        "Aprel",
+        "May",
+        "Iyun",
+        "Iyul",
+        "Avgust",
+        "Sentyabr",
+        "Oktyabr",
+        "Noyabr",
+        "Dekabr",
       ],
       news: [
         // {
@@ -229,6 +243,10 @@ export default {
       // console.log("desktop ", this.isDesktop);
       // console.log("mobile ", this.isMobile);
       // console.log("tablet ", this.isTablet);
+    },
+    routerHandler(route) {
+      this.$router.push(route);
+      window.scrollTo(0, 0);
     },
     getNews() {
       fetch(
