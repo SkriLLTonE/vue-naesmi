@@ -1,34 +1,36 @@
 <template>
-  <div class="wrap">
+  <div class="wrap" v-if="main">
     <div>
-      <div class="container">
-        <div class="all-content">
-          <div class="news_content">
-            <div class="news_date">
-              <span
-                >{{ ("0" + new Date(main.pub_date).getDate()).substr(-2) }}.{{
-                  ("0" + (new Date(main.pub_date).getMonth() + 1)).substr(-2)
-                }}.{{ new Date(main.pub_date).getFullYear() }}</span
-              >
+      <transition name="fade" appear>
+        <div class="container">
+          <div class="all-content">
+            <div class="news_content">
+              <div class="news_date">
+                <span
+                  >{{ ("0" + new Date(main.pub_date).getDate()).substr(-2) }}.{{
+                    ("0" + (new Date(main.pub_date).getMonth() + 1)).substr(-2)
+                  }}.{{ new Date(main.pub_date).getFullYear() }}</span
+                >
+              </div>
+              <div class="news_title">
+                <span>
+                  {{ main.title }}
+                </span>
+              </div>
             </div>
-            <div class="news_title">
-              <span>
-                {{ main.title }}
-              </span>
+            <div class="news_img">
+              <img
+                :src="main.image"
+                style="width: 100%; height: 100%; object-fit: cover"
+                :alt="main.title"
+              />
             </div>
           </div>
-          <div class="news_img">
-            <img
-              :src="main.image"
-              style="width: 100%; height: 100%; object-fit: cover"
-              :alt="main.title"
-            />
+          <div class="news_disc">
+            <span v-html="main.description"></span>
           </div>
         </div>
-        <div class="news_disc">
-          <span v-html="main.description"></span>
-        </div>
-      </div>
+      </transition>
     </div>
     <div class="container_n">
       <div class="heading">
@@ -38,6 +40,7 @@
     <div>
       <div class="container-sing-card">
         <div
+          data-aos="fade-up"
           v-for="(item, index) in main.read_also"
           :key="index"
           class="single-card"
@@ -91,6 +94,22 @@
       </div>
     </div>
   </div>
+  <transition name="fade" appear>
+    <div style="margin: 200px 0;" class="lds-spinner" v-if="!main">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -98,6 +117,7 @@ export default {
   name: "NewsDetail",
   props: ["id"],
   created() {
+    // setTimeout(() => this.getNewsDetail(this.id), 1000);
     this.getNewsDetail(this.id);
   },
   methods: {
@@ -113,45 +133,60 @@ export default {
   },
   data() {
     return {
+      // months: [
+      //   "Янв",
+      //   "Фев",
+      //   "Мар",
+      //   "Апр",
+      //   "Май",
+      //   "Июн",
+      //   "Июл",
+      //   "Авг",
+      //   "Сен",
+      //   "Окт",
+      //   "Ноя",
+      //   "Дек",
+      // ],
       months: [
-        "Янв",
-        "Фев",
-        "Мар",
-        "Апр",
-        "Май",
-        "Июн",
-        "Июл",
-        "Авг",
-        "Сен",
-        "Окт",
-        "Ноя",
-        "Дек",
+        "Yanvar",
+        "Fevral",
+        "Mart",
+        "Aprel",
+        "May",
+        "Iyun",
+        "Iyul",
+        "Avgust",
+        "Sentyabr",
+        "Oktyabr",
+        "Noyabr",
+        "Dekabr",
       ],
-      main: {
-        id: 2,
-        category: {
-          id: 1,
-          name: "",
-        },
-        read_also: [
-          {
-            id: 7,
-            category: {
-              id: 1,
-              name: "",
-            },
-            title: "",
-            image: "",
-            pub_date: "",
-            last_change: "",
-          },
-        ],
-        title: "",
-        description: "",
-        image: "",
-        pub_date: "",
-        last_change: "",
-      },
+      main: false,
+      // main: {
+        // id: 2,
+        // category: {
+        //   id: 1,
+        //   name: "",
+        // },
+        // read_also: [
+        //   {
+        //     id: 7,
+        //     category: {
+        //       id: 1,
+        //       name: "",
+        //     },
+        //     title: "",
+        //     image: "",
+        //     pub_date: "",
+        //     last_change: "",
+        //   },
+        // ],
+        // title: "",
+        // description: "",
+        // image: "",
+        // pub_date: "",
+        // last_change: "",
+      // },
     };
   },
 };
