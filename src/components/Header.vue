@@ -104,11 +104,7 @@
     >
       <div class="inner-wrapper">
         <div>
-          <div
-            class="icon_close"
-            style="cursor: pointer"
-            @click="open.drawer = !open.drawer"
-          >
+          <div class="icon_close" style="cursor: pointer" @click="open.drawer = !open.drawer">
             <span><i class="fal fa-times"></i></span>
           </div>
         </div>
@@ -143,9 +139,9 @@
           >
             <div
               class="nav_menu_item_link"
-              @click="expandedList = expandedList !== 'about' ? 'about' : ''"
-            >
-              Qo'shimcha <i class="fas fa-chevron-down down"> </i>
+              @click="expandedList = expandedList !== 'about' ? 'about' : ''">
+              Qo'shimcha
+              <i class="fas fa-chevron-down down"> </i>
             </div>
             <div class="sub_menu">
               <div class="sub_menu_item">
