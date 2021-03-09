@@ -81,11 +81,11 @@
             <i class="far fa-bars" style="font-size: 26px"></i>
           </div>
         </div>
-        <div class="search-bar" v-if="isDesktop">
-          <div class="search-btn">
+        <form @submit.prevent="searchHandler()" class="search-bar" v-if="isDesktop">
+          <button type="submit" class="search-btn">
             <i class="far fa-search" style=""></i>
-          </div>
-          <input placeholder="Qidirish" class="search-input" />
+          </button>
+          <input v-model="search" placeholder="Qidirish" class="search-input" />
           <div
             style="
               width: 70px;
@@ -94,7 +94,7 @@
               position: relative;
             "
           ></div>
-        </div>
+        </form>
       </div>
     </div>
     <div
@@ -171,11 +171,11 @@
         </div>
         <br />
         <br />
-        <div class="search_bar">
-          <div class="search_btn">
+        <form @submit.prevent="searchHandler()" class="search_bar">
+          <button type="submit" class="search_btn">
             <i class="far fa-search" style=""></i>
-          </div>
-          <input placeholder="Qidirish" class="second_search_input" />
+          </button>
+          <input v-model="search" placeholder="Qidirish" class="second_search_input" />
           <div
             style="
               color: black;
@@ -184,7 +184,7 @@
               position: relative;
             "
           ></div>
-        </div>
+        </form>
         <br />
         <br />
 
@@ -223,6 +223,7 @@ export default {
       isMobile: false,
       isTablet: false,
       isDesktop: true,
+      search: "",
       open: {
         sheet: false,
         drawer: false,
@@ -246,7 +247,11 @@ export default {
       this.open.drawer = false;
       this.open.sheet = false;
     },
-
+    searchHandler() {
+      this.$router.push(`/search/${this.search}`)
+      this.open.drawer = false
+      return false
+    },
     checkResponsive() {
       this.isMini = window.innerWidth <= 600;
       this.isMobile = window.innerWidth <= 800 && window.innerWidth > 600;
@@ -366,6 +371,7 @@ export default {
   color: #2d66b3;
   border-radius: 0 2px 2px 0;
   transition: all 0.2s;
+  background-color: #fff;
 }
 
 .search_btn:hover {
