@@ -54,6 +54,12 @@ const routes = [
     component: () => import('./views/Docs.vue'),
   },
   {
+    path: '/search/:query',
+    name: 'Search',
+    component: () => import('./views/Search.vue'),
+    props: true,
+  },
+  {
     path: "/:catchAll(.*)",
     name: 'NotFound',
     component: () => import('./views/NotFound.vue'),
