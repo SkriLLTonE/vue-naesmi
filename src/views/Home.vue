@@ -7,32 +7,25 @@
                         <div class="headline">Ob-havo</div>
                     </transition>
                     <transition name="sliderleft" appear>
-                        <div class="weekday">Saturday</div>
+                        <div class="weekday">{{weekday[new Date(weather[0].pub_date).getDay()]}}</div>
                     </transition>
                     <transition name="sliderleft" appear>
-                        <div class="date">10 February 2021</div>
+                        <div class="date">
+                            {{ ("0" + new Date(weather[0].pub_date).getDate()).substr(-2) }} {{ months[new Date(weather[0].pub_date).getMonth()] }}
+                            {{ new Date(weather[0].pub_date).getFullYear() }}
+                        </div>
                     </transition>
                     <transition name="sliderleft" appear>
                         <div style="position: relative; width: 100%">
                             <div class="today-weather">
-                                <i
-                                        class="fal fa-cloud"
-                                        style="font-size: 50px; padding-right: 20px"
-                                ></i>
-                                <div
-                                        style="
-                    display: flex;
-                    flex-direction: column;
-                    align-items: flex-start;
-                  "
-                                >
-                                    <span style="font-weight: bold; font-size: 25px">26 C</span>
-                                    <!-- <span style="font-size: 0.9em; color: grey">Heavy Rain</span> -->
+                                <img :src="weather[0].icon" alt="">
+                                <div style="
+                                        display: flex;flex-direction: column;align-items: flex-start;">
+                                    <span style="font-weight: bold; font-size: 25px">{{weather[0].temperature}}°</span>
                                 </div>
                             </div>
                             <div
-                                    style="text-align: start; padding: 20px 0; font-weight: bold"
-                            >
+                                    style="text-align: start; padding: 20px 0; font-weight: bold">
                                 Tashkent
                             </div>
                             <div style="position: relative; height: auto; width: 100%">
@@ -66,12 +59,9 @@
                         line-height: 1.4em;
                       "
                                         >
-                                            26 C
+                                            <span style="font-weight: bold; font-size: 25px">{{weather[1].temperature}}°</span>
                                         </div>
-                                        <i
-                                                class="far fa-sun-cloud"
-                                                style="font-size: 40px; padding: 10px 0"
-                                        ></i>
+                                        <img :src="weather[1].icon" alt="">
                                     </div>
 
                                     <div class="weather-elem">
@@ -80,19 +70,11 @@
                                         >
                                             24:00
                                         </div> -->
-                                        <div
-                                                style="
-                        font-size: 1.4em;
-                        font-weight: bold;
-                        line-height: 1.4em;
-                      "
-                                        >
-                                            26 C
+                                        <div style="
+                                                font-size: 1.4em; font-weight: bold;  line-height: 1.4em;">
+                                            <span style="font-weight: bold; font-size: 25px">{{weather[2].temperature}}°</span>
                                         </div>
-                                        <i
-                                                class="fal fa-thunderstorm"
-                                                style="font-size: 40px; padding: 10px 0"
-                                        ></i>
+                                        <img :src="weather[2].icon" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -389,24 +371,6 @@
                             >
                                 {{ otherNewsFirst.title }}
                             </div>
-                            <!-- <div
-                                            class="main-card-meta"
-                                            style="
-                                              font-size: 14px;
-                                              padding: 14px 0 0 10px;
-                                              line-height: 2em;
-                                              max-height: 5.5em;
-                                              overflow: hidden;
-                                              display: -webkit-box;
-                                              -webkit-line-clamp: 3;
-                                              -webkit-box-orient: vertical;
-                                            "
-                                          >
-                                            Nulla animi aperiam mattis. Malesuada. Architecto. Mauris quod
-                                            montes ipsam! Esse vitae, adipisicing fugiat molestiae
-                                            accusantium, rerum, conubia laboriosam volutpat sit, nostra eum
-                                            delectus? Platea! Sed. Diamlorem. Eros, primis, anim.
-                                          </div> -->
                             <div
                                     style="
                   display: flex;
@@ -414,21 +378,6 @@
                   padding: 16px 0 16px 16px;
                 "
                             >
-                                <!-- <img
-                                                  style="
-                                                    height: 34px;
-                                                    width: 34px;
-                                                    object-fit: cover;
-                                                    border-radius: 50%;
-                                                  "
-                                                  src="https://dyl80ryjxr1ke.cloudfront.net/external_assets/hero_examples/hair_beach_v1785392215/original.jpeg"
-                                                  alt=""
-                                                />
-                                                <div
-                                                  style="font-weight: bold; font-size: 14px; padding: 0 12px"
-                                                >
-                                                  Ben The Journalist
-                                                </div> -->
                                 <div
                                         style="
                     width: 4px;
@@ -488,8 +437,7 @@
                   height: 4em;
                   display: -webkit-box;
                   -webkit-line-clamp: 3;
-                  -webkit-box-orient: vertical;
-                "
+                  -webkit-box-orient: vertical; "
                             >
                                 {{ news.title }}
                             </div>
@@ -499,23 +447,7 @@
                   display: flex;
                   align-items: center;
                   padding: 16px 0 0 10px;
-                "
-                            >
-                                <!-- <img
-                                                  style="
-                                                    height: 34px;
-                                                    width: 34px;
-                                                    object-fit: cover;
-                                                    border-radius: 50%;
-                                                  "
-                                                  src="https://dyl80ryjxr1ke.cloudfront.net/external_assets/hero_examples/hair_beach_v1785392215/original.jpeg"
-                                                  alt=""
-                                                />
-                                                <div
-                                                  style="font-weight: bold; font-size: 14px; padding: 0 12px"
-                                                >
-                                                  Ben The Journalist
-                                                </div> -->
+                " >
                                 <div
                                         style="
                     width: 4px;
@@ -580,9 +512,7 @@
                       font-family: 'Times New Roman', Times, serif;
                       color: #4493ff;
                       font-weight: bold;
-                    "
-                                    >
-                                        {{ new Date(lastProject.date).getFullYear() }}
+                    " >{{ new Date(lastProject.date).getFullYear() }}
                                     </div>
                                     <div style="font-size: 22px; color: #000">
                                         {{ months[new Date(lastProject.date).getMonth()] }}
@@ -666,10 +596,7 @@
                       border-radius: 4px;
                     "
                                     >
-                                        <img
-                                                class="right-card-img"
-                                                :src="story.image"
-                                                :alt="story.name"
+                                        <img class="right-card-img" :src="story.image" :alt="story.name"
                                         />
                                     </div>
                                 </div>
@@ -711,6 +638,15 @@
                         pub_date: "",
                         last_change: "",
                     },
+                ],
+                weekday:[
+                    "Dushanba",
+                    "Seshanba",
+                    "Chorshanba",
+                    "Payshanba",
+                    "Juma",
+                    "Shanba",
+                    "Yakshanba",
                 ],
                 months: [
                     "Yanvar",
@@ -828,6 +764,11 @@
                     url: null,
                     last_change: "",
                 },
+                    weather:[
+                        {
+                        }
+                        ],
+
                 lastNews: [
                     {
                         id: 1,
@@ -873,6 +814,7 @@
             this.getNews();
             this.getPartners();
             this.getLastProject();
+            this.getWeather();
         },
         mounted: function () {
             this.checkResponsive();
@@ -963,6 +905,17 @@
                     })
                     .then((json) => {
                         this.lastProject = json["results"][0];
+                    });
+            },
+            getWeather(){
+                fetch('http://127.0.0.1:8000/weather/')
+                    .then((res) => {
+                        return res.json();
+
+                    })
+                    .then((data) => {
+                        this.weather = data
+                        console.log('sad', this.weather);
                     });
             },
             routerHandler(route) {

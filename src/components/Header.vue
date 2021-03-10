@@ -8,7 +8,6 @@
         height: 68px;
       "
     >
-      <!-- <img class="logo" src="../assets/logo2_white.png" /> -->
       <div class="naesmi" ref="naesmi">
         <router-link to="/">НАЭСМИ</router-link>
       </div>
@@ -62,16 +61,20 @@
       <div class="social-net">
         <div style="display: flex">
           <div v-if="!isMini" class="social-net-item">
-            <i
-              class="fab fa-telegram-plane"
-              style="font-size: 26px; margin-right: 4px"
-            ></i>
+            <a href="https://t.me/oavuzbekistan" target="_blank">
+              <i class="fab fa-telegram-plane"
+              style="font-size: 26px; margin-right: 4px"></i>
+            </a>
           </div>
           <div v-if="!isMini" class="social-net-item">
-            <i class="fab fa-youtube" style="font-size: 26px"></i>
+            <a href="https://www.instagram.com/oavuz/" target="_blank">
+            <i class="fab fa-instagram" style="font-size: 26px"></i>
+            </a>
           </div>
           <div v-if="!isMini" class="social-net-item">
-            <i class="fab fa-twitter" style="font-size: 26px"></i>
+            <a href="https://www.facebook.com/oavuz" target="_blank">
+            <i class="fab fa-facebook-f" style="font-size: 26px"></i>
+            </a>
           </div>
           <div
             class="social-net-item-g"
@@ -190,16 +193,21 @@
 
         <div style="display: flex; justify-content: space-around">
           <div class="social-net-item-drawer">
+            <a href="https://t.me/oavuzbekistan" target="_blank">
             <i
               class="fab fa-telegram-plane"
-              style="font-size: 26px; margin-right: 4px"
-            ></i>
+              style="font-size: 26px; margin-right: 4px"></i>
+            </a>
           </div>
           <div class="social-net-item-drawer">
-            <i class="fab fa-youtube" style="font-size: 26px"></i>
+            <a href="https://www.instagram.com/oavuz/" target="_blank">
+            <i class="fab fa-instagram" style="font-size: 26px"></i>
+            </a>
           </div>
           <div class="social-net-item-drawer">
-            <i class="fab fa-twitter" style="font-size: 26px"></i>
+            <a href="https://www.facebook.com/oavuz" target="_blank">
+            <i class="fab fa-facebook-f" style="font-size: 26px"></i>
+            </a>
           </div>
         </div>
       </div>
