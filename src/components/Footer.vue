@@ -29,25 +29,29 @@
                     </button>
                     <div class="social_network_block">
                         <div class="social-network">
-                            <i
-                                    class="fab fa-telegram-plane"
-                                    style="font-size: 26px; padding-right: 10px"
-                            ></i>
-                            Telegram
+                            <a href="https://t.me/oavuzbekistan" target="_blank">
+                            <i class="fab fa-telegram-plane" style="font-size: 26px; padding-right: 10px"></i>
+                            <span>Telegram</span>
+                            </a>
                         </div>
                         <div class="social-network">
+                            <a href="https://www.instagram.com/oavuz" target="_blank">
                             <i
-                                    class="fab fa-youtube"
+                                    class="fab fa-instagram"
                                     style="font-size: 26px; padding-right: 10px"
                             ></i>
-                            YouTube
+
+                            <span>Instagram</span>
+                            </a>
                         </div>
                         <div class="social-network">
+                            <a href="https://www.facebook.com/oavuz" target="_blank">
                             <i
                                     class="fab fa-twitter"
                                     style="font-size: 26px; padding-right: 10px"
                             ></i>
-                            Twitter
+                            <span>Facebook</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -509,8 +513,12 @@
         border: 1px solid #fff;
         transition: all 0.2s ease;
     }
+    .social-network a{
+        display: flex;
+        align-items: center;
+    }
 
-    .social-network:hover {
+    .social-network a:hover {
         background-color: #fff;
         color: black;
     }
@@ -559,7 +567,9 @@
         transition: all 0.2s ease;
         margin: 0 8px;
     }
-
+.modal-content form{
+    padding: 20px 0;
+}
     .social-net-item:hover {
         background-color: #4493ff;
         color: #fff;
