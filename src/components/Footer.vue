@@ -224,7 +224,7 @@
                             </div>
                             <div class="col-75">
                                 <input type="text" id="fname" name="firstname" placeholder="Tashkilotni nomini kiriting " v-model="form.title"/>
-                              <span style="color: red;padding-top: 10px">{{errors.title}}</span>
+                              <span style="color: red;line-height: 2em">{{errors.title}}</span>
                             </div>
                         </div>
                         <div class="row">
@@ -238,18 +238,19 @@
                             <div class="col-75">
                                 <input type="text" id="lname" name="lastname" placeholder="Ismingiz kiriting"
                                        v-model="form.face"/>
-                              <span style="color: red;padding-top: 10px">
+                              <span style="color: red;line-height: 2em">
                                     {{errors.face}}
                                   </span>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-25">
-                                <label for="lname1">Telefon raqami: +998</label>
+                                <label for="lname1">Telefon raqami</label>
                             </div>
                             <div class="col-75">
                                 <input type="text" id="lname1" name="phone" placeholder="Telefoni kiriting"
                                        v-model="form.phone"/>
+                                <span style="color: red;line-height: 2em">{{errors.phone }}</span>
                             </div>
                         </div>
                         <div class="row">
@@ -259,7 +260,7 @@
                             <div class="col-75">
                                 <input type="text" id="lname2" name="email" placeholder="Email kiriting"
                                        v-model="form.email"/>
-                                <span style="color: red;padding-top: 10px">{{errors.email}}</span>
+                                <span style="color: red;line-height: 2em">{{errors.email}}</span>
                             </div>
                         </div>
                         <div class="row">
@@ -267,6 +268,7 @@
                                 <label for="massage">Xabar</label>
                             </div>
                             <div class="col-75">
+                                <span style="color: red;line-height: 2em">{{errors.message}}</span>
                 <textarea
                         id="massage"
                         name="massage"
@@ -376,6 +378,7 @@
             if(!this.form.title) this.errors.title = "Tashkilot nomini kiriting";
             if(!this.form.face) this.errors.face = "Ismizni kiriting";
             if(!this.form.phone) this.errors.phone = "Raqamni kiriting";
+            if(!this.form.message) this.errors.message = "Xabarni kiriting";
             if(!this.form.email) {
               this.errors.email = "Pochta kiriting";
             } else if(!this.validEmail(this.form.email)) {
@@ -400,7 +403,7 @@
     }
 
     .row {
-        padding: 20px 0;
+        padding: 6px 0;
     }
 
     input[type="text"],
@@ -518,7 +521,7 @@
         align-items: center;
     }
 
-    .social-network a:hover {
+    .social-network:hover {
         background-color: #fff;
         color: black;
     }
