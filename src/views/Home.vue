@@ -1003,7 +1003,7 @@ export default {
         dir = -999;
       }
 
-      this.scroll = (this.$refs.main_carousel.offsetWidth / 1.5) * dir;
+      this.scroll = (this.$refs.main_carousel.offsetWidth * 1.2) * dir;
       this.$refs.main_carousel.scrollBy({ left: this.scroll });
 
       this.index = this.active_carousel_index + 1;
@@ -1013,6 +1013,7 @@ export default {
         this.$refs.main_carousel.childNodes[this.index].children[0].children[1]
           .offsetWidth;
 
+      this.new_width = Math.abs(this.new_width)
       this.$refs.gradient_bar.style.width = `${this.new_width}px`;
     },
   },
@@ -1121,6 +1122,7 @@ export default {
   justify-content: center;
   font-size: 25px;
   color: #434343;
+  z-index: 80;
 }
 
 .carousel-control:hover {
@@ -1664,6 +1666,10 @@ export default {
 
   .read-also-rec {
     margin-right: 30px;
+  }
+
+  .carousel-read-also {
+    left: 8%;
   }
 }
 

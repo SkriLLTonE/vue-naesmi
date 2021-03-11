@@ -265,10 +265,10 @@ export default {
       this.isMobile = window.innerWidth <= 800 && window.innerWidth > 600;
       this.isTablet = window.innerWidth <= 1540 && window.innerWidth > 800;
       this.isDesktop = window.innerWidth > 1540;
-      console.log(window.innerWidth);
-      console.log("desktop ", this.isDesktop);
-      console.log("mobile ", this.isMobile);
-      console.log("tablet ", this.isTablet);
+      // console.log(window.innerWidth);
+      // console.log("desktop ", this.isDesktop);
+      // console.log("mobile ", this.isMobile);
+      // console.log("tablet ", this.isTablet);
     },
     closeTab() {
       this.open.sheet = false;
