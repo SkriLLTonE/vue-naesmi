@@ -640,13 +640,14 @@
                     },
                 ],
                 weekday:[
+                    "Yakshanba",
                     "Dushanba",
                     "Seshanba",
                     "Chorshanba",
                     "Payshanba",
                     "Juma",
                     "Shanba",
-                    "Yakshanba",
+
                 ],
                 months: [
                     "Yanvar",
