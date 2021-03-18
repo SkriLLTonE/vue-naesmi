@@ -26,7 +26,7 @@
             background-color: rgba(68, 147, 255, 0.6);
           "
         ></div>
-        <div style="position: relative">Yangiliklar</div>
+        <div style="position: relative ;font-family: Montserrat-Bold,sans-serif">Yangiliklar</div>
       </div>
       <div data-aos="fade-up" class="main-card-wrapper" @click="routerHandler(`/news/${news[0].id}`)" v-if="news.length > 0">
         <div>
