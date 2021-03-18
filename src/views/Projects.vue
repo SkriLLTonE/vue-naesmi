@@ -28,7 +28,6 @@
                   <div
                     style="
                       font-size: 50px;
-                      font-family: 'Times New Roman', Times, serif;
                       color: #4493ff;
                       font-weight: bold;
                     "
@@ -55,10 +54,7 @@
                   font-size: 30px;
                   font-weight: bold;
                   padding: 14px 24px 24px 0;
-                  z-index: 11;
-                  font-family: 'Times New Roman', Times, serif;
-                "
-              >
+                  z-index: 11; " >
                 {{ project.name }}
               </div>
             </transition>

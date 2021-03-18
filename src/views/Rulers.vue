@@ -8,8 +8,7 @@
         :style="
           (index + 1) % 2 == 0
             ? 'flex-direction: row;'
-            : 'flex-direction: row-reverse;'
-        "
+            : 'flex-direction: row-reverse;' "
         class="human-wrapper"
         v-for="(human, index) in rulers"
         :key="index"
@@ -38,21 +37,13 @@
                 :style="
                   (index + 1) % 2 == 0
                     ? 'text-align: end;'
-                    : 'text-align: start;'
-                "
-                style="
-                  padding-right: 0.4em;
-                  width: 100%;
-                  font-weight: bold;
-                  font-size: 40px;
-                  line-height: 65px;
-                "
-              >
+                    : 'text-align: start;' "
+                class="title">
                 {{ human.title }}
               </div>
               <template v-if="(index + 1) % 2 == 0">
                 <transition name="topop" appear>
-                  <div style="padding-right: 0.4em">{{ human.last_name }}</div>
+                  <div style="padding-right: 0.4em; ">{{ human.last_name }}</div>
                 </transition>
                 <transition name="bottomop" appear>
                   <div style="padding-right: 0.4em">{{ human.first_name }}</div>
@@ -193,13 +184,19 @@ export default {
 
 .human-photo-back {
   position: absolute;
-  background-color: #4493ff;
+  background-color: #193c6b;
   width: 100%;
   height: 640px;
   top: 0;
   left: 40px;
 }
-
+.title{
+  padding-right: 0.4em;
+  width: 100%;
+  font-size: 40px;
+  line-height: 50px;
+  font-family:  Montserrat-Regular, sans-serif;
+}
 .scale-enter-active,
 .scale-leave-active {
   transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1), left 0.8s ease;
@@ -266,6 +263,7 @@ export default {
   font-size: 60px;
   display: flex;
   flex-wrap: wrap;
+  font-family: Montserrat-SemiBold , sans-serif;
 }
 
 .discription {
@@ -276,9 +274,16 @@ export default {
 @media screen and (max-width: 1200px) {
   .human_desc {
     margin: 0 20px;
-    font-size: 30px;
+    font-size: 40px;
     display: flex;
     flex-wrap: wrap;
+  }
+  .title{
+    padding-right: 0.4em;
+    width: 100%;
+    font-size: 30px;
+    line-height: 50px;
+    font-family:  Montserrat-Regular, sans-serif;
   }
   .discription {
     width: 80%;
@@ -295,6 +300,10 @@ export default {
   .discription {
     width: 100%;
     margin-bottom: 60px;
+  }
+  .title{
+    line-height: 35px;
+    margin-bottom: 10px;
   }
 }
 
@@ -320,7 +329,7 @@ export default {
 
   .human_desc {
     margin: 0 20px;
-    font-size: 25px;
+    font-size: 30px;
     display: flex;
     flex-wrap: wrap;
   }

@@ -35,6 +35,12 @@
                             </a>
                         </div>
                         <div class="social-network">
+                            <a href="https://www.youtube.com/channel/UCbRb6nY-WkwrxN2srfk6Zug" target="_blank">
+                                <i class="fab fa-youtube" style="font-size: 26px; padding-right: 10px"></i>
+                                <span>Youtube</span>
+                            </a>
+                        </div>
+                        <div class="social-network">
                             <a href="https://www.instagram.com/oavuz" target="_blank">
                             <i
                                     class="fab fa-instagram"
@@ -47,7 +53,7 @@
                         <div class="social-network">
                             <a href="https://www.facebook.com/oavuz" target="_blank">
                             <i
-                                    class="fab fa-twitter"
+                                    class="fab fa-facebook-f"
                                     style="font-size: 26px; padding-right: 10px"
                             ></i>
                             <span>Facebook</span>
@@ -63,9 +69,7 @@
                                         style="
                     font-size: 30px;
                     font-weight: bold;
-                    padding: 30px 0 10px 0;
-                  "
-                                >
+                    padding: 30px 0 10px 0;   " >
                                     Biz bilan ulanish:
                                 </div>
                                 <div
@@ -80,16 +84,13 @@
                                 ></div>
                             </div>
                             <div style="font-size: 18px; line-height: 1.5em">
-                                O'zbekiston, 100106, Toshkent
+                                O’zbekiston 700000, Toshkent sh.
 
-                                <p>Н Navoiy, 15-uy, 1-uy</p>
+                                <p>H.Olimjon maydoni. Biznes kompleks “Poytaxt”,<br> G’arbiy tomon 4-yo’lak 2-qavat</p>
 
                                 <br/>
                                 <div style="font-size: 18px; line-height: 1.5em">
-                                    Tel: +998(99) 777-77-77
-                                </div>
-                                <div style="font-size: 18px; line-height: 1.5em">
-                                    Faks: +998(99) 777-77-76
+                                    Tel: +998 (71) 237-28-30
                                 </div>
                                 <div style="font-size: 18px; line-height: 1.5em">
                                     E-mail: info@naesmi.uz
@@ -223,7 +224,7 @@
                                 </label>
                             </div>
                             <div class="col-75">
-                                <input type="text" id="fname" name="firstname" placeholder="Tashkilotni nomini kiriting " v-model="form.title"/>
+                                <input type="text" id="fname" name="firstname" placeholder="Tashkilotning nomini kiriting " v-model="form.title"/>
                               <span style="color: red;line-height: 2em">{{errors.title}}</span>
                             </div>
                         </div>
@@ -236,7 +237,7 @@
                                 </div>
                             </div>
                             <div class="col-75">
-                                <input type="text" id="lname" name="lastname" placeholder="Ismingiz kiriting"
+                                <input type="text" id="lname" name="lastname" placeholder="Ismingizni kiriting"
                                        v-model="form.face"/>
                               <span style="color: red;line-height: 2em">
                                     {{errors.face}}
@@ -248,7 +249,7 @@
                                 <label for="lname1">Telefon raqami</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" id="lname1" name="phone" placeholder="Telefoni kiriting"
+                                <input type="text" id="lname1" name="phone" placeholder="Telefoningizni kiriting"
                                        v-model="form.phone"/>
                                 <span style="color: red;line-height: 2em">{{errors.phone }}</span>
                             </div>
@@ -265,20 +266,20 @@
                         </div>
                         <div class="row">
                             <div class="col-25">
-                                <label for="massage">Xabar</label>
+                                <label for="massage">Murojaat</label>
                             </div>
                             <div class="col-75">
                                 <span style="color: red;line-height: 2em">{{errors.message}}</span>
                 <textarea
                         id="massage"
                         name="massage"
-                        placeholder="qo'shimcha ma'lumot"
+                        placeholder="Qo'shimcha ma'lumot"
                         style="height: 200px"
                         v-model="form.message"
                 ></textarea>
                             </div>
                         </div>
-                      <input  @click="postContact" type="submit" value="Submit" />
+                      <input  @click="postContact" type="submit" value="Yuborish" />
 <!--                        <div class="row">-->
 <!--                            <div @click="postContact">Yuborish</div>-->
 <!--                        </div>-->
@@ -329,7 +330,7 @@
 
         computed: {
             background() {
-                return require("../assets/foot_bg.jpg");
+                return require("../assets/bg.jpg");
             },
         },
         mounted: function () {
@@ -375,14 +376,14 @@
             },
           checkForm(e) {
             this.errors = {};
-            if(!this.form.title) this.errors.title = "Tashkilot nomini kiriting";
-            if(!this.form.face) this.errors.face = "Ismizni kiriting";
-            if(!this.form.phone) this.errors.phone = "Raqamni kiriting";
-            if(!this.form.message) this.errors.message = "Xabarni kiriting";
+            if(!this.form.title) this.errors.title = "Tashkilotni nomini kiriting";
+            if(!this.form.face) this.errors.face = "Ismingizni kiriting";
+            if(!this.form.phone) this.errors.phone = "Telefoningizni kiriting";
+            if(!this.form.message) this.errors.message = "Murojaatingizni kiriting";
             if(!this.form.email) {
-              this.errors.email = "Pochta kiriting";
+              this.errors.email = "Email kiriting";
             } else if(!this.validEmail(this.form.email)) {
-              this.errors.email = "Misol example@example.com";
+              this.errors.email = "Misol: example@example.com";
             }
             if(!Object.keys(this.errors).length) return true;
             e.preventDefault();

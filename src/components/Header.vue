@@ -6,10 +6,11 @@
         display: flex;
         align-items: flex-end;
         height: 68px;
+        padding: 10px 0;
       "
     >
       <div class="naesmi" ref="naesmi">
-        <router-link to="/">НАЭСМИ</router-link>
+        <router-link to="/"><img src="../assets/logo.png" width="150px" alt=""></router-link>
       </div>
       <div v-if="isDesktop" class="nav-control">
         <div>
@@ -64,6 +65,12 @@
             <a href="https://t.me/oavuzbekistan" target="_blank">
               <i class="fab fa-telegram-plane"
               style="font-size: 26px; margin-right: 4px"></i>
+            </a>
+          </div>
+          <div v-if="!isMini" class="social-net-item">
+            <a href="https://www.youtube.com/channel/UCbRb6nY-WkwrxN2srfk6Zug" target="_blank">
+              <i class="fab fa-youtube"
+                 style="font-size: 26px; margin-right: 4px"></i>
             </a>
           </div>
           <div v-if="!isMini" class="social-net-item">
@@ -200,6 +207,13 @@
             </a>
           </div>
           <div class="social-net-item-drawer">
+            <a href="https://www.youtube.com/channel/UCbRb6nY-WkwrxN2srfk6Zug" target="_blank">
+              <i
+                      class="fab fa-youtube"
+                      style="font-size: 26px; margin-right: 4px"></i>
+            </a>
+          </div>
+          <div class="social-net-item-drawer">
             <a href="https://www.instagram.com/oavuz/" target="_blank">
             <i class="fab fa-instagram" style="font-size: 26px"></i>
             </a>
@@ -282,7 +296,7 @@ export default {
   position: relative;
   width: 100%;
   height: 68px;
-  background-color: #2d66b3;
+  background-color: #193c6b;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -457,13 +471,19 @@ export default {
 .naesmi {
   font-family: "NewCyrillicGoth";
   margin: 0 40px;
-  height: 100%;
+  width: 180px;
+  height: 70px;
   font-size: 30px;
   display: flex;
   align-items: center;
   letter-spacing: 2px;
   text-transform: capitalize;
   cursor: pointer;
+  align-self: center;
+}
+.naesmi img{
+  width: 100%;
+  height: 60px;
 }
 
 .social-net-item {
