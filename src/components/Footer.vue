@@ -42,20 +42,14 @@
                         </div>
                         <div class="social-network">
                             <a href="https://www.instagram.com/oavuz" target="_blank">
-                            <i
-                                    class="fab fa-instagram"
-                                    style="font-size: 26px; padding-right: 10px"
-                            ></i>
+                            <i class="fab fa-instagram" style="font-size: 26px; padding-right: 10px" ></i>
 
                             <span>Instagram</span>
                             </a>
                         </div>
                         <div class="social-network">
                             <a href="https://www.facebook.com/oavuz" target="_blank">
-                            <i
-                                    class="fab fa-facebook-f"
-                                    style="font-size: 26px; padding-right: 10px"
-                            ></i>
+                            <i class="fab fa-facebook-f" style="font-size: 26px; padding-right: 10px" ></i>
                             <span>Facebook</span>
                             </a>
                         </div>

@@ -382,7 +382,7 @@ export default {
 
 .single-card-img {
   width: 100%;
-  height: 240px;
+  min-height: 240px;
   object-fit: cover;
   border-radius: 6px;
   transition: all 0.4s ease;
