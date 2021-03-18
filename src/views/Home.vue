@@ -6,7 +6,7 @@
           <transition name="fadetop" appear>
             <div class="headline">Ob-havo</div>
           </transition>
-          <transition name="sliderleft" appear>
+          <transition name="sliderleft"  appear>
             <div class="weekday">
               {{ weekday[new Date(weather[0].pub_date).getDay()] }}
             </div>
@@ -35,10 +35,7 @@
                 </div>
               </div>
               <div
-                style="text-align: start; padding: 20px 0; font-weight: bold"
-              >
-                Tashkent
-              </div>
+                style="text-align: start; padding: 20px 0; font-weight: bold" > Tashkent </div>
               <div style="position: relative; height: auto; width: 100%">
                 <div
                   class="horizontal-dotted-border"
@@ -156,26 +153,21 @@
             "
             >BOSHQA SAHIFALAR</span
           >
-          <div
-            style="
+          <div style="
               position: relative;
               width: 100%;
               height: auto;
               display: flex;
-              padding-top: 30px;
-            "
-          >
+              padding-top: 30px;">
             <transition-group
               name="fadebottom"
               appear
-              v-if="lastNews[active_rec_index]"
-            >
+              v-if="lastNews[active_rec_index]" >
               <div
                 class="read-also-rec"
                 v-for="(rec, index) in lastNews[active_rec_index].read_also"
                 :key="index"
-                v-show="showRec"
-              >
+                v-show="showRec" >
                 <router-link class="read-also-rec" :to="'/news/' + rec.id">
                     <img
                     :src="rec.image"
@@ -243,10 +235,7 @@
     >
       <div>
         <div class="partners">
-          <span style="font-size: 36px; font-weight: bold; line-height: 1.5em"
-            >Hamkorlar</span
-          >
-          <span style="font-size: 20px; color: gray">OAV</span>
+          <span style="font-size: 36px; font-weight: bold; line-height: 1.5em">Hamkorlar</span>
         </div>
       </div>
       <div
@@ -346,9 +335,7 @@
               font-size: 30px;
               font-weight: bold;
               padding: 14px 24px 14px 14px;
-              z-index: 11;
-              font-family: 'Times New Roman', Times, serif;
-            "
+              z-index: 11; "
           >
             Asosiy yangiliklar
           </div>
@@ -515,10 +502,7 @@
                 font-size: 30px;
                 font-weight: bold;
                 padding: 14px 24px 14px 14px;
-                z-index: 11;
-                font-family: 'Times New Roman', Times, serif;
-              "
-            >
+                z-index: 11; "  >
               Oxirgi Loyiha
             </div>
             <div class="all_news">
@@ -540,11 +524,8 @@
                   <div
                     style="
                       font-size: 50px;
-                      font-family: 'Times New Roman', Times, serif;
                       color: #4493ff;
-                      font-weight: bold;
-                    "
-                  >
+                      font-weight: bold;" >
                     {{ new Date(lastProject.date).getFullYear() }}
                   </div>
                   <div style="font-size: 22px; color: #000">
@@ -560,7 +541,7 @@
                   font-weight: bold;
                   padding: 14px 24px 24px 0;
                   z-index: 11;
-                  font-family: 'Times New Roman', Times, serif;
+
                 "
               >
                 {{ lastProject.name }}
@@ -605,10 +586,7 @@
                   font-size: 26px;
                   font-weight: bold;
                   line-height: 2.4em;
-                  border-bottom: 1px solid lightgray;
-                  font-family: 'Times New Roman', Times, serif;
-                "
-              >
+                  border-bottom: 1px solid lightgray; " >
                 Tashkilotlar
               </div>
 
@@ -953,6 +931,7 @@ export default {
         })
         .then((data) => {
           this.weather = data;
+          console.log(data)
         });
     },
     routerHandler(route) {
@@ -1046,7 +1025,6 @@ export default {
 .headline {
   text-align: start;
   font-size: 34px;
-  font-family: "Times New Roman", Times, serif;
   font-weight: bold;
   padding-bottom: 10px;
   border-bottom: 1px solid lightgray;
@@ -1544,7 +1522,7 @@ export default {
   align-items: center;
   justify-content: center;
   background-color: white;
-  font-family: "Times New Roman", Times, serif;
+font-family: Montserrat-Bold, sans-serif;
 }
 
 .card_img {
@@ -1623,7 +1601,10 @@ export default {
   .cont_wrap {
     width: 100%;
   }
-
+  .organ_card{
+    width: 100%;
+    position: relative;
+  }
   .content-wrapper {
     flex-direction: column;
   }

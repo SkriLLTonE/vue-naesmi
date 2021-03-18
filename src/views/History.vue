@@ -15,7 +15,7 @@
               "
             >
               <transition name="sliderleft" appear>
-                <div class="history-mark">ИСТОРИЯ</div>
+                <div class="history-mark">tarix</div>
               </transition>
               <div class="history_img" style="">
                 <img
@@ -151,7 +151,7 @@ export default {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 50px;
-  transform: rotate(90deg) translateY(2.1em);
+  transform: rotate(90deg) translateY(1em);
 }
 
 .history-elem {

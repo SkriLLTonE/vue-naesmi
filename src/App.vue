@@ -20,8 +20,12 @@ export default {
 </script>
 
 <style>
+  body{
+
+  }
 html {
   overflow-x: hidden;
+  font-family: Montserrat-Regular, sans-serif;
 }
 
 a {
@@ -39,7 +43,18 @@ a {
   font-family: "Dr.Po";
   src: local("Dr.Po"), url(assets/fonts/Dr.Po.otf) format("truetype");
 }
-
+@font-face {
+  font-family: "Montserrat-Regular";
+  src: local("Montserrat-Regular"), url(assets/fonts/Montserrat-Regular.ttf) format("truetype");
+}
+  @font-face {
+    font-family: "Montserrat-Bold";
+    src: local("Montserrat-Bold"), url(assets/fonts/Montserrat-Bold.ttf) format("truetype");
+  }
+  @font-face {
+    font-family: "Montserrat-SemiBold";
+    src: local("Montserrat-SemiBold"), url(assets/fonts/Montserrat-SemiBold.ttf) format("truetype");
+  }
 * {
   margin: 0;
   padding: 0;
@@ -50,7 +65,7 @@ a {
 }
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Montserrat-Regular, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
