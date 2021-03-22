@@ -124,7 +124,7 @@ export default {
   },
   methods: {
     getNewsDetail(id) {
-      fetch(`http://127.0.0.1:8000/news-det/${id}/`)
+      fetch(`http://ec2-18-183-179-92.ap-northeast-1.compute.amazonaws.com:8000/news-det/${id}/`)
         .then((res) => {
           return res.json();
         })
@@ -242,7 +242,7 @@ export default {
 
 .news_title {
   font-size: 50px;
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Montserrat-Regular", sans-serif;
   text-align: left;
   font-weight: bold;
 }
