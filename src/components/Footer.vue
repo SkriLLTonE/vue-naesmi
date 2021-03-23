@@ -274,9 +274,7 @@
                             </div>
                         </div>
                       <input  @click="postContact" type="submit" value="Yuborish" />
-<!--                        <div class="row">-->
-<!--                            <div @click="postContact">Yuborish</div>-->
-<!--                        </div>-->
+
 
                 </div>
               </form>
@@ -324,7 +322,7 @@
 
         computed: {
             background() {
-                return require("../assets/bg.jpg");
+                return require("../assets/smi-foto.jpeg");
             },
         },
         mounted: function () {
@@ -583,6 +581,17 @@
         opacity: 0;
     }
 
+    @media screen and (max-width: 991px) {
+        .footer_links{
+            flex-direction: column;
+        }
+        .button-container{
+            margin-right: auto;
+        }
+        .footer_nav{
+            padding: 0;
+        }
+    }
     @media screen and (max-width: 768px) {
         .footer_links {
             display: block;

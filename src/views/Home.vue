@@ -948,7 +948,7 @@ export default {
     //   // setTimeout(this.brandsCarouselHendler(), 100);
     // },
     fetchData() {
-      fetch("http://127.0.0.1:8000/org")
+      fetch("http://ec2-18-183-179-92.ap-northeast-1.compute.amazonaws.com:8000/org")
         .then((res) => {
           return res.json();
         })

@@ -126,13 +126,14 @@ biz hozirda hamkorlik ostonasida turibmiz.</span>
     .banner {
         position: relative;
         width: 100%;
-        height: 400px;
-        background: url("../assets/history.jpg");
+        height: 500px;
+        background: url("../assets/bghist.jpg");
         background-size: cover;
-        background-position: center;
+        background-position:  center -401px;
         display: flex;
         justify-content: center;
         align-items: center;
+        background-repeat: no-repeat;
     }
 
     .banner_header {

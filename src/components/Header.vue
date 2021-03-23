@@ -208,9 +208,7 @@
           </div>
           <div class="social-net-item-drawer">
             <a href="https://www.youtube.com/channel/UCbRb6nY-WkwrxN2srfk6Zug" target="_blank">
-              <i
-                      class="fab fa-youtube"
-                      style="font-size: 26px; margin-right: 4px"></i>
+              <i class="fab fa-youtube" style="font-size: 26px; margin-right: 4px"></i>
             </a>
           </div>
           <div class="social-net-item-drawer">
@@ -484,6 +482,7 @@ export default {
 .naesmi img{
   width: 100%;
   height: 60px;
+  padding-top:5px;
 }
 
 .social-net-item {
@@ -668,6 +667,9 @@ export default {
 @media screen and (max-width: 768px) {
   .drawer-wrapper {
     width: 420px;
+  }
+  .naesmi{
+    margin: 0 20px;
   }
 }
 @media screen and (max-width: 576px) {
