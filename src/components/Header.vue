@@ -126,7 +126,7 @@
           </div>
           <div class="nav_menu_item">
             <div class="nav_menu_item_link">
-              <div @click="routerHandler('/about')">Assotsiatsiya Haqida</div>
+              <div @click="routerHandler('/about')">Uyushma Haqida</div>
             </div>
           </div>
           <div class="nav_menu_item">
@@ -136,8 +136,7 @@
           </div>
           <div class="nav_menu_item">
             <div class="nav_menu_item_link" @click="routerHandler('/events')">
-              <!-- <router-link to="/events">Ивенты</router-link>-->
-              Tadbirlar
+              <router-link to="/events">Tadbirlar</router-link>
             </div>
           </div>
           <div
