@@ -126,7 +126,7 @@
           </div>
           <div class="nav_menu_item">
             <div class="nav_menu_item_link">
-              <div @click="routerHandler('/about')">Uyushma Haqida</div>
+              <div @click="routerHandler('/about')">Assotsiatsiya Haqida</div>
             </div>
           </div>
           <div class="nav_menu_item">
