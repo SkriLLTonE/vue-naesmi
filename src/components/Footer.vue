@@ -322,7 +322,7 @@
 
         computed: {
             background() {
-                return require("../assets/smi-foto.jpeg");
+                return require("../assets/bg.png");
             },
         },
         mounted: function () {
