@@ -109,7 +109,6 @@ jahon sivilizatsiyasining rivojlanishi. Yaqin istiqbollardan – tashkil etish
 "Doyche Velle" global media brendi bilan kontentni almashish bo'yicha aloqalar
 biz hozirda hamkorlik ostonasida turibmiz.</span>
             </div>
-
         </div>
     </div>
 </template>
@@ -129,22 +128,26 @@ biz hozirda hamkorlik ostonasida turibmiz.</span>
         height: 500px;
         background: url("../assets/bghist.jpg");
         background-size: cover;
-        background-position:  center -401px;
+        background-position: bottom;
         display: flex;
         justify-content: center;
         align-items: center;
         background-repeat: no-repeat;
     }
-
     .banner_header {
         font-size: 60px;
         font-weight: bold;
         color: white;
         position: relative;
     }
-
+    @media screen and (max-width: 1200px) {
+        .banner{
+            background-position: center;
+        }
+    }
 
     @media screen and (max-width: 768px) {
+
         .banner_header {
             font-size: 30px;
         }
