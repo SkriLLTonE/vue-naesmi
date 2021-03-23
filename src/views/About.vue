@@ -146,9 +146,6 @@ biz hozirda hamkorlik ostonasida turibmiz.</span>
         }
     }
 
-    @media screen and (max-width: 991px) {
-
-    }
     @media screen and (max-width: 768px) {
 
         .banner_header {
