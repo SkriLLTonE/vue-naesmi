@@ -116,7 +116,7 @@ export default {
   methods: {
     getProjects() {
       fetch(
-        `http://127.0.0.1:8000/projects/?ordering=-pub_date&limit=30&offset=${
+        `http://ec2-18-183-179-92.ap-northeast-1.compute.amazonaws.com:8000/projects/?ordering=-pub_date&limit=30&offset=${
           this.offset * 30
         }`
       )

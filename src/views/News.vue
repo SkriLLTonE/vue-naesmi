@@ -250,7 +250,7 @@ export default {
     },
     getNews() {
       fetch(
-              `http://127.0.0.1:8000/news2/?ordering=-pub_date&limit=4&offset=${
+              `http://ec2-18-183-179-92.ap-northeast-1.compute.amazonaws.com:8000/news2/?ordering=-pub_date&limit=4&offset=${
                       this.offset * 4
               }`
       )

@@ -87,7 +87,7 @@
                                     Tel: +998 (71) 237-28-30
                                 </div>
                                 <div style="font-size: 18px; line-height: 1.5em">
-                                    E-mail: info@naesmi.uz
+                                    E-mail: info@oav.uz
                                 </div>
                             </div>
                         </div>
@@ -274,9 +274,7 @@
                             </div>
                         </div>
                       <input  @click="postContact" type="submit" value="Yuborish" />
-<!--                        <div class="row">-->
-<!--                            <div @click="postContact">Yuborish</div>-->
-<!--                        </div>-->
+
 
                 </div>
               </form>
@@ -324,7 +322,7 @@
 
         computed: {
             background() {
-                return require("../assets/bg.jpg");
+                return require("../assets/bg.png");
             },
         },
         mounted: function () {
@@ -583,6 +581,17 @@
         opacity: 0;
     }
 
+    @media screen and (max-width: 991px) {
+        .footer_links{
+            flex-direction: column;
+        }
+        .button-container{
+            margin-right: auto;
+        }
+        .footer_nav{
+            padding: 0;
+        }
+    }
     @media screen and (max-width: 768px) {
         .footer_links {
             display: block;
