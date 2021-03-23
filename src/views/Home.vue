@@ -878,7 +878,7 @@ export default {
       console.log(this.$refs.brand_carousel.offsetWidth);
     },
     getPartners() {
-      fetch("http://127.0.0.1:8000/partners/")
+      fetch("http://ec2-18-183-179-92.ap-northeast-1.compute.amazonaws.com:8000/partners/")
         .then((res) => {
           return res.json();
         })
@@ -891,7 +891,7 @@ export default {
         });
     },
     getNews() {
-      fetch("http://127.0.0.1:8000/news/?ordering=-pub_date&limit=7")
+      fetch("http://ec2-18-183-179-92.ap-northeast-1.compute.amazonaws.com:8000/news/?ordering=-pub_date&limit=7")
         .then((res) => {
           return res.json();
         })
@@ -916,7 +916,7 @@ export default {
         });
     },
     getLastProject() {
-      fetch("http://127.0.0.1:8000/projects/?ordering=-last_change&limit=1")
+      fetch("http://ec2-18-183-179-92.ap-northeast-1.compute.amazonaws.com:8000/projects/?ordering=-last_change&limit=1")
         .then((res) => {
           return res.json();
         })
@@ -925,7 +925,7 @@ export default {
         });
     },
     getWeather() {
-      fetch("http://127.0.0.1:8000/weather/")
+      fetch("http://ec2-18-183-179-92.ap-northeast-1.compute.amazonaws.com:8000/weather/")
         .then((res) => {
           return res.json();
         })
@@ -948,7 +948,7 @@ export default {
     //   // setTimeout(this.brandsCarouselHendler(), 100);
     // },
     fetchData() {
-      fetch("http://127.0.0.1:8000/org")
+      fetch("http://ec2-18-183-179-92.ap-northeast-1.compute.amazonaws.com:8000/org")
         .then((res) => {
           return res.json();
         })
