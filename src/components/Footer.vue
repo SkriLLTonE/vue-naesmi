@@ -87,7 +87,7 @@
                                     Tel: +998 (71) 237-28-30
                                 </div>
                                 <div style="font-size: 18px; line-height: 1.5em">
-                                    E-mail: info@naesmi.uz
+                                    E-mail: info@oav.uz
                                 </div>
                             </div>
                         </div>
