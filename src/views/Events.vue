@@ -83,7 +83,7 @@ export default {
   },
   methods: {
     getEvents(limit) {
-      fetch(`http://ec2-18-183-179-92.ap-northeast-1.compute.amazonaws.com:8000/events/?ordering=-pub_date&limit=${limit}`)
+      fetch(`https://api.oav.uz/events/?ordering=-pub_date&limit=${limit}`)
         .then((res) => res.json())
         .then((resJSON) => {
           console.log(resJSON);

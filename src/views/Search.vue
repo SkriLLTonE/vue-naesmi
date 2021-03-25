@@ -244,7 +244,7 @@ export default {
     getNews() {
       this.empty = ""
       fetch(
-              `http://ec2-18-183-179-92.ap-northeast-1.compute.amazonaws.com:8000/news2/?search=${this.query}&limit=4&offset=${
+              `https://api.oav.uz/news2/?search=${this.query}&limit=4&offset=${
                       this.offset * 4
               }`
       )

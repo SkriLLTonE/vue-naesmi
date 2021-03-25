@@ -124,7 +124,7 @@ export default {
   },
   methods: {
     getNewsDetail(id) {
-      fetch(`http://ec2-18-183-179-92.ap-northeast-1.compute.amazonaws.com:8000/news-det/${id}/`)
+      fetch(`https://api.oav.uz/news-det/${id}/`)
         .then((res) => {
           return res.json();
         })

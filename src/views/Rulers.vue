@@ -127,7 +127,7 @@ export default {
   },
   methods: {
     getRulers() {
-      fetch("http://ec2-18-183-179-92.ap-northeast-1.compute.amazonaws.com:8000/people/")
+      fetch("https://api.oav.uz/people/")
         .then((res) => {
           return res.json();
         })
