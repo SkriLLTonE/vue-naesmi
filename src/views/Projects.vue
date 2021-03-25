@@ -116,7 +116,7 @@ export default {
   methods: {
     getProjects() {
       fetch(
-        `http://ec2-18-183-179-92.ap-northeast-1.compute.amazonaws.com:8000/projects/?ordering=-pub_date&limit=30&offset=${
+        `https://api.oav.uz/projects/?ordering=-pub_date&limit=30&offset=${
           this.offset * 30
         }`
       )

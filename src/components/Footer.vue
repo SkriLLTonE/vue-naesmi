@@ -339,7 +339,7 @@
                 window.scrollTo(0, 0);
             },
             getProjects() {
-                fetch("http://127.0.0.1:8000/projects/?limit=7&ordering=-last_change")
+                fetch("https://api.oav.uz/projects/?limit=7&ordering=-last_change")
                     .then((res) => {
                         return res.json();
                     })
@@ -354,8 +354,7 @@
               this.formData.append("phone", this.form.phone);
               this.formData.append("email", this.form.email);
               this.formData.append("message", this.form.message);
-
-              fetch(`http://localhost:8000/contact/`, {
+              fetch(`https://api.oav.uz/contact/`, {
                 method: 'POST',
                 body: this.formData
               })
