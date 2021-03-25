@@ -274,8 +274,8 @@ export default {
     checkResponsive() {
       this.isMini = window.innerWidth <= 600;
       this.isMobile = window.innerWidth <= 800 && window.innerWidth > 600;
-      this.isTablet = window.innerWidth <= 1540 && window.innerWidth > 800;
-      this.isDesktop = window.innerWidth > 1540;
+      this.isTablet = window.innerWidth <= 1600 && window.innerWidth > 800;
+      this.isDesktop = window.innerWidth > 1600;
       // console.log(window.innerWidth);
       // console.log("desktop ", this.isDesktop);
       // console.log("mobile ", this.isMobile);
@@ -356,7 +356,7 @@ export default {
 }
 
 .search-input {
-  background-color: #2d66b3;
+  background-color: #193b6b;
   padding-left: 15px;
   color: #fff;
   transition: all 0.2s;
@@ -420,7 +420,7 @@ export default {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: #2d66b3;
+  background-color: #193b6b;
   color: white;
   border-radius: 0 2px 2px 0;
   transition: all 0.2s;

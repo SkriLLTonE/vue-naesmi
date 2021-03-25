@@ -16,6 +16,9 @@ import Header from "./components/Header.vue";
 export default {
   name: "App",
   components: { Header, Footer },
+  created() {
+    document.title = "Ommaviy Axborot Vazirligi"
+  }
 };
 </script>
 
