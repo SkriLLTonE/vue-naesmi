@@ -16,8 +16,13 @@ import Header from "./components/Header.vue";
 export default {
   name: "App",
   components: { Header, Footer },
+  watch: {
+    $i18n() {
+      document.title = this.$t('general.title')
+      return this.$t('general.title')
+    }
+  },
   created() {
-    document.title = "Ommaviy Axborot Vazirligi"
   }
 };
 </script>

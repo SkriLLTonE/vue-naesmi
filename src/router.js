@@ -1,7 +1,7 @@
 import { createWebHistory, createRouter } from "vue-router";
 import Home from "@/views/Home.vue";
 // import { Trans} from '@/plugins/Translation'
-import { SUPPORT_LOCALES, i18n, loadLocaleMessages, setI18nLanguage } from './i18n'
+import { SUPPORT_LOCALES, i18n, loadLocaleMessages, setI18nLanguage, getBrowserLocale } from './i18n'
 
 function load(component) {
   // '@' is aliased to src/components
@@ -81,7 +81,7 @@ const routes = [{
 {
   path: "/:catchAll(.*)",
   redirect() {
-    return process.env.VUE_APP_I18N_LOCALE || 'ru'
+    return getBrowserLocale()
   }
 }];
 const router = createRouter({
@@ -94,7 +94,7 @@ router.beforeEach(async (to, from, next) => {
   window.scrollTo(0, 0);
   const paramsLocale = to.params.locale
 
-  const locale = process.env.VUE_APP_I18N_LOCALE || 'ru'
+  const locale = getBrowserLocale()
 
   // use locale if paramsLocale is not in SUPPORT_LOCALES
   if (!SUPPORT_LOCALES.includes(paramsLocale)) {

@@ -5,7 +5,27 @@ import { nextTick } from 'vue'
 
 export const SUPPORT_LOCALES = ['en', 'ru', 'uz']
 
-export function setupI18n(options = { locale: 'ru', globalInjection: true }) {
+export function getBrowserLocale(options = {}) {
+  const defaultOptions = { countryCodeOnly: true }
+  const opt = { ...defaultOptions, ...options }
+  const navigatorLocale =
+    navigator.languages !== undefined
+      ? navigator.languages[0]
+      : navigator.language
+  if (!navigatorLocale) {
+    return process.env.VUE_APP_I18N_FALLBACK_LOCALE || 'ru'
+  }
+  const trimmedLocale = opt.countryCodeOnly
+    ? navigatorLocale.trim().split(/-|_/)[0]
+    : navigatorLocale.trim()
+
+  if (!SUPPORT_LOCALES.includes(trimmedLocale)) {
+    return process.env.VUE_APP_I18N_FALLBACK_LOCALE || 'ru'
+  }
+  return trimmedLocale
+}
+
+export function setupI18n(options = { locale: getBrowserLocale(), globalInjection: true }) {
   const i18n = createI18n(options)
   loadLocaleMessages(i18n, options.locale)
   setI18nLanguage(i18n, options.locale)

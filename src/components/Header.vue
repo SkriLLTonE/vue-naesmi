@@ -22,13 +22,13 @@
           >
         </div>
         <div>
-          <router-link to="/about">{{ $t("headers.about") }}</router-link>
+          <router-link :to="$i18nRoute({ name: 'About'})">{{ $t("headers.about") }}</router-link>
         </div>
         <div>
-          <router-link to="/news">{{ $t("headers.news") }}</router-link>
+          <router-link :to="$i18nRoute({ name: 'News'})">{{ $t("headers.news") }}</router-link>
         </div>
         <div>
-          <router-link to="/events">{{ $t("headers.events") }}</router-link>
+          <router-link :to="$i18nRoute({ name: 'Events'})">{{ $t("headers.events") }}</router-link>
         </div>
         <div
           style="position: relative"
@@ -44,19 +44,19 @@
           ></i>
           <transition name="topopac" appear>
             <div v-show="open.sheet" class="open-sheet">
-              <router-link to="/history">
+              <router-link :to="$i18nRoute({ name: 'History'})">
                 <div>{{ $t("headers.history") }}</div>
               </router-link>
-              <router-link to="/docs">
+              <router-link :to="$i18nRoute({ name: 'Docs'})">
                 <div>
                   {{ $t("headers.docs") }}
                 </div>
               </router-link>
-              <router-link to="/grants">
+              <router-link :to="$i18nRoute({ name: 'Grants'})">
                 <div>{{ $t("headers.grants") }}</div>
               </router-link>
               <!-- <div>Исследования и отчеты</div> -->
-              <router-link to="/projects">
+              <router-link :to="$i18nRoute({ name: 'Projects'})">
                 <div>{{ $t("headers.projects") }}</div>
               </router-link>
             </div>
@@ -150,27 +150,27 @@
         <div class="nav-menu">
           <div class="nav_menu_item">
             <div class="nav_menu_item_link">
-              <div @click="routerHandler('/rulers')">
+              <div @click="routerHandler('Rulers')">
                 {{ $t("headers.rulers") }}
               </div>
             </div>
           </div>
           <div class="nav_menu_item">
             <div class="nav_menu_item_link">
-              <div @click="routerHandler('/about')">
+              <div @click="routerHandler('About')">
                 {{ $t("headers.about") }}
               </div>
             </div>
           </div>
           <div class="nav_menu_item">
             <div class="nav_menu_item_link">
-              <div @click="routerHandler('/news')">
+              <div @click="routerHandler('News')">
                 {{ $t("headers.news") }}
               </div>
             </div>
           </div>
           <div class="nav_menu_item">
-            <div class="nav_menu_item_link" @click="routerHandler('/events')">
+            <div class="nav_menu_item_link" @click="routerHandler('Events')">
               <router-link to="/events">{{ $t("headers.events") }}</router-link>
             </div>
           </div>
@@ -191,7 +191,7 @@
             <div class="sub_menu">
               <div class="sub_menu_item">
                 <div class="sub_menu_item_link">
-                  <div @click="routerHandler('/history')">
+                  <div @click="routerHandler('History')">
                     {{ $t("headers.history") }}
                   </div>
                 </div>
@@ -199,14 +199,14 @@
               <!-- TODO -->
               <div class="sub_menu_item">
                 <div class="sub_menu_item_link">
-                  <a @click="routerHandler('/docs')" target="_blank">{{
+                  <a @click="routerHandler('Docs')" target="_blank">{{
                     $t("headers.docs")
                   }}</a>
                 </div>
               </div>
               <div class="sub_menu_item">
                 <div class="sub_menu_item_link">
-                  <div @click="routerHandler('/grants')">
+                  <div @click="routerHandler('Grants')">
                     {{ $t("headers.grants") }}
                   </div>
                 </div>
@@ -214,7 +214,7 @@
 
               <div class="sub_menu_item">
                 <div class="sub_menu_item_link">
-                  <div @click="routerHandler('/projects')">
+                  <div @click="routerHandler('Projects')">
                     {{ $t("headers.projects") }}
                   </div>
                 </div>
@@ -341,14 +341,14 @@ export default {
         }
       }
     },
-    routerHandler(route) {
-      this.$router.push(route);
+    routerHandler(name) {
+      this.$router.push(this.$i18nRoute({name: name}));
       window.scrollTo(0, 0);
       this.open.drawer = false;
       this.open.sheet = false;
     },
     searchHandler() {
-      this.$router.push(`/search/${this.search}`);
+      this.$router.push(this.$i18nRoute({name: "Search", params: {query: this.search}}));
       this.open.drawer = false;
       return false;
     },
