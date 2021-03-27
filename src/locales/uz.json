@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "rulers": "Boshqaruv",
+    "about": "Uyushma Haqida",
+    "news": "Yangiliklar",
+    "events": "Tadbirlar",
+    "more": "Qo'shimcha",
+    "history": "Tarix",
+    "docs": "Hujjatlar",
+    "grants": "Grantlar",
+    "projects": "Loyihalar"
+  },
+  "general": {
+    "search": "Qidirish"
+  }
+}

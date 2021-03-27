@@ -127,7 +127,9 @@ export default {
   },
   methods: {
     getRulers() {
-      fetch("https://api.oav.uz/people/")
+      fetch("https://api.oav.uz/ru/people/?ordering=-id", {
+        mode: 'cors'
+      })
         .then((res) => {
           return res.json();
         })

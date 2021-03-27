@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "rulers": "Board",
+    "about": "About",
+    "news": "News",
+    "events": "Events",
+    "more": "More",
+    "history": "History",
+    "docs": "Documents",
+    "grants": "Grants",
+    "projects": "Projects"
+  },
+  "general": {
+    "search": "Search"
+  }
+}

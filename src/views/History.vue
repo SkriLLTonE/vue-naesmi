@@ -93,7 +93,7 @@ export default {
   },
   methods: {
     getGrants(limit) {
-      fetch(`https://api.oav.uz/history/?ordering=-date&limit=${limit}`)
+      fetch(`https://api.oav.uz/ru/history/?ordering=-date&limit=${limit}`)
         .then((res) => res.json())
         .then((resJSON) => {
           console.log(resJSON);
