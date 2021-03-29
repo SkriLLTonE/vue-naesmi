@@ -33,7 +33,7 @@
         <div
           style="position: relative"
           class="more-btn"
-          tabindex="0"
+          tabindex="7"
           @mousedown="open.sheet = !open.sheet"
           v-click-outside="closeTab"
         >
@@ -124,7 +124,7 @@
             "
           ></div>
         </form>
-        <div class="social-net-item" @click="changeLang">
+        <div class="change-lang-item" @click="changeLang">
           <img
             :src="getImgUrl($i18n.locale)"
             style="width: 86%; height: 86%; object-fit: cover"
@@ -343,7 +343,6 @@ export default {
     },
     routerHandler(name) {
       this.$router.push(this.$i18nRoute({name: name}));
-      window.scrollTo(0, 0);
       this.open.drawer = false;
       this.open.sheet = false;
     },
@@ -525,7 +524,7 @@ export default {
   padding: 0 10px;
 }
 
-.avatar {
+/* .avatar {
   position: relative;
   overflow: hidden;
   width: 40px;
@@ -542,9 +541,9 @@ export default {
   padding-left: 24px;
   padding-right: 24px;
   background: url("../assets/bg.jpg");
-  /* background: url("https://www.edureka.co/blog/wp-content/uploads/2018/03/top-reasons-to-selenium1.png"); */
+  background: url("https://www.edureka.co/blog/wp-content/uploads/2018/03/top-reasons-to-selenium1.png");
   background-size: cover;
-}
+} */
 
 .naesmi {
   font-family: "NewCyrillicGoth";
@@ -565,6 +564,23 @@ export default {
   padding-top: 5px;
 }
 
+.change-lang-item {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  margin: 0 8px;
+}
+
+.change-lang-item:hover {
+  background-color: white;
+  color: #000;
+}
+
 .social-net-item {
   cursor: pointer;
   width: 50px;
@@ -576,6 +592,12 @@ export default {
   transition: all 0.2s ease;
   margin: 0 8px;
 }
+
+.social-net-item:hover {
+  background-color: white;
+  color: #000;
+}
+
 .social-net-item-g {
   cursor: pointer;
   width: 50px;
@@ -586,10 +608,6 @@ export default {
   border-radius: 50%;
   transition: all 0.2s ease;
   margin: 0 8px;
-}
-.social-net-item:hover {
-  background-color: white;
-  color: #000;
 }
 
 .social-net-item-drawer {

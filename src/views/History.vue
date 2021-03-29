@@ -11,11 +11,11 @@
                 display: flex;
                 align-items: flex-end;
                 padding-bottom: 120px;
-                border-left: 12px solid #2d66b3;
+                border-left: 12px solid #193c6b;
               "
             >
               <transition name="sliderleft" appear>
-                <div class="history-mark">tarix</div>
+                <div class="history-mark" :style="{ transform: 'rotate(90deg) translateY(' + $t('history.move') + ')'}">{{ $t("headers.history") }}</div>
               </transition>
               <div class="history_img" style="">
                 <img
@@ -43,7 +43,7 @@
                   position: absolute;
                   height: 40px;
                   width: 12px;
-                  background-color: #2d66b3;
+                  background-color: #193c6b;
                   transform: translateX(-12px);
                 "
               ></div>
@@ -89,11 +89,42 @@
 <script>
 export default {
   created() {
-    this.getGrants(30);
+    this.getHistory(30);
+  },
+  computed: {
+    months() {
+      return [
+        this.$t('months.january'),
+        this.$t('months.february'),
+        this.$t('months.march'),
+        this.$t('months.april'),
+        this.$t('months.may'),
+        this.$t('months.june'),
+        this.$t('months.july'),
+        this.$t('months.august'),
+        this.$t('months.september'),
+        this.$t('months.october'),
+        this.$t('months.november'),
+        this.$t('months.december'),
+      ]
+    }
+  },
+  mounted() {
+    document.title = this.$t("headers.history")
+    this.$watch(
+      "$route",
+      (newLocale, oldLocale) => {
+        if (newLocale === oldLocale) {
+          return
+        }
+        document.title = this.$t("headers.history")
+        this.getHistory(30);
+      },
+    )
   },
   methods: {
-    getGrants(limit) {
-      fetch(`https://api.oav.uz/ru/history/?ordering=-date&limit=${limit}`)
+    getHistory(limit) {
+      fetch(`https://api.oav.uz/${this.$i18n.locale}/history/?ordering=-date&limit=${limit}`)
         .then((res) => res.json())
         .then((resJSON) => {
           console.log(resJSON);
@@ -101,27 +132,13 @@ export default {
           console.log("asd", this.history);
           if (resJSON.count > limit) {
             console.log(resJSON.count);
-            this.getGrants(resJSON.count);
+            this.getHistory(resJSON.count);
           }
         });
     },
   },
   data() {
     return {
-      months: [
-        "Yanvar",
-        "Fevral",
-        "Mart",
-        "Aprel",
-        "May",
-        "Iyun",
-        "Iyul",
-        "Avgust",
-        "Sentyabr",
-        "Oktyabr",
-        "Noyabr",
-        "Dekabr",
-      ],
       history: [
         // {
         //   date: "",
@@ -147,11 +164,11 @@ export default {
 }*/
 
 .history-mark {
-  color: #2d66b3;
+  color: #193c6b;
   text-transform: uppercase;
   font-weight: bold;
   font-size: 50px;
-  transform: rotate(90deg) translateY(1em);
+  transform: rotate(90deg) translateY(56px);
 }
 
 .history-elem {
@@ -161,7 +178,7 @@ export default {
   padding: 40px 0;
   flex-direction: column;
   align-items: flex-start;
-  border-left: 12px solid #2d66b3;
+  border-left: 12px solid #193c6b;
 }
 
 .history-dot {
@@ -170,7 +187,7 @@ export default {
   top: 32px;
   height: 50px;
   width: 50px;
-  background-color: #2d66b3;
+  background-color: #193c6b;
   border-radius: 50%;
   transform: translateX(-31px);
 }
@@ -193,7 +210,7 @@ export default {
   width: 100%;
   height: 100%;
   position: absolute;
-  background-color: #2d66b3;
+  background-color: #193c6b;
   left: 20px;
   top: 20px;
 }*/

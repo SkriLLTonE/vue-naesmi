@@ -4,22 +4,22 @@
       <div class="weather-block">
         <div class="weather-inner">
           <transition name="fadetop" appear>
-            <div class="headline">Ob-havo</div>
+            <div class="headline">{{ $t('general.weather') }}</div>
           </transition>
           <transition name="sliderleft"  appear>
-            <div class="weekday">
+            <div v-if="weather" class="weekday">
               {{ weekday[new Date(weather[0].pub_date).getDay()] }}
             </div>
           </transition>
           <transition name="sliderleft" appear>
-            <div class="date">
+            <div class="date" v-if="weather">
               {{ ("0" + new Date(weather[0].pub_date).getDate()).substr(-2) }}
               {{ months[new Date(weather[0].pub_date).getMonth()] }}
               {{ new Date(weather[0].pub_date).getFullYear() }}
             </div>
           </transition>
           <transition name="sliderleft" appear>
-            <div style="position: relative; width: 100%" v-if="weather.length === 3">
+            <div v-if="weather" style="position: relative; width: 100%" >
               <div class="today-weather">
                 <img :src="weather[0].icon" />
                 <div
@@ -35,7 +35,7 @@
                 </div>
               </div>
               <div
-                style="text-align: start; padding: 20px 0; font-weight: bold" > Tashkent </div>
+                style="text-align: start; padding: 20px 0; font-weight: bold" >{{ $t('general.tashkent') }}</div>
               <div style="position: relative; height: auto; width: 100%">
                 <div
                   class="horizontal-dotted-border"
@@ -71,15 +71,10 @@
                         >{{ weather[1].temperature }}° C</span
                       >
                     </div>
-                    <img :src="weather[1].icon" alt="" />
+                    <img :src="weather[1].icon" alt="OAV" />
                   </div>
 
                   <div class="weather-elem">
-                    <!-- <div
-                                                style="font-size: 0.9em; color: gray; line-height: 1.4em"
-                                        >
-                                            24:00
-                                        </div> -->
                     <div
                       style="
                         font-size: 1.4em;
@@ -91,7 +86,7 @@
                         >{{ weather[2].temperature }}° C</span
                       >
                     </div>
-                    <img :src="weather[2].icon" alt="" />
+                    <img :src="weather[2].icon" alt="OAV" />
                   </div>
                 </div>
               </div>
@@ -124,13 +119,14 @@
                 class="carousel-item-img"
                 :src="item.image"
                 :alt="item.title"
+                @load="$refs.gradient_bar.style.width = `${$refs.main_carousel.childNodes[1].children[0].children[0].offsetWidth}px`"
               />
               <div class="carousel-meta">
                 <transition name="sliderleft2" appear>
                   <div class="carousel-headline">{{ item.category.name }}</div>
                 </transition>
                 <transition name="sliderleft2" appear>
-                    <router-link :to="'/news/' + item.id">
+                    <router-link :to="$i18nRoute({ name: 'NewsDetail', params: { id : item.id }})">
                         <div class="carousel-meta-title">{{ item.title }}</div>
                     </router-link>
                 </transition>
@@ -150,8 +146,9 @@
               font-size: 18px;
               font-weight: bold;
               color: lightgray;
+              text-transform: uppercase;
             "
-            >BOSHQA SAHIFALAR</span
+            >{{ $t('general.read_also')}}</span
           >
           <div style="
               position: relative;
@@ -162,13 +159,13 @@
             <transition-group
               name="fadebottom"
               appear
-              v-if="lastNews[active_rec_index]" >
+              v-if="lastNews[active_rec_index] && lastNews[active_rec_index]" >
               <div
                 class="read-also-rec"
                 v-for="(rec, index) in lastNews[active_rec_index].read_also"
                 :key="index"
                 v-show="showRec" >
-                <router-link class="read-also-rec" :to="'/news/' + rec.id">
+                <router-link class="read-also-rec" :to="$i18nRoute({ name: 'NewsDetail', params: { id : rec.id }})">
                     <img
                     :src="rec.image"
                     :alt="rec.title"
@@ -235,7 +232,9 @@
     >
       <div>
         <div class="partners">
-          <span style="font-size: 36px; font-weight: bold; line-height: 1.5em">Hamkorlar</span>
+          <span style="font-size: 36px; font-weight: bold; line-height: 1.5em">
+            {{$t('general.partners')}}
+          </span>
         </div>
       </div>
       <div
@@ -337,18 +336,18 @@
               padding: 14px 24px 14px 14px;
               z-index: 11; "
           >
-            Asosiy yangiliklar
+            {{ $t('general.latest_news') }}
           </div>
           <div class="all_news">
-            <div @click="routerHandler('/news')">
-              <div class="tab-btn active">Barcha yangiliklar</div>
-            </div>
+            <router-link tag="div" :to="$i18nRoute({ name: 'News'})">
+              <div class="tab-btn active">{{ $t('general.all_news') }}</div>
+            </router-link>
             <!-- <div class="tab-btn">Featured</div> -->
             <div class="tab-btn-indicator"></div>
           </div>
         </div>
 
-        <router-link :to="'/news/' + otherNewsFirst.id">
+        <router-link :to="$i18nRoute({ name: 'NewsDetail', params: { id : otherNewsFirst.id }})">
             <div class="main-card-wrapper">
             <div>
                 <div class="card_img">
@@ -423,7 +422,7 @@
             v-for="(news, index) in otherNews"
             :key="index"
           >
-            <router-link :to="`/news/${news.id}`">
+            <router-link :to="$i18nRoute({ name: 'NewsDetail', params: { id : news.id }})">
                 <div>
                 <img
                     class="single-card-img"
@@ -503,11 +502,11 @@
                 font-weight: bold;
                 padding: 14px 24px 14px 14px;
                 z-index: 11; "  >
-              Oxirgi Loyiha
+              {{ $t('general.latest_project')}}
             </div>
             <div class="all_news">
               <div @click="routerHandler('/projects')" class="tab-btn active">
-                Barcha loyihalar
+                {{ $t('general.all_projects')}}
               </div>
               <div class="tab-btn-indicator"></div>
             </div>
@@ -558,7 +557,7 @@
                 target="_blank"
               >
                 <button class="button-container">
-                  <div style="font-weight: bold">Batafsil</div>
+                  <div style="font-weight: bold">{{ $t('general.details') }}</div>
                 </button>
               </a>
             </div>
@@ -587,7 +586,7 @@
                   font-weight: bold;
                   line-height: 2.4em;
                   border-bottom: 1px solid lightgray; " >
-                Tashkilotlar
+                {{ $t('general.organizations')}}
               </div>
 
               <a
@@ -629,6 +628,35 @@
 <script>
 export default {
   name: "Home",
+  computed: {
+    months() {
+      return [
+        this.$t('months.january'),
+        this.$t('months.february'),
+        this.$t('months.march'),
+        this.$t('months.april'),
+        this.$t('months.may'),
+        this.$t('months.june'),
+        this.$t('months.july'),
+        this.$t('months.august'),
+        this.$t('months.september'),
+        this.$t('months.october'),
+        this.$t('months.november'),
+        this.$t('months.december'),
+      ]
+    },
+    weekday() {
+      return [
+        this.$t('weekday.sunday'),
+        this.$t('weekday.monday'),
+        this.$t('weekday.tuesday'),
+        this.$t('weekday.wednesday'),
+        this.$t('weekday.thursday'),
+        this.$t('weekday.friday'),
+        this.$t('weekday.saturday'),
+      ]
+    }
+  },
   data() {
     return {
       showRec: true,
@@ -645,37 +673,20 @@ export default {
       isDesktop: true,
       partners: [
         {
-          id: 1,
-          name: "",
-          image: "",
+          name: "OAV",
+          image: require("../assets/logo_uz.png"),
           url: null,
-          pub_date: "",
-          last_change: "",
         },
       ],
-      weekday: [
-        "Yakshanba",
-        "Dushanba",
-        "Seshanba",
-        "Chorshanba",
-        "Payshanba",
-        "Juma",
-        "Shanba",
-      ],
-      months: [
-        "Yanvar",
-        "Fevral",
-        "Mart",
-        "Aprel",
-        "May",
-        "Iyun",
-        "Iyul",
-        "Avgust",
-        "Sentyabr",
-        "Oktyabr",
-        "Noyabr",
-        "Dekabr",
-      ],
+      // weekday: [
+      //   "Yakshanba",
+      //   "Dushanba",
+      //   "Seshanba",
+      //   "Chorshanba",
+      //   "Payshanba",
+      //   "Juma",
+      //   "Shanba",
+      // ],
       // months: [
       //     "Янв",
       //     "Фев",
@@ -693,8 +704,8 @@ export default {
       organs: [
         {
           id: 1,
-          name: "",
-          image: "",
+          name: "OAV",
+          image: require("../assets/bg.png"),
           url: null,
         },
       ],
@@ -784,6 +795,16 @@ export default {
           pub_date: "",
           temperature: 7,
         },
+        {
+          icon: "https://openweathermap.org/img/wn/10n@2x.png",
+          pub_date: "",
+          temperature: 7,
+        },
+        {
+          icon: "https://openweathermap.org/img/wn/10n@2x.png",
+          pub_date: "",
+          temperature: 7,
+        },
       ],
 
       lastNews: [
@@ -833,7 +854,20 @@ export default {
     this.getLastProject();
     this.getWeather();
   },
-  mounted: function () {
+  mounted () {
+    document.title = this.$t("general.title")
+    if (document.title === "general.title") document.title = "Средства Массовой Информации"
+    this.$watch(
+      "$route",
+      (newLocale, oldLocale) => {
+        console.log(newLocale)
+        if (newLocale === oldLocale) {
+          return
+        }
+        
+        document.title = this.$t("general.title")
+      },
+    )
     this.checkResponsive();
     // this.$refs.gradient_bar.style.width = `${this.$refs.main_carousel.childNodes[1].children[0].children[0].offsetWidth}px`;
     // this.brandsCarouselHendler();
@@ -878,7 +912,7 @@ export default {
       console.log(this.$refs.brand_carousel.offsetWidth);
     },
     getPartners() {
-      fetch("https://api.oav.uz/partners/")
+      fetch(`https://api.oav.uz/${this.$i18n.locale}/partners/`)
         .then((res) => {
           return res.json();
         })
@@ -891,7 +925,7 @@ export default {
         });
     },
     getNews() {
-      fetch("https://api.oav.uz/news/?ordering=-pub_date&limit=7")
+      fetch(`https://api.oav.uz/${this.$i18n.locale}/news/?ordering=-pub_date&limit=7`)
         .then((res) => {
           return res.json();
         })
@@ -916,7 +950,7 @@ export default {
         });
     },
     getLastProject() {
-      fetch("https://api.oav.uz/projects/?ordering=-last_change&limit=1")
+      fetch(`https://api.oav.uz/${this.$i18n.locale}/projects/?ordering=-last_change&limit=1`)
         .then((res) => {
           return res.json();
         })
@@ -925,7 +959,8 @@ export default {
         });
     },
     getWeather() {
-      fetch("https://api.oav.uz/weather/")
+      this.weather = null
+      fetch(`https://api.oav.uz/${this.$i18n.locale}/weather/`)
         .then((res) => {
           return res.json();
         })
@@ -948,7 +983,7 @@ export default {
     //   // setTimeout(this.brandsCarouselHendler(), 100);
     // },
     fetchData() {
-      fetch("https://api.oav.uz/org")
+      fetch(`https://api.oav.uz/${this.$i18n.locale}/org`)
         .then((res) => {
           return res.json();
         })
@@ -982,7 +1017,7 @@ export default {
         dir = -999;
       }
 
-      this.scroll = (this.$refs.main_carousel.offsetWidth * 1.2) * dir;
+      this.scroll = (this.$refs.main_carousel.offsetWidth * 0.5) * dir;
       this.$refs.main_carousel.scrollBy({ left: this.scroll });
 
       this.index = this.active_carousel_index + 1;
@@ -1216,6 +1251,7 @@ export default {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+  min-width: 140px;
 }
 
 .content-wrapper {
@@ -1378,6 +1414,12 @@ export default {
   display: flex;
   margin-top: 24px;
   cursor: pointer;
+}
+
+.right-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .right-card-wrapper:hover .right-card-img {

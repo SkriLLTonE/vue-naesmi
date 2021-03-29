@@ -26,9 +26,9 @@
             background-color: rgba(68, 147, 255, 0.6);
           "
         ></div>
-        <div style="position: relative ;font-family: Montserrat-Bold,sans-serif">Yangiliklar</div>
+        <div style="position: relative ;font-family: Montserrat-Bold,sans-serif">{{ $t('headers.news') }}</div>
       </div>
-      <div data-aos="fade-up" class="main-card-wrapper" @click="routerHandler(`/news/${news[0].id}`)" v-if="news.length > 0">
+      <div data-aos="fade-up" class="main-card-wrapper" @click="routerHandler(news[0].id)" v-if="news.length > 0">
         <div>
           <div class="main-news-img">
             <img
@@ -87,7 +87,7 @@
 
       <div style="
           margin-top: 50px; display: flex;flex-wrap: wrap; position: relative;justify-content: center;" class="single-card-holder" v-if="news.length > 0">
-        <div data-aos="fade-up" @click="routerHandler(`/news/${item.id}`)" v-for="(item, index) in news" :key="index" class="single-card">
+        <div data-aos="fade-up" @click="routerHandler(item.id)" v-for="(item, index) in news" :key="index" class="single-card">
             <img
               class="single-card-img"
               :src="item.image"/>
@@ -194,20 +194,6 @@ export default {
       //   "Ноя",
       //   "Дек",
       // ],
-      months: [
-        "Yanvar",
-        "Fevral",
-        "Mart",
-        "Aprel",
-        "May",
-        "Iyun",
-        "Iyul",
-        "Avgust",
-        "Sentyabr",
-        "Oktyabr",
-        "Noyabr",
-        "Dekabr",
-      ],
       news: [
         // {
         //   title: "The Latest: Officer in Canada prime minister motorcade hurt",
@@ -219,10 +205,28 @@ export default {
       ],
     };
   },
+  computed: {
+    months() {
+      return [
+        this.$t('months.january'),
+        this.$t('months.february'),
+        this.$t('months.march'),
+        this.$t('months.april'),
+        this.$t('months.may'),
+        this.$t('months.june'),
+        this.$t('months.july'),
+        this.$t('months.august'),
+        this.$t('months.september'),
+        this.$t('months.october'),
+        this.$t('months.november'),
+        this.$t('months.december'),
+      ]
+    }
+  },
   created() {
     window.addEventListener("resize", this.checkResponsive);
-    window.addEventListener("scroll", this.checkScroll);
     this.getNews();
+    window.addEventListener("scroll", this.checkScroll);
   },
   unmounted() {
     window.removeEventListener("resize", this.checkResponsive());
@@ -230,8 +234,20 @@ export default {
     clearTimeout(this.fetchTimeout);
   },
   watch: {},
-  mounted: function () {
+  mounted() {
     this.checkResponsive();
+    document.title = this.$t("headers.news")
+    this.$watch(
+      "$route",
+      (newLocale, oldLocale) => {
+        if (newLocale === oldLocale) {
+          return
+        }
+        document.title = this.$t("headers.news")
+        this.offset = 0
+        this.getNews();
+      },
+    )
   },
   methods: {
     checkResponsive() {
@@ -244,14 +260,13 @@ export default {
       // console.log("mobile ", this.isMobile);
       // console.log("tablet ", this.isTablet);
     },
-    routerHandler(route) {
-      this.$router.push(route);
-      window.scrollTo(0, 0);
+    routerHandler(id) {
+      this.$router.push(this.$i18nRoute({name: "NewsDetail", params: {id: id}}));
     },
     getNews() {
       fetch(
-              `https://api.oav.uz/news2/?ordering=-pub_date&limit=4&offset=${
-                      this.offset * 4
+              `https://api.oav.uz/${this.$i18n.locale}/news2/?ordering=-pub_date&limit=20&offset=${
+                      this.offset * 20
               }`
       )
               .then((res) => {
@@ -268,9 +283,6 @@ export default {
                   if (this.fetchTimeout) clearTimeout(this.fetchTimeout);
                 }
                 this.offset++;
-                console.log("me");
-                console.log(json);
-                console.log(this.offset);
               });
     },
     checkScroll() {

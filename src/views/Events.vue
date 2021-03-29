@@ -6,7 +6,7 @@
       <div class="row">
         <div class="events_card">
           <div class="img">
-            <img :src="item.image" :alt="item.title" />
+            <img style="background-color: #193b6b" :src="item.image" :alt="item.title" />
           </div>
           <div class="text">
             <div class="heading">
@@ -32,7 +32,7 @@
                   target="_blank"
                 >
                   <button class="button-container">
-                    <div style="font-weight: bold">Подробнее</div>
+                    <div style="font-weight: bold">{{ $t('general.details')}}</div>
                   </button></a
                 >
               </transition>
@@ -40,6 +40,8 @@
           </div>
         </div>
       </div>
+      <br />
+      <br />
       <br />
     </div>
   </div>
@@ -81,9 +83,23 @@ export default {
   created() {
     this.getEvents(30);
   },
+  mounted() {
+    document.title = this.$t("headers.events")
+    this.$watch(
+      "$route",
+      (newLocale, oldLocale) => {
+        console.log(newLocale)
+        if (newLocale === oldLocale) {
+          return
+        }
+        document.title = this.$t("headers.events")
+        this.getEvents(30);
+      },
+    )
+  },
   methods: {
     getEvents(limit) {
-      fetch(`https://api.oav.uz/events/?ordering=-pub_date&limit=${limit}`)
+      fetch(`https://api.oav.uz/${this.$i18n.locale}/events/?ordering=-pub_date&limit=${limit}`)
         .then((res) => res.json())
         .then((resJSON) => {
           console.log(resJSON);

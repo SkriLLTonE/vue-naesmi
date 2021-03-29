@@ -1,6 +1,6 @@
 <template>
     <div class="error">
-       <p> TOPILMAGAN</p>
+       <p>{{ $t('general.not_found')}}</p>
         <p class="error_404">
             <i class="fas fa-exclamation-circle icon" ></i>
             404
@@ -10,8 +10,10 @@
 </template>
 <script>
     export default {
-        name: "NotFound"
-
+        name: "NotFound",
+        mounted() {
+            document.title = "404"
+        }
     }
 </script>
 
