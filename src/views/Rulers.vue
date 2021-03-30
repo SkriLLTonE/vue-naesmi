@@ -125,9 +125,23 @@ export default {
     // setTimeout(() => this.getRulers(), 1000)
     this.getRulers()
   },
+  mounted() {
+    document.title = this.$t("headers.rulers")
+    this.$watch(
+      "$route",
+      (newLocale, oldLocale) => {
+        console.log(newLocale)
+        if (newLocale === oldLocale) {
+          return
+        }
+        document.title = this.$t("headers.rulers")
+        this.getRulers()
+      },
+    )
+  },
   methods: {
     getRulers() {
-      fetch("https://api.oav.uz/people/")
+      fetch(`https://api.oav.uz/${this.$i18n.locale}/people/?ordering=id`)
         .then((res) => {
           return res.json();
         })

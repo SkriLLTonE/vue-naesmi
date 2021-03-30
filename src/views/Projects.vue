@@ -73,7 +73,7 @@
                 target="_blank"
               >
                 <button class="button-container">
-                  <div style="font-weight: bold">Batafsil</div>
+                  <div style="font-weight: bold">{{ $t('general.details') }}</div>
                 </button></a
               >
             </transition>
@@ -113,10 +113,25 @@ export default {
     window.removeEventListener("scroll", this.checkScroll);
     clearTimeout(this.fetchTimeout);
   },
+  mounted() {
+    document.title = this.$t("headers.projects")
+    this.$watch(
+      "$route",
+      (newLocale, oldLocale) => {
+        console.log(newLocale)
+        if (newLocale === oldLocale) {
+          return
+        }
+        document.title = this.$t("headers.projects")
+        this.offset = 0
+        this.getProjects();
+      },
+    )
+  },
   methods: {
     getProjects() {
       fetch(
-        `https://api.oav.uz/projects/?ordering=-pub_date&limit=30&offset=${
+        `https://api.oav.uz/${this.$i18n.locale}/projects/?ordering=-pub_date&limit=30&offset=${
           this.offset * 30
         }`
       )
@@ -155,6 +170,24 @@ export default {
       clearTimeout(this.fetchTimeout);
     },
   },
+  computed: {
+    months() {
+      return [
+        this.$t('months.january'),
+        this.$t('months.february'),
+        this.$t('months.march'),
+        this.$t('months.april'),
+        this.$t('months.may'),
+        this.$t('months.june'),
+        this.$t('months.july'),
+        this.$t('months.august'),
+        this.$t('months.september'),
+        this.$t('months.october'),
+        this.$t('months.november'),
+        this.$t('months.december'),
+      ]
+    }
+  },
   data() {
     return {
       offset: 0,
@@ -174,20 +207,6 @@ export default {
       //   "Ноя",
       //   "Дек",
       // ],
-      months: [
-        "Yanvar",
-        "Fevral",
-        "Mart",
-        "Aprel",
-        "May",
-        "Iyun",
-        "Iyul",
-        "Avgust",
-        "Sentyabr",
-        "Oktyabr",
-        "Noyabr",
-        "Dekabr",
-      ],
       projects: [
         // {
         //   id: 1,

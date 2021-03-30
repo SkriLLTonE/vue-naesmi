@@ -1,7 +1,7 @@
 <template>
     <div>
         <div
-                :style="'background-image: url(' + background + ')'"
+        class="main-bg"
                 style="
         width: 100%;
         background-size: cover;
@@ -24,7 +24,7 @@
                 <div class="footer_links">
                     <button class="button-container" style="height: 60px" @click="show.modal = true">
                         <div style="font-weight: bold; color: white; font-size: 20px">
-                            Ariza yuborish
+                            {{ $t('footer.send_application') }}
                         </div>
                     </button>
                     <div class="social_network_block">
@@ -64,7 +64,7 @@
                     font-size: 30px;
                     font-weight: bold;
                     padding: 30px 0 10px 0;   " >
-                                    Biz bilan ulanish:
+                                    {{ $t('footer.contact_us') }}
                                 </div>
                                 <div
                                         style="
@@ -78,13 +78,14 @@
                                 ></div>
                             </div>
                             <div style="font-size: 18px; line-height: 1.5em">
-                                O’zbekiston 700000, Toshkent sh.
+                                {{ $t('general.uzbekistan')}} 700000, {{ $t("footer.city") }}
 
-                                <p>H.Olimjon maydoni. Biznes kompleks “Poytaxt”,<br> G’arbiy tomon 4-yo’lak 2-qavat</p>
+                                <p>{{ $t('footer.addres_1')}}
+                                <br>{{ $t('footer.addres_2')}}</p>
 
                                 <br/>
                                 <div style="font-size: 18px; line-height: 1.5em">
-                                    Tel: +998 (71) 237-28-30
+                                    {{$t('general.phone')}}: +998 (71) 237-28-30
                                 </div>
                                 <div style="font-size: 18px; line-height: 1.5em">
                                     E-mail: info@oav.uz
@@ -101,7 +102,7 @@
                     padding: 30px 0 10px 0;
                   "
                                 >
-                                    Biz haqimizda:
+                                    {{$t('general.about_title')}}:
                                 </div>
                                 <div
                                         style="
@@ -115,19 +116,19 @@
                                 ></div>
                             </div>
                             <div class="route">
-                                <div @click="routerHandler('/history')">Tarix</div>
+                                <div @click="routerHandler('History')">{{$t('headers.history')}}</div>
                             </div>
                             <div class="route">
-                                <div @click="routerHandler('/news')">Yangiliklar</div>
+                                <div @click="routerHandler('News')">{{$t('headers.news')}}</div>
                             </div>
                             <div class="route">
-                                <div @click="routerHandler('/rulers')">Boshqaruv</div>
+                                <div @click="routerHandler('Rulers')">{{$t('headers.rulers')}}</div>
                             </div>
                             <div class="route">
-                                <div @click="routerHandler('/about')">Uyushma Haqida</div>
+                                <div @click="routerHandler('About')">{{$t('headers.about')}}</div>
                             </div>
                             <div class="route">
-                                <div @click="routerHandler('/events')">Tadbirlar</div>
+                                <div @click="routerHandler('Events')">{{$t('headers.events')}}</div>
                             </div>
                         </div>
 
@@ -178,10 +179,9 @@
             line-height: 1.8em;
           "
                 >
-                    © 2004 - {{ new Date().getFullYear() }} "O'zbekiston elektron ommaviy
-                    axborot vositalari milliy assotsiatsiyasi.
+                    {{$t('footer.copyright', {date: new Date().getFullYear()})}}
                     <br/>
-                    Barcha huquqlar himoyalangan.
+                    {{$t('footer.rights_reserved')}}
                 </div>
             </div>
             <div
@@ -212,26 +212,26 @@
                         </div>
                         <div class="row">
                             <div class="col-25">
-                                <label for="fname">Tashkilot nomi
+                                <label for="fname">{{ $t('application.title.label') }}
                                     <span>
                                   </span>
                                 </label>
                             </div>
                             <div class="col-75">
-                                <input type="text" id="fname" name="firstname" placeholder="Tashkilotning nomini kiriting " v-model="form.title"/>
+                                <input type="text" id="fname" name="firstname" :placeholder="$t('application.title.help_text')" v-model="form.title"/>
                               <span style="color: red;line-height: 2em">{{errors.title}}</span>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-25">
-                                <label for="lname">Aloqa uchun shaxs
+                                <label for="lname">{{ $t('application.face.label') }}
                                 </label>
                                 <div>
 
                                 </div>
                             </div>
                             <div class="col-75">
-                                <input type="text" id="lname" name="lastname" placeholder="Ismingizni kiriting"
+                                <input type="text" id="lname" name="lastname" :placeholder="$t('application.face.help_text')"
                                        v-model="form.face"/>
                               <span style="color: red;line-height: 2em">
                                     {{errors.face}}
@@ -240,42 +240,40 @@
                         </div>
                         <div class="row">
                             <div class="col-25">
-                                <label for="lname1">Telefon raqami</label>
+                                <label for="lname1">{{ $t('application.phone.label') }}</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" id="lname1" name="phone" placeholder="Telefoningizni kiriting"
+                                <input type="text" id="lname1" name="phone" :placeholder="$t('application.phone.help_text')"
                                        v-model="form.phone"/>
                                 <span style="color: red;line-height: 2em">{{errors.phone }}</span>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-25">
-                                <label for="lname2">Email</label>
+                                <label for="lname2">E-mail</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" id="lname2" name="email" placeholder="Email kiriting"
+                                <input type="text" id="lname2" name="email" :placeholder="$t('application.email.help_text')"
                                        v-model="form.email"/>
                                 <span style="color: red;line-height: 2em">{{errors.email}}</span>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-25">
-                                <label for="massage">Murojaat</label>
+                                <label for="massage">{{ $t('application.message.label') }}</label>
                             </div>
                             <div class="col-75">
                                 <span style="color: red;line-height: 2em">{{errors.message}}</span>
-                <textarea
-                        id="massage"
-                        name="massage"
-                        placeholder="Qo'shimcha ma'lumot"
-                        style="height: 200px"
-                        v-model="form.message"
-                ></textarea>
+                                <textarea
+                                        id="massage"
+                                        name="massage"
+                                        :placeholder="$t('application.message.help_text')"
+                                        style="height: 200px"
+                                        v-model="form.message"
+                                ></textarea>
                             </div>
                         </div>
-                      <input  @click="postContact" type="submit" value="Yuborish" />
-
-
+                      <input  @click="postContact" type="submit" :value="$t('application.send')" />
                 </div>
               </form>
             </div>
@@ -321,25 +319,27 @@
         },
 
         computed: {
-            background() {
-                return require("../assets/bg.png");
-            },
+            // background() {
+                // return require("../assets/bg.png");
+            // },
         },
         mounted: function () {
-            this.getProjects();
+            this.$watch(
+            "$route",
+            (newLocale, oldLocale) => {
+                if (newLocale === oldLocale) return;
+                this.getProjects();
+            },
+            )
         },
         watch: {},
         methods: {
-            handleModal(param) {
-                console.log(param)
-                // this.show.modal = param
-            },
             routerHandler(route) {
-                this.$router.push(route);
+                this.$router.push(this.$i18nRoute({name: route}));
                 window.scrollTo(0, 0);
             },
             getProjects() {
-                fetch("https://api.oav.uz/projects/?limit=7&ordering=-last_change")
+                fetch(`https://api.oav.uz/${this.$i18n.locale}/projects/?limit=7&ordering=-last_change`)
                     .then((res) => {
                         return res.json();
                     })
@@ -349,35 +349,42 @@
             },
             postContact() {
               this.formData = new FormData();
-              this.formData.append("title", this.form.title);
-              this.formData.append("face", this.form.face);
-              this.formData.append("phone", this.form.phone);
-              this.formData.append("email", this.form.email);
-              this.formData.append("message", this.form.message);
-              fetch(`https://api.oav.uz/contact/`, {
+
+                for (const i in this.form) {
+                    this.formData.append(i, this.form[i]);
+                }
+              fetch(`https://api.oav.uz/${this.$i18n.locale}/contact/`, {
                 method: 'POST',
                 body: this.formData
               })
-                      .then((responseJSON) => {
-                        console.log(responseJSON)
+                      .then((response) => {
+                          if(response.status === 201) {
+                            this.form = {
+                                    title: "",
+                                    face: "",
+                                    phone: "",
+                                    email: "",
+                                    message: "",
+                                }
+                            this.show.modal = false;
+                          }
                       })
                       .catch((err) => {
                         console.log(err)
                       })
             },
           checkForm(e) {
+            e.preventDefault();
             this.errors = {};
-            if(!this.form.title) this.errors.title = "Tashkilotni nomini kiriting";
-            if(!this.form.face) this.errors.face = "Ismingizni kiriting";
-            if(!this.form.phone) this.errors.phone = "Telefoningizni kiriting";
-            if(!this.form.message) this.errors.message = "Murojaatingizni kiriting";
-            if(!this.form.email) {
-              this.errors.email = "Email kiriting";
-            } else if(!this.validEmail(this.form.email)) {
-              this.errors.email = "Misol: example@example.com";
+
+            for (const i in this.form) {
+                if(!this.form[i]) this.errors[i] = this.$t('application.' + i + '.error');
+            }
+            
+            if(this.form.email && !this.validEmail(this.form.email)) {
+              this.errors.email = this.$t('general.example') + ': example@example.com';
             }
             if(!Object.keys(this.errors).length) return true;
-            e.preventDefault();
           },
           validEmail(email) {
             const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -578,6 +585,11 @@
     .fade-enter-from,
     .fade-leave-to {
         opacity: 0;
+    }
+
+    .main-bg {
+        background-image: url('../assets/bg.png');
+        background-color: #2d66b3;
     }
 
     @media screen and (max-width: 991px) {

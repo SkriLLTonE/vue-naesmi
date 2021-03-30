@@ -34,14 +34,14 @@
                 </div>
               </div>
               <div class="grants_given">
-                <span> Qabul qiluvchilar</span>
+                <span>{{ $t("grants.receivers")}}</span>
               </div>
               <div class="grants-fio">
                 <span>{{ item.pers_name }}</span>
               </div>
               <div class="grants-about">
                 <div>
-                  <span>Mukofotlar </span>
+                  <span>{{ $t("grants.awards")}}</span>
                 </div>
               </div>
               <div class="grants-about-disc">
@@ -101,9 +101,23 @@ export default {
   created() {
     this.getGrants(20);
   },
+  mounted() {
+    document.title = this.$t("headers.grants")
+    this.$watch(
+      "$route",
+      (newLocale, oldLocale) => {
+        console.log(newLocale)
+        if (newLocale === oldLocale) {
+          return
+        }
+        document.title = this.$t("headers.grants")
+        this.getGrants(20);
+      },
+    )
+  },
   methods: {
     getGrants(limit) {
-      fetch(`https://api.oav.uz/grants/?ordering=-pub_date&limit=${limit}`)
+      fetch(`https://api.oav.uz/${this.$i18n.locale}/grants/?ordering=-pub_date&limit=${limit}`)
         .then((res) => res.json())
         .then((resJSON) => {
           console.log(resJSON);

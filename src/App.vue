@@ -20,9 +20,6 @@ export default {
 </script>
 
 <style>
-  body{
-
-  }
 html {
   overflow-x: hidden;
   font-family: Montserrat-Regular, sans-serif;

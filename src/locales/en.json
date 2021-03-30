@@ -1,0 +1,100 @@
+{
+  "headers": {
+    "rulers": "Board",
+    "about": "About",
+    "news": "News",
+    "events": "Events",
+    "more": "More",
+    "history": "History",
+    "docs": "Documents",
+    "grants": "Grants",
+    "projects": "Projects"
+  },
+  "general": {
+    "search": "Search",
+    "title": "Mass Media",
+    "details": "More details",
+    "uzbekistan": "Uzbekistan",
+    "tashkent": "Tashkent",
+    "phone": "Phone",
+    "about_title": "About NAEMM",
+    "other_news": "Other news",
+    "not_found": "Not Found",
+    "s_res": "Results for {query}",
+    "example": "Example",
+    "weather": "Weather",
+    "partners": "Partners",
+    "organizations": "Organizations",
+    "read_also": "Read also",
+    "latest_news": "Latest news",
+    "all_news": "All news",
+    "latest_project": "Latest project",
+    "all_projects": "All projects"
+  },
+  "grants": {
+    "receivers": "Receivers",
+    "awards": "Issued for"
+  },
+  "history": {
+    "move": "94px"
+  },
+  "footer": {
+    "send_application": "Send an application",
+    "contact_us": "Contact us:",
+    "city": "Tashkent city",
+    "addres_1": "H.Alimjon square, Business center “Poytaxt”",
+    "addres_2": "West-side 4-way second floor",
+    "copyright": "© 2004 - { date } National Association of Electronic Mass Media of Uzbekistan",
+    "rights_reserved": "All rights reserved"
+  },
+  "weekday": {
+    "sunday": "Sunday",
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday"
+  },
+  "months": {
+    "january": "January",
+    "february": "February",
+    "march": "March",
+    "april": "April",
+    "may": "May",
+    "june": "June",
+    "july":"July",
+    "august": "August",
+    "september": "September",
+    "october": "October",
+    "november": "November",
+    "december": "December"
+  },
+  "application": {
+    "title": {
+      "label": "Organization",
+      "help_text": "Enter organization name",
+      "error": "Organization name can not be empty"
+    },
+    "face": {
+      "label": "Contact person",
+      "help_text": "Enter contact persons name",
+      "error": "Name can not be empty"
+    },
+    "phone": {
+      "label": "Phone",
+      "help_text": "Enter phone number",
+      "error": "Phone number can not be empty"
+    },
+    "message": {
+      "label": "Appeal",
+      "help_text": "Additional info",
+      "error": "Appeal can not be empty"
+    },
+    "email": {
+      "help_text": "Enter e-mail address",
+      "error": "E-mail can not be empty"
+    },
+    "send": "Send"
+  }
+}

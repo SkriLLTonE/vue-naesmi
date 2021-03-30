@@ -10,47 +10,54 @@
       "
     >
       <div class="naesmi" ref="naesmi">
-        <router-link to="/"><img src="../assets/logo.png" width="150px" alt=""></router-link>
+        <router-link :to="$i18nRoute({ name: 'Home'})"
+          ><img src="../assets/logo.png" width="150px" alt="OAV"
+        /></router-link>
       </div>
       <div v-if="isDesktop" class="nav-control">
         <div>
-          <div @click="routerHandler('/rulers')">boshqaruv </div>
+          <router-link
+            :to="$i18nRoute({ name: 'Rulers'})"
+            >{{ $t("headers.rulers") }}</router-link
+          >
         </div>
         <div>
-          <router-link to="/about">Uyushma haqida</router-link>
+          <router-link :to="$i18nRoute({ name: 'About'})">{{ $t("headers.about") }}</router-link>
         </div>
         <div>
-          <router-link to="/news">yangiliklar</router-link>
+          <router-link :to="$i18nRoute({ name: 'News'})">{{ $t("headers.news") }}</router-link>
         </div>
         <div>
-          <router-link to="/events">Tadbirlar</router-link>
+          <router-link :to="$i18nRoute({ name: 'Events'})">{{ $t("headers.events") }}</router-link>
         </div>
         <div
           style="position: relative"
           class="more-btn"
-          tabindex="0"
+          tabindex="7"
           @mousedown="open.sheet = !open.sheet"
           v-click-outside="closeTab"
         >
-          qo'shimcha
+          {{ $t("headers.more") }}
           <i
             class="fas fa-chevron-down"
             style="padding-left: 8px; font-size: 12px; padding-top: 2px"
           ></i>
           <transition name="topopac" appear>
             <div v-show="open.sheet" class="open-sheet">
-              <router-link to="/history">
-                <div>Tarix</div>
+              <router-link :to="$i18nRoute({ name: 'History'})">
+                <div>{{ $t("headers.history") }}</div>
               </router-link>
-              <div>
-                <a @click="routerHandler('/docs')" target="_blank">Hujjatlar</a>
-              </div>
-              <router-link to="/grants">
-                <div>Grantlar</div>
+              <router-link :to="$i18nRoute({ name: 'Docs'})">
+                <div>
+                  {{ $t("headers.docs") }}
+                </div>
+              </router-link>
+              <router-link :to="$i18nRoute({ name: 'Grants'})">
+                <div>{{ $t("headers.grants") }}</div>
               </router-link>
               <!-- <div>Исследования и отчеты</div> -->
-              <router-link to="/projects">
-                <div>Loyihalar</div>
+              <router-link :to="$i18nRoute({ name: 'Projects'})">
+                <div>{{ $t("headers.projects") }}</div>
               </router-link>
             </div>
           </transition>
@@ -63,24 +70,28 @@
         <div style="display: flex">
           <div v-if="!isMini" class="social-net-item">
             <a href="https://t.me/oavuzbekistan" target="_blank">
-              <i class="fab fa-telegram-plane"
-              style="font-size: 26px; margin-right: 4px"></i>
+              <i
+                class="fab fa-telegram-plane"
+                style="font-size: 26px; margin-right: 4px"
+              ></i>
             </a>
           </div>
           <div v-if="!isMini" class="social-net-item">
-            <a href="https://www.youtube.com/channel/UCbRb6nY-WkwrxN2srfk6Zug" target="_blank">
-              <i class="fab fa-youtube"
-                 style="font-size: 26px; margin-right: 4px"></i>
+            <a
+              href="https://www.youtube.com/channel/UCbRb6nY-WkwrxN2srfk6Zug"
+              target="_blank"
+            >
+              <i class="fab fa-youtube" style="font-size: 26px"></i>
             </a>
           </div>
           <div v-if="!isMini" class="social-net-item">
             <a href="https://www.instagram.com/oavuz/" target="_blank">
-            <i class="fab fa-instagram" style="font-size: 26px"></i>
+              <i class="fab fa-instagram" style="font-size: 26px"></i>
             </a>
           </div>
           <div v-if="!isMini" class="social-net-item">
             <a href="https://www.facebook.com/oavuz" target="_blank">
-            <i class="fab fa-facebook-f" style="font-size: 26px"></i>
+              <i class="fab fa-facebook-f" style="font-size: 26px"></i>
             </a>
           </div>
           <div
@@ -91,11 +102,19 @@
             <i class="far fa-bars" style="font-size: 26px"></i>
           </div>
         </div>
-        <form @submit.prevent="searchHandler()" class="search-bar" v-if="isDesktop">
+        <form
+          @submit.prevent="searchHandler()"
+          class="search-bar"
+          v-if="isDesktop"
+        >
           <button type="submit" class="search-btn">
-            <i class="far fa-search" style=""></i>
+            <i class="far fa-search"></i>
           </button>
-          <input v-model="search" placeholder="Qidirish" class="search-input" />
+          <input
+            v-model="search"
+            :placeholder="$t('general.search')"
+            class="search-input"
+          />
           <div
             style="
               width: 70px;
@@ -105,6 +124,12 @@
             "
           ></div>
         </form>
+        <div class="change-lang-item" @click="changeLang">
+          <img
+            :src="getImgUrl($i18n.locale)"
+            style="width: 86%; height: 86%; object-fit: cover"
+          />
+        </div>
       </div>
     </div>
     <div
@@ -114,29 +139,39 @@
     >
       <div class="inner-wrapper">
         <div>
-          <div class="icon_close" style="cursor: pointer" @click="open.drawer = !open.drawer">
+          <div
+            class="icon_close"
+            style="cursor: pointer"
+            @click="open.drawer = !open.drawer"
+          >
             <span><i class="fal fa-times"></i></span>
           </div>
         </div>
         <div class="nav-menu">
           <div class="nav_menu_item">
             <div class="nav_menu_item_link">
-              <div @click="routerHandler('/rulers')">Boshqaruv</div>
+              <div @click="routerHandler('Rulers')">
+                {{ $t("headers.rulers") }}
+              </div>
             </div>
           </div>
           <div class="nav_menu_item">
             <div class="nav_menu_item_link">
-              <div @click="routerHandler('/about')">Uyushma Haqida</div>
+              <div @click="routerHandler('About')">
+                {{ $t("headers.about") }}
+              </div>
             </div>
           </div>
           <div class="nav_menu_item">
             <div class="nav_menu_item_link">
-              <div @click="routerHandler('/news')">Yangiliklar</div>
+              <div @click="routerHandler('News')">
+                {{ $t("headers.news") }}
+              </div>
             </div>
           </div>
           <div class="nav_menu_item">
-            <div class="nav_menu_item_link" @click="routerHandler('/events')">
-              <router-link to="/events">Tadbirlar</router-link>
+            <div class="nav_menu_item_link" @click="routerHandler('Events')">
+              <router-link to="/events">{{ $t("headers.events") }}</router-link>
             </div>
           </div>
           <div
@@ -148,31 +183,40 @@
           >
             <div
               class="nav_menu_item_link"
-              @click="expandedList = expandedList !== 'about' ? 'about' : ''">
-              Qo'shimcha
+              @click="expandedList = expandedList !== 'about' ? 'about' : ''"
+            >
+              {{ $t("headers.more") }}
               <i class="fas fa-chevron-down down"> </i>
             </div>
             <div class="sub_menu">
               <div class="sub_menu_item">
                 <div class="sub_menu_item_link">
-                  <div @click="routerHandler('/history')">Tarix</div>
+                  <div @click="routerHandler('History')">
+                    {{ $t("headers.history") }}
+                  </div>
                 </div>
               </div>
               <!-- TODO -->
               <div class="sub_menu_item">
                 <div class="sub_menu_item_link">
-                  <a @click="routerHandler('/docs')" target="_blank">Hujjatlar</a>
+                  <a @click="routerHandler('Docs')" target="_blank">{{
+                    $t("headers.docs")
+                  }}</a>
                 </div>
               </div>
               <div class="sub_menu_item">
                 <div class="sub_menu_item_link">
-                  <div @click="routerHandler('/grants')">Grantlar</div>
+                  <div @click="routerHandler('Grants')">
+                    {{ $t("headers.grants") }}
+                  </div>
                 </div>
               </div>
 
               <div class="sub_menu_item">
                 <div class="sub_menu_item_link">
-                  <div @click="routerHandler('/projects')">Loyihalar</div>
+                  <div @click="routerHandler('Projects')">
+                    {{ $t("headers.projects") }}
+                  </div>
                 </div>
               </div>
             </div>
@@ -184,7 +228,11 @@
           <button type="submit" class="search_btn">
             <i class="far fa-search" style=""></i>
           </button>
-          <input v-model="search" placeholder="Qidirish" class="second_search_input" />
+          <input
+            v-model="search"
+            :placeholder="$t('general.search')"
+            class="second_search_input"
+          />
           <div
             style="
               color: black;
@@ -200,24 +248,31 @@
         <div style="display: flex; justify-content: space-around">
           <div class="social-net-item-drawer">
             <a href="https://t.me/oavuzbekistan" target="_blank">
-            <i
-              class="fab fa-telegram-plane"
-              style="font-size: 26px; margin-right: 4px"></i>
+              <i
+                class="fab fa-telegram-plane"
+                style="font-size: 26px; margin-right: 4px"
+              ></i>
             </a>
           </div>
           <div class="social-net-item-drawer">
-            <a href="https://www.youtube.com/channel/UCbRb6nY-WkwrxN2srfk6Zug" target="_blank">
-              <i class="fab fa-youtube" style="font-size: 26px; margin-right: 4px"></i>
+            <a
+              href="https://www.youtube.com/channel/UCbRb6nY-WkwrxN2srfk6Zug"
+              target="_blank"
+            >
+              <i
+                class="fab fa-youtube"
+                style="font-size: 26px; margin-right: 4px"
+              ></i>
             </a>
           </div>
           <div class="social-net-item-drawer">
             <a href="https://www.instagram.com/oavuz/" target="_blank">
-            <i class="fab fa-instagram" style="font-size: 26px"></i>
+              <i class="fab fa-instagram" style="font-size: 26px"></i>
             </a>
           </div>
           <div class="social-net-item-drawer">
             <a href="https://www.facebook.com/oavuz" target="_blank">
-            <i class="fab fa-facebook-f" style="font-size: 26px"></i>
+              <i class="fab fa-facebook-f" style="font-size: 26px"></i>
             </a>
           </div>
         </div>
@@ -227,9 +282,13 @@
 </template>
 
 <script>
+import { SUPPORT_LOCALES } from '@/i18n'
+
 export default {
   name: "Home",
   components: {},
+  computed: {
+  },
   data() {
     return {
       expandedList: "",
@@ -260,22 +319,43 @@ export default {
     this.checkResponsive();
   },
   methods: {
-    routerHandler(route) {
-      this.$router.push(route);
-      window.scrollTo(0, 0);
+    getImgUrl(pet) {
+      const images = require.context("../assets/", false, /\.png$/);
+      return images("./" + pet + "_fl.png");
+    },
+    async changeLang() {
+      for (const lang in SUPPORT_LOCALES) {
+        if (SUPPORT_LOCALES[lang] === this.$i18n.locale) {
+          this.new_lang_id = parseInt(lang) + 1;
+          if (this.new_lang_id >= SUPPORT_LOCALES.length) {
+            this.new_lang_id = 0;
+          }
+          this.locale = SUPPORT_LOCALES[this.new_lang_id];
+
+          const to = this.$router.resolve({
+            params: { locale: this.locale },
+          });
+          this.$router.push(to.path);
+
+          return;
+        }
+      }
+    },
+    routerHandler(name) {
+      this.$router.push(this.$i18nRoute({name: name}));
       this.open.drawer = false;
       this.open.sheet = false;
     },
     searchHandler() {
-      this.$router.push(`/search/${this.search}`)
-      this.open.drawer = false
-      return false
+      this.$router.push(this.$i18nRoute({name: "Search", params: {query: this.search}}));
+      this.open.drawer = false;
+      return false;
     },
     checkResponsive() {
       this.isMini = window.innerWidth <= 600;
       this.isMobile = window.innerWidth <= 800 && window.innerWidth > 600;
-      this.isTablet = window.innerWidth <= 1540 && window.innerWidth > 800;
-      this.isDesktop = window.innerWidth > 1540;
+      this.isTablet = window.innerWidth <= 1600 && window.innerWidth > 800;
+      this.isDesktop = window.innerWidth > 1600;
       // console.log(window.innerWidth);
       // console.log("desktop ", this.isDesktop);
       // console.log("mobile ", this.isMobile);
@@ -342,7 +422,7 @@ export default {
   border-radius: 4px;
   display: flex;
   transition: all 0.2s;
-  margin-right: 50px;
+  margin-right: 8px;
 }
 
 .search_bar {
@@ -356,7 +436,7 @@ export default {
 }
 
 .search-input {
-  background-color: #2d66b3;
+  background-color: #193b6b;
   padding-left: 15px;
   color: #fff;
   transition: all 0.2s;
@@ -420,7 +500,7 @@ export default {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: #2d66b3;
+  background-color: #193b6b;
   color: white;
   border-radius: 0 2px 2px 0;
   transition: all 0.2s;
@@ -444,7 +524,7 @@ export default {
   padding: 0 10px;
 }
 
-.avatar {
+/* .avatar {
   position: relative;
   overflow: hidden;
   width: 40px;
@@ -461,9 +541,9 @@ export default {
   padding-left: 24px;
   padding-right: 24px;
   background: url("../assets/bg.jpg");
-  /* background: url("https://www.edureka.co/blog/wp-content/uploads/2018/03/top-reasons-to-selenium1.png"); */
+  background: url("https://www.edureka.co/blog/wp-content/uploads/2018/03/top-reasons-to-selenium1.png");
   background-size: cover;
-}
+} */
 
 .naesmi {
   font-family: "NewCyrillicGoth";
@@ -478,10 +558,27 @@ export default {
   cursor: pointer;
   align-self: center;
 }
-.naesmi img{
+.naesmi img {
   width: 100%;
   height: 60px;
-  padding-top:5px;
+  padding-top: 5px;
+}
+
+.change-lang-item {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  margin: 0 8px;
+}
+
+.change-lang-item:hover {
+  background-color: white;
+  color: #000;
 }
 
 .social-net-item {
@@ -495,6 +592,12 @@ export default {
   transition: all 0.2s ease;
   margin: 0 8px;
 }
+
+.social-net-item:hover {
+  background-color: white;
+  color: #000;
+}
+
 .social-net-item-g {
   cursor: pointer;
   width: 50px;
@@ -505,10 +608,6 @@ export default {
   border-radius: 50%;
   transition: all 0.2s ease;
   margin: 0 8px;
-}
-.social-net-item:hover {
-  background-color: white;
-  color: #000;
 }
 
 .social-net-item-drawer {
@@ -649,25 +748,24 @@ export default {
 .sub_menu_item:hover {
   color: lightgray;
 }
-.social-net{
+.social-net {
   position: relative;
   display: flex;
   align-items: center;
 }
 @media screen and (max-width: 1200px) {
-  .nav-control{
+  .nav-control {
     display: none;
   }
 }
 @media screen and (max-width: 991px) {
-
 }
 
 @media screen and (max-width: 768px) {
   .drawer-wrapper {
     width: 420px;
   }
-  .naesmi{
+  .naesmi {
     margin: 0 20px;
   }
 }
@@ -675,7 +773,7 @@ export default {
   .drawer-wrapper {
     width: 100%;
   }
-  .social-net-item{
+  .social-net-item {
     display: none;
   }
 }

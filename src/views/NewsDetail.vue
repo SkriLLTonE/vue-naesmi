@@ -34,7 +34,7 @@
     </div>
     <div class="container_n">
       <div class="heading">
-        <span>Другие новости</span>
+        <span>{{ $t('general.other_news') }}</span>
       </div>
     </div>
     <div>
@@ -45,7 +45,7 @@
           :key="index"
           class="single-card"
         >
-          <router-link :to="'/news/' + item.id">
+          <router-link :to="$i18nRoute({ name: 'NewsDetail', params: { id : item.id }})">
             <div>
               <img class="single-card-img" :src="item.image" />
             </div>
@@ -124,14 +124,25 @@ export default {
   },
   methods: {
     getNewsDetail(id) {
-      fetch(`https://api.oav.uz/news-det/${id}/`)
+      this.main = null
+      fetch(`https://api.oav.uz/${this.$i18n.locale}/news-det/${id}/`)
         .then((res) => {
           return res.json();
         })
         .then((json) => {
           this.main = json;
+          document.title = this.main.title;
         });
     },
+  },
+  mounted() {
+      this.$watch(
+      "$route",
+      (newLocale, oldLocale) => {
+          if (newLocale.params.locale === oldLocale.params.locale) return;
+          this.getNewsDetail(this.id);
+      },
+      )
   },
   watch: {
     id(param) {

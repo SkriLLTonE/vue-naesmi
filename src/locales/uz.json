@@ -1,0 +1,100 @@
+{
+  "headers": {
+    "rulers": "Boshqaruv",
+    "about": "Uyushma Haqida",
+    "news": "Yangiliklar",
+    "events": "Tadbirlar",
+    "more": "Qo'shimcha",
+    "history": "Tarix",
+    "docs": "Hujjatlar",
+    "grants": "Grantlar",
+    "projects": "Loyihalar"
+  },
+  "general": {
+    "search": "Qidirish",
+    "title": "Ommaviy Axborot Vositalari",
+    "details": "Batafsil",
+    "uzbekistan": "O’zbekiston",
+    "tashkent": "Toshkent",
+    "phone": "Tel",
+    "about_title": "O'zEOAVMA HAQIDA",
+    "other_news": "Boshqa yangiliklar",
+    "not_found": "Topilmagan",
+    "s_res": "{query} bo'yicha natijalar",
+    "example": "Misol",
+    "weather": "Ob-havo",
+    "partners": "Hamkorlar",
+    "organizations": "Tashkilotlar",
+    "read_also": "Boshqa sahifalar",
+    "latest_news": "Asosiy yangiliklar",
+    "all_news": "Barcha yangiliklar",
+    "latest_project": "Oxirgi Loyiha",
+    "all_projects": "Barcha loyihalar"
+  },
+  "grants": {
+    "receivers": "Qabul qiluvchilar",
+    "awards": "Mukofotlar"
+  },
+  "history": {
+    "move": "56px"
+  },
+  "footer": {
+    "send_application": "Ariza yuborish",
+    "contact_us": "Biz bilan ulanish:",
+    "city": "Toshkent sh.",
+    "addres_1": "H.Olimjon maydoni. Biznes kompleks “Poytaxt”",
+    "addres_2": "G’arbiy tomon 4-yo’lak 2-qavat",
+    "copyright": "© 2004 - { date } O'zbekiston elektron ommaviy axborot vositalari milliy assotsiatsiyasi.",
+    "rights_reserved": "Barcha huquqlar himoyalangan."
+  },
+  "months": {
+    "january": "Yanvar",
+    "february": "Fevral",
+    "march": "Mart",
+    "april": "Aprel",
+    "may": "May",
+    "june": "Iyun",
+    "july":"Iyul",
+    "august": "Avgust",
+    "september": "Sentyabr",
+    "october": "Oktyabr",
+    "november": "Noyabr",
+    "december": "Dekabr"
+  },
+  "weekday": {
+    "sunday": "Yakshanba",
+    "monday": "Dushanba",
+    "tuesday": "Seshanba",
+    "wednesday": "Chorshanba",
+    "thursday": "Payshanba",
+    "friday": "Juma",
+    "saturday": "Shanba"
+  },
+  "application": {
+    "title": {
+      "label": "Tashkilot nomi",
+      "help_text": "Tashkilotning nomini kiriting",
+      "error": "Tashkilotni nomini kiriting"
+    },
+    "face": {
+      "label": "Aloqa uchun shaxs",
+      "help_text": "Ismingizni kiriting",
+      "error": "Ismingizni kiriting"
+    },
+    "phone": {
+      "label": "Telefon raqami",
+      "help_text": "Telefonin raqamingizni kiriting",
+      "error": "Telefoningizni kiriting"
+    },
+    "message": {
+      "label": "Murojaat",
+      "help_text": "Qo'shimcha ma'lumot",
+      "error": "Murojaatingizni kiriting"
+    },
+    "email": {
+      "help_text": "Email kiriting",
+      "error": "E-mail kiriting"
+    },
+    "send": "Yuborish"
+  }
+}
