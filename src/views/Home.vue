@@ -212,11 +212,11 @@
 
       <div class="blur_eff"></div>
 
-      <div class="carousel-control left" @click="handleScroll(-1)">
+      <div class="carousel-control left" @click="handleScroll(-1)" v-if="!isMobile">
         <i class="far fa-angle-left"></i>
       </div>
 
-      <div class="carousel-control right" @click="handleScroll(1)">
+      <div class="carousel-control right" @click="handleScroll(1)" v-if="!isMobile">
         <i class="far fa-angle-right"></i>
       </div>
     </div>
@@ -242,9 +242,10 @@
           width: 100%;
           height: 100%;
           display: flex;
-          overflow: hidden;
+          overflow: auto;
           scroll-behavior: smooth;
         "
+        class="scrollbar-hidden"
         ref="brand_scroll"
         @scroll="handleBrandsScrollIndicator"
       >
@@ -894,8 +895,8 @@ export default {
   methods: {
     checkResponsive() {
       this.isMini = window.innerWidth <= 600;
-      this.isMobile = window.innerWidth <= 800 && window.innerWidth > 600;
-      this.isTablet = window.innerWidth < 1444 && window.innerWidth > 800;
+      this.isMobile = window.innerWidth <= 992 && window.innerWidth > 600;
+      this.isTablet = window.innerWidth < 1444 && window.innerWidth > 992;
       this.isDesktop = window.innerWidth >= 1444;
       // console.log(window.innerWidth);
       // console.log("desktop ", this.isDesktop);
@@ -1731,6 +1732,10 @@ font-family: Montserrat-Bold, sans-serif;
     padding: 55px 0;
     height: 410px;
     padding-bottom: 0;
+  }
+
+  .brand-control {
+    display: none;
   }
 
   .main-card {
