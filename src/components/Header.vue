@@ -766,7 +766,7 @@ export default {
     width: 420px;
   }
   .naesmi {
-    margin: 0 20px;
+    margin: 0;
   }
 }
 @media screen and (max-width: 576px) {

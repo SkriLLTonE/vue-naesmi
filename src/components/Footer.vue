@@ -141,7 +141,7 @@
                     padding: 30px 0 10px 0;
                   "
                                 >
-                                    Loyihalar:
+                                    {{ $t('headers.projects')}}:
                                 </div>
                                 <div
                                         style="
