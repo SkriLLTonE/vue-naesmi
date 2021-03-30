@@ -6,7 +6,7 @@
       <div class="row">
         <div class="events_card">
           <div class="img">
-            <img style="background-color: #193b6b" :src="item.image" :alt="item.title" />
+            <img style="object-fit: cover; background-color: #193b6b" :src="item.image" :alt="item.title" />
           </div>
           <div class="text">
             <div class="heading">

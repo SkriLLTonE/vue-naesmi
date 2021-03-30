@@ -32,8 +32,8 @@
     "all_projects": "Barcha loyihalar"
   },
   "grants": {
-    "receivers": "Qabul qiluvchilar",
-    "awards": "Mukofotlar"
+    "receivers": "Ishtirokchilar:",
+    "awards": "Batafsil:"
   },
   "history": {
     "move": "56px"

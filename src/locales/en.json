@@ -32,8 +32,8 @@
     "all_projects": "All projects"
   },
   "grants": {
-    "receivers": "Receivers",
-    "awards": "Issued for"
+    "receivers": "Participants:",
+    "awards": "Details:"
   },
   "history": {
     "move": "94px"

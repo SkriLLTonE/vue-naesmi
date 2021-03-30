@@ -416,6 +416,7 @@
             position: relative;
             justify-content: space-between;
           "
+          class="news-holder"
         >
           <div
             class="single-card"
@@ -505,7 +506,7 @@
               {{ $t('general.latest_project')}}
             </div>
             <div class="all_news">
-              <div @click="routerHandler('/projects')" class="tab-btn active">
+              <div @click="routerHandler('Projects')" class="tab-btn active">
                 {{ $t('general.all_projects')}}
               </div>
               <div class="tab-btn-indicator"></div>
@@ -527,7 +528,7 @@
                       font-weight: bold;" >
                     {{ new Date(lastProject.date).getFullYear() }}
                   </div>
-                  <div style="font-size: 22px; color: #000">
+                  <div style="text-transform: lowercase; font-size: 22px; color: #000">
                     {{ months[new Date(lastProject.date).getMonth()] }}
                   </div>
                 </div>
@@ -866,6 +867,15 @@ export default {
         }
         
         document.title = this.$t("general.title")
+        this.fetchData();
+        this.getNews();
+        this.getPartners();
+        this.getLastProject();
+        const presave = this.weather
+        this.weather = null
+        this.$nextTick(() => {
+          this.weather = presave
+        })
       },
     )
     this.checkResponsive();
@@ -895,6 +905,7 @@ export default {
     handleBrandsScroll(dir) {
       this.$refs.brand_scroll.scrollBy({
         left: this.$refs.brand_scroll.offsetWidth * dir,
+        behavior: 'smooth'
       });
     },
     handleBrandsScrollIndicator() {
@@ -969,9 +980,8 @@ export default {
           console.log(data)
         });
     },
-    routerHandler(route) {
-      this.$router.push(route);
-      window.scrollTo(0, 0);
+    routerHandler(name) {
+      this.$router.push(this.$i18nRoute({name: name}));
     },
     // brandsCarouselHendler() {
     //   // console.log(this.$refs.brand_carousel.offsetWidth)
@@ -1609,6 +1619,17 @@ font-family: Montserrat-Bold, sans-serif;
   position: relative;
   margin-right: 40px;
 }
+
+
+@media screen and (max-width: 1780px) {
+ .single-card:last-child .single-card-img{
+    height: 440px;
+  }
+ .single-card:last-child {
+    height: 640px;
+  }
+}
+
 @media screen and (max-width: 1200px) {
   .blur_eff {
     width: 91px;
@@ -1708,6 +1729,8 @@ font-family: Montserrat-Bold, sans-serif;
   .main-card-wrapper {
     flex-direction: column;
     padding: 55px 0;
+    height: 410px;
+    padding-bottom: 0;
   }
 
   .main-card {
