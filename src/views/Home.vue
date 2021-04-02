@@ -8,14 +8,14 @@
           </transition>
           <transition name="sliderleft"  appear>
             <div v-if="weather" class="weekday">
-              {{ weekday[new Date(weather[0].pub_date).getDay()] }}
+              {{ weekday[new Date().getDay()] }}
             </div>
           </transition>
           <transition name="sliderleft" appear>
             <div class="date" v-if="weather">
-              {{ ("0" + new Date(weather[0].pub_date).getDate()).substr(-2) }}
-              {{ months[new Date(weather[0].pub_date).getMonth()] }}
-              {{ new Date(weather[0].pub_date).getFullYear() }}
+              {{ ("0" + new Date().getDate()).substr(-2) }}
+              {{ months[new Date().getMonth()] }}
+              {{ new Date().getFullYear() }}
             </div>
           </transition>
           <transition name="sliderleft" appear>
